@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-15 12:24:48
+<?php /* Smarty version 2.6.26, created on 2013-12-03 11:56:30
          compiled from registrazione_gestisci_profilo.tpl */ ?>
 <br>
 <script src="js/index.js"></script>
@@ -14,8 +14,16 @@
 </b></h1>
           <h3><?php echo $this->_tpl_vars['citta_residenza']; ?>
 </h3>                    
-          <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
+         <div>
+         <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
  alt="Image description"/></p>
+         </div>
+         <div>
+          <p>
+          <label class="left">Cambia immagine profilo</label><input type="file" />
+          </p>
+          </div>
+          
 		  <br><br>
 		  </div>
 		  </div>

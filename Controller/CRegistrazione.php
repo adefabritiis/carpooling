@@ -187,11 +187,11 @@ class CRegistrazione {
         $view->setLayout('gestisci_profilo');
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
-		$FUtente=new FUtente();
+        $FUtente=new FUtente();
         $utente=$FUtente->load($username);
-		$view->impostaDati('username', $utente->username);
-		$view->impostaDati('immagine_profilo',$utente->immagine_profilo);
-		$FVeicolo = new FVeicolo();
+        $view->impostaDati('username', $utente->username);
+	$view->impostaDati('immagine_profilo',$utente->immagine_profilo);
+	$FVeicolo = new FVeicolo();
         $array= $FVeicolo->getVeicoli($username);
         $view->impostaDati('array',$array);
         return $view->processaTemplateParziale();

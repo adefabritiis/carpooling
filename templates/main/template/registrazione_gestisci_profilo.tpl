@@ -8,7 +8,15 @@
 		<div class="contactform">
           <h1><b>{$nome}&nbsp{$cognome}</b></h1>
           <h3>{$citta_residenza}</h3>                    
-          <p><img src={$immagine_profilo} alt="Image description"/></p>
+         <div>
+         <p><img src={$immagine_profilo} alt="Image description"/></p>
+         </div>
+         <div>
+          <p>
+          <label class="left">Cambia immagine profilo</label><input type="file" />
+          </p>
+          </div>
+          
 		  <br><br>
 		  </div>
 		  </div>

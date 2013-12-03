@@ -86,7 +86,7 @@ class VRegistrazione extends View {
                 $dati[$dato]=$_REQUEST[$dato];
                 echo($dati[$dato]);
         }
-		$dati["immagine_profilo"]="img/m_imgprofilo.jpg";   
+		$dati["immagine_profilo"]="img/".$dati['sesso']."_imgprofilo.jpg";   
         return $dati;
     }
     /**
