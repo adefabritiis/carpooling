@@ -11,7 +11,7 @@
                 <p><label for="valutazione" class="left">Valutazione:</label>
                    <input type="text" name="valutazione" class="valutazione" class="field" value="" tabindex="2"  /></p>
                 
-                <p><input type="button" class="valuta_pass" class="button" name1="{$username_passeggero}" name2="{$num_viaggio}" value="Valuta" tabindex="3" /></p><br>
+                <p><input type="button" class="valuta_pass" class="button_left" name1="{$username_passeggero}" name2="{$num_viaggio}" value="Valuta" tabindex="3" /></p><br>
                 
           </div>              
         </div>
