@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-21 11:25:30
+<?php /* Smarty version 2.6.26, created on 2013-12-03 10:56:29
          compiled from ricerca_riepilogo.tpl */ ?>
 		<br>
 <script src="js/index.js"></script>
@@ -56,7 +56,8 @@
 " value="Feedback" tabindex="1" /></p><br><br>
              <?php endif; ?>
             <?php if ($this->_tpl_vars['array_passeggeri']): ?>
-                <h1> Lista passeggeri partecipanti </h1>
+                <h1> Passeggeri partecipanti: </h1>
+						   <br>
                            <hr>
                     <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
@@ -82,14 +83,17 @@ $this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->
 $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
 ?>
-                    <div class="pulsante">     
+                    <div>
+						<br>
+						<p>
                         <a class="visualizza_utente"  value="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
-"><h5><?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
-</h5></a>&nbsp&nbsp&nbsp <?php if (( $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['feedback_guid'] == 0 ) && $this->_tpl_vars['isGuidatore']): ?> <p><input type="button"  class="feedback_passeggero" class="button" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
+"><label class="left pulsante"><?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
+ </label></a> <?php if (( $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['feedback_guid'] == 0 ) && $this->_tpl_vars['isGuidatore']): ?> <input type="button"  class="feedback_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
-" value="Feedback" tabindex="1" /></p>&nbsp <p><input type="button"  class="elimina_passeggero" class="button" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
+" value="Feedback" tabindex="1" /><input type="button"  class="elimina_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
-" value="Elimina" tabindex="2" /></p> <?php endif; ?>
+" value="Elimina" tabindex="2" /><br> <?php else: ?><br><?php endif; ?>
+						</p>
                     </div>  
                     <hr>
                     <?php endfor; endif; ?>

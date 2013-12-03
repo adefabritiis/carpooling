@@ -15,6 +15,9 @@
                    <input type="text" name="nome" id="nome" class="field" value="" tabindex="1"  /></p>
                 <p><label for="cognome" class="left">Cognome:</label>
                    <input type="text" name="cognome" id="cognome" class="field" value="" tabindex="2" /></p>
+                <p><label for="sesso" class="left">Sesso:</label>
+                    M <input type="radio" accept=""name="sesso" value="m" checked="checked" />
+                    F <input type="radio" name="sesso" value="f" />
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="3" /></p>
                 <p><label for="citta_nascita" class="left">Città di nascita:</label>
@@ -23,8 +26,10 @@
                    <input type="text" name="citta_residenza" id="citta_residenza" class="field" value="" tabindex="5" /></p>
                 <p><label for="email" class="left">Email:</label>
                    <input type="text" name="email" id="email" class="field" value="" tabindex="7" /></p>
+                 <p><label for="num_telefono" class="left">Numero di telefono:</label>
+                   <input type="text" name="num_telefono" id="num_telefono" class="field" value="" tabindex="8" /></p>
                 <p><label for="cod_fiscale" class="left">Codice fiscale:</label>
-                   <input type="text" name="cod_fiscale" id="cod_fiscale" class="field" value="" tabindex="8" /></p>
+                   <input type="text" name="cod_fiscale" id="cod_fiscale" class="field" value="" tabindex="9" /></p>
 		</fieldset>  
                 </div>
 		  <h1 class="block">Dati per il login</h1>

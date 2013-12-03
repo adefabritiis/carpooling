@@ -78,13 +78,15 @@ class VRegistrazione extends View {
      * @return array();
      */
     public function getDatiRegistrazione() {
-        $dati_richiesti=array('username','password','password_1','nome','cognome','data_nascita','citta_nascita','citta_residenza','email','cod_fiscale');
+        $dati_richiesti=array('username','password','password_1','nome','cognome','sesso','data_nascita','citta_nascita','citta_residenza','email','num_telefono','cod_fiscale');
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))
+                
                 $dati[$dato]=$_REQUEST[$dato];
+                echo($dati[$dato]);
         }
-		$dati["immagine_profilo"]="img/m_imgprofilo.jpg";
+		$dati["immagine_profilo"]="img/m_imgprofilo.jpg";   
         return $dati;
     }
     /**
