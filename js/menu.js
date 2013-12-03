@@ -1,0 +1,5 @@
+$(function() {
+       $('#targa').click(function(){
+          
+       });
+});
