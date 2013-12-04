@@ -68,10 +68,9 @@
 .main-content h1.block {clear:both; margin:0.5em 0 0em 0; padding:2px 0 2px 2px; background:rgb(190,190,190); font-family:"trebuchet ms",arial,sans-serif; color:rgb(255,255,255); font-weight:bold; font-size:200%;}
 .main-content h1 {clear:both; margin:1.0em 0 0.5em 0; font-family:"trebuchet ms",arial,sans-serif; color:rgb(80,80,80); font-weight:normal; font-size:210%;}
 .main-content h2 {clear:both; margin:1.0em 0 0.5em 0; font-family:"trebuchet ms",arial,sans-serif; color:rgb(80,80,80); font-weight:normal; font-size:170%;}
-.main-content h3 {clear:both; margin:-1.0em 0 0.5em 0; font-family:"trebuchet ms",arial,sans-serif; color:rgb(125,125,125); font-weight:normal; font-size:130%;}
+.main-content h3 {margin:-1.0em 0 0.5em 0; font-family:"trebuchet ms",arial,sans-serif; color:rgb(125,125,125); font-weight:normal; font-size:150%;}
 .main-content h1.side {clear:none;}
 .main-content h2.side {clear:none;}
-.main-content h3.side {clear:none;}
 
 .main-content h4 {margin:1.5em 0 1.0em 0; color:rgb(80,80,80); font-family:"trebuchet ms",arial,sans-serif; font-weight:normal; font-size:170%;}
 .main-content h5 {margin:1.5em 0 1.0em 0; color:rgb(60,60,60); font-family:"trebuchet ms",arial,sans-serif; font-size:140%;}
@@ -97,6 +96,9 @@ p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,
 .contactform fieldset {padding:20px 0 0 0 !important /*Non-IE6*/; padding:0 /*IE6*/; margin:0 0 20px 0; border:solid 1px rgb(220,220,220);}
 .contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:rgb(80,80,80); font-weight:bold; font-size:130%;}
 .contactform label.left {float:left; width:140px; margin:0 0 0 10px; padding:2px; font-size:110%;}
+.contactform label.contenitore {size:50px; margin:0 0 0 10px; padding: 2px;  background-color:rgb(200,200,200) }
+.contactform label.center-title {float:center; width:300px; margin:0 0 0 0; padding:2px; background-color:rgb(200,200,200); font-size:130%;}
+.contactform label.center {float:center; width:300px; margin:0 0 0 0; padding:2px;  font-size:130%;}
 .contactform select.combo {width:175px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform input.field {width:230px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform textarea {width:230px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%; resize:none;}

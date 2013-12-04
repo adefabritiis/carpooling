@@ -8,33 +8,42 @@
         <div class="column1-unit">
           <div class="contactform">
 			{if ($isPasseggero || $isGuidatore)}
-            <p><label class="left"><h3>Parteciperai a questo viaggio!</h3></p><br><br>
+            <p class="center"><label class="center-title">Partecipi a questo viaggio!</p>
 			{/if}
-            <p><label class="left"><h2> Viaggio organizzato da: &nbsp<b>{$username_guidatore}</b></h2></label></p>
-            <p><label class="left"><h3> Città di partenza: &nbsp<b>{$citta_partenza}</b></h3></label></p>
-            <p><label class="left"><h3> Città di arrivo: &nbsp<b>{$citta_arrivo}</b></h3></label></p>
-            <p><label class="left"><h3> Data di partenza: &nbsp<b>{$data_partenza}</b></h3></label></p>
-            <p><label class="left"><h3> Veicolo: &nbsp<b>{$tipo}</b></h3></label></p>
-			<p><label class="left"><h3> Informazioni veicolo: &nbsp{$targa}</h3></label></p>
-            {$posti_disponibili}
-            <p><label class="left"><h3> Informazioni aggiuntive: &nbsp<b>{$note}</b></h3></label></p>
+            <p class="center"><label class="center">(organizzato da: <b>{$username_guidatore})</b></label></p>
+			<p><label class="left">Data di partenza:</label><label class="left">&nbsp<b>{$data_partenza}</label></b><br></p>
+            <p><label class="left">Città di partenza:</label><label class="left">&nbsp<b>{$citta_partenza}</b></label><br></p>
+            <p><label class="left">Città di arrivo:</label><label class="left">&nbsp<b>{$citta_arrivo}</b><br></label><br></p>
+            <p><label class="left">Veicolo:</label><label class="left">&nbsp<b>{$tipo}</b></label><br></p>
+            <p><label class="left">Posti disponibili:</label><label class="left">&nbsp<b>{$posti_disponibili}</b></label><br></p>
+		    <p><label class="left">Note viaggio:</label><label class="contenitore">&nbsp<b>{$note} //cambiare css</b></label><br><br><br></p>
 	    {if ($loggato && !$isPasseggero && !$isGuidatore && $posti_disponibili>0)}
                 <p><input type="button" id="partecipa" class="button" name="{$num_viaggio}" value="Partecipa" tabindex="1" /></p><br><br>
                 {if $posti_disponibili<1}
-                NON CI SONO PIU POSTI DISPONIBILI
+                <h3>Non ci sono posti disponibili per questo viaggio</h3>
                 {/if}
              {/if}
 	     {if $isPasseggero}
                 <p><input type="button" id="cancellami" class="button" name1="{$num_viaggio}" name2="{$username_passeggero}" value="Cancellami" tabindex="1" /></p><br><br>
              {/if}
-            {$targa}
-            {$tipo}
-            {$num_posti}
-            {$carburante}
-            {$consumo_medio}
-             {if ($isPasseggero && !$votato)}
+			  {if ($isPasseggero && !$votato)}
                 <p><input type="button" id="feedback" class="button" name="{$num_viaggio}" value="Feedback" tabindex="1" /></p><br><br>
              {/if}
+		</div>
+		</div>
+			 <h1 class="block">Informazioni veicolo</h1>
+		    <div class="colomn1-unit">
+			<div class="contactform">
+			<p><label class="left">Targa:</label><label class="left">&nbsp<b>{$targa}</label></b><br></p>
+            <p><label class="left">Tipo:</label><label class="left">&nbsp<b>{$tipo}</b></label><br></p>
+            <p><label class="left">Posti:</label><label class="left">&nbsp<b>{$num_posti}</b><br></label><br></p>
+            <p><label class="left">Carburante:</label><label class="left">&nbsp<b>{$carburante}</b></label><br></p>
+            <p><label class="left">Consumo medio:</label><label class="left">&nbsp<b>{$consumo_medio}</b>&nbsp (Km con 1 litro)</label><br></p>
+            </div>
+			</div>
+			<h1 class="block">Informazioni sui passeggeri</h1>
+		    <div class="colomn1-unit">
+			<div class="contactform">
             {if $array_passeggeri}
                 <h1> Passeggeri partecipanti: </h1>
 						   <br>
@@ -49,7 +58,7 @@
                     <hr>
                     {/section}
             {else}
-                    <h3> Non ci sono passeggeri</h3>    
+                    <h3> Non ci sono ancora passeggeri</h3>    
             {/if}
           </div>              
         </div>
