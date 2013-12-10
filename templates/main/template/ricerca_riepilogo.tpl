@@ -52,18 +52,13 @@
                     <div>
 						<br>
 						<p>
-                        <a class="visualizza_utente" value="{$array_passeggeri[nr].username_passeggero}"><label class="left pulsante">{$array_passeggeri[nr].username_passeggero} </label></a> {if ($array_passeggeri[nr].feedback_guid==0)  && $isGuidatore} <input type="button"  class="feedback_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Feedback" tabindex="1" /><input type="button"  class="elimina_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Elimina" tabindex="2" /><br> {else}<br>{/if}
+                        <a class="visualizza_utente"  value="{$array_passeggeri[nr].username_passeggero}"><label class="left pulsante">{$array_passeggeri[nr].username_passeggero} </label></a> {if ($array_passeggeri[nr].feedback_guid==0)  && $isGuidatore} <input type="button"  class="feedback_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Feedback" tabindex="1" /><input type="button"  class="elimina_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Elimina" tabindex="2" /><br> {else}<br>{/if}
 						</p>
                     </div>  
                     <hr>
                     {/section}
             {else}
                     <h3> Non ci sono ancora passeggeri</h3>    
-            {/if}
-            {if $isGuidatore}
-            <div>
-                <p><input type="button" class="elimina_viaggio button" tabindex="1" value="Elimina viaggio" name="{$num_viaggio}"/></p>
-            </div>
             {/if}
           </div>              
         </div>
