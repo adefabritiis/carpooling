@@ -17,7 +17,7 @@ class FVeicolo extends FDatabase{
  
  // funzione che restituisce la targa di un veicolo appartenente a un determinato utente
  public function getVeicoli($username){
-     $query="SELECT `targa` FROM `veicolo` WHERE `username_proprietario` = '$username'";
+     $query="SELECT `targa`,`tipo` FROM `veicolo` WHERE `username_proprietario` = '$username' AND `attuale`=1";
      $this->query($query);
      $array=$this->getResultAssoc();
      return $array;
@@ -29,6 +29,11 @@ class FVeicolo extends FDatabase{
      $this->query($query);
      $posti=$this->getResult();
      return $posti;
+ }
+ 
+ public function eliminaVeicolo($targa){
+     $query="UPDATE `veicolo` SET `attuale`=0 WHERE `targa`='$targa'";
+     return $this->query($query);
  }
 }
 

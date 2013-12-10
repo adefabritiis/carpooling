@@ -73,18 +73,21 @@ class VHome extends View {
         else
             return false;
     }
+    
     /**
      * Imposta la pagina per gli utenti registrati/autenticati
      */
     public function impostaPaginaRegistrato() {
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        //$FUtente=new FUtente();
+        //$amministratore=$FUtente->isAmministratore($username);
         $this->colonna_laterale.="Benvenuto $username";
         $this->assign('corpo_centrale',$this->corpo_centrale);
-        //$this->assign('menu',$this->pulsante_menu);
         $this->assign('registrato',true);
-        $this->aggiungiTastoLogout();
-        
+        $this->assign('amministratore',$amministratore);
+        $this->aggiungiTastoLogout();    
     }
     /*
      * imposta la pagina per gli utenti non registrati/autenticati
@@ -92,10 +95,8 @@ class VHome extends View {
     public function impostaPaginaVisitatore() {
         $this->assign('titolo_principale','');
         $this->assign('corpo_centrale',$this->corpo_centrale);
-        //$this->assign('menu',$this->pulsante_menu);
         $this->assign('registrato',false);
         $this->aggiungiModuloLogin();
-        //$this->aggiungiTastoRegistrazione();
     }
     /**
      * aggiunge il tasto logout al menu laterale

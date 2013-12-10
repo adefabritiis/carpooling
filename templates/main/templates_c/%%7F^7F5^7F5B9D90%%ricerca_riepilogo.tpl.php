@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-03 10:56:29
+<?php /* Smarty version 2.6.26, created on 2013-12-03 16:40:15
          compiled from ricerca_riepilogo.tpl */ ?>
 		<br>
 <script src="js/index.js"></script>
@@ -86,7 +86,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                     <div>
 						<br>
 						<p>
-                        <a class="visualizza_utente"  value="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
+                        <a class="visualizza_utente" value="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 "><label class="left pulsante"><?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
  </label></a> <?php if (( $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['feedback_guid'] == 0 ) && $this->_tpl_vars['isGuidatore']): ?> <input type="button"  class="feedback_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
@@ -99,6 +99,12 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                     <?php endfor; endif; ?>
             <?php else: ?>
                     <h3> Non ci sono passeggeri</h3>    
+            <?php endif; ?>
+            <?php if ($this->_tpl_vars['isGuidatore']): ?>
+            <div>
+                <p><input type="button" class="elimina_viaggio button" tabindex="1" value="Elimina viaggio" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
+"/></p>
+            </div>
             <?php endif; ?>
           </div>              
         </div>

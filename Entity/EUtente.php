@@ -14,13 +14,14 @@ class EUtente {
    public $codice_attivazione;
    public $stato_attivazione;
    public $immagine_profilo;
+   public $amministratore;
    
    public $_guidatore=array();
    public $_passeggero=array();
    public $_veicoli=array();
    
    public function getAccountAttivo() {
-        if ($this->stato_attivazione=='attivo')
+        if ($this->stato_attivazione==1)
             return true;
         else
             return false;
@@ -31,7 +32,7 @@ class EUtente {
     }
     
    public function setAccountAttivo() {
-       $this->stato_attivazione='attivo';
+       $this->stato_attivazione=1;
    }
    
   

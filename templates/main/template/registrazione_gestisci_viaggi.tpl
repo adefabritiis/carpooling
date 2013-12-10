@@ -11,7 +11,8 @@
 <hr>
 {section name=nr loop=$array_viaggi}
     <div class="pulsante">     
-        <a class="riepilogo_viaggio" value="{$array_viaggi[nr].num_viaggio}"><p><h5>{$array_viaggi[nr].num_viaggio})&nbsp{$array_viaggi[nr].data_partenza}&nbspDa:&nbsp{$array_viaggi[nr].citta_partenza}&nbspA:&nbsp<b>{$array_viaggi[nr].citta_arrivo}</b>&nbsp</h5></a><p><input type="button" name="{$num_viaggio}" class="elimina_viaggio" class="button" value="Elimina" tabindex="1" /><br></p>
+        <a class="riepilogo_viaggio" value="{$array_viaggi[nr].num_viaggio}"><p><h5>{$array_viaggi[nr].num_viaggio})&nbsp{$array_viaggi[nr].data_partenza}&nbspDa:&nbsp{$array_viaggi[nr].citta_partenza}&nbspA:&nbsp<b>{$array_viaggi[nr].citta_arrivo}</b>&nbsp</h5></a>
+        <p><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio button" value="Elimina" tabindex="1" /><br></p>
     </div>  
 <hr>
 {/section}

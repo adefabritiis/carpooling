@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-03 10:10:09
+<?php /* Smarty version 2.6.26, created on 2013-12-07 23:10:18
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -27,22 +27,6 @@
   <title>CarPooling</title>
   <script src="js/jquery-1.9.1.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script  type="text/javascript">
-      <?php echo '
-      $(initmenu);
-      function initmenu(){
-          $("#prova").hover(slidedown,slideup);
-      }
-      function slidedown(){
-          $("ul#menu_profilo").slideDown("medium");
-      } 
-      function slideup(){
-          $("ul#menu_profilo").slideUp("fast");
-      }    
-      
-      '; ?>
-
-  </script>
   <script src="js/index.js"></script>
 </head>
 
@@ -98,11 +82,19 @@
                 <?php else: ?>
             <a href="#">Account</a>
                  <ul id="menu_profilo">
-                    <li><a id="visualizza" class="pulsante">Profilo</a></li>
-                    <li><a id="gestisci" class="pulsante">Gestisci</a></li>
-                    <li><a id="gestisci_viaggi_personali" class="pulsante">I miei viaggi</a></li>
-                 </ul>   
-                <?php endif; ?>      
+                    <li><a class="visualizza pulsante">Profilo</a></li>
+                    <li><a class="gestisci pulsante">Gestisci</a></li>
+                    <li><a class="gestisci_viaggi_personali pulsante">I miei viaggi</a></li>
+                 </ul> 
+                <?php endif; ?>
+                <?php if (( $this->_tpl_vars['amministratore'] )): ?>
+                <li><a id="amministra" class="pulsante">Amministra</a>
+                    <ul id="menu_profilo">
+                        <li><a id="amm_viaggi" class="pulsante">Viaggi</a></li>
+                        <li><a id="amm_utenti" class="pulsante">Utenti</a></li>
+                    </ul>
+                <?php endif; ?>
+                </li>
           </ul>          
 
           <!-- Navigation item -->
@@ -130,7 +122,8 @@
 
           
           </div>
-              <div id="form_veicolo"></div>
+          <div id="form_veicolo"></div>
+          <div id="ricerca_utenti"></div>
       </div>
           
           

@@ -59,7 +59,19 @@ class VRegistrazione extends View {
             return false;
     }
     
-   
+    public function getTarga() {
+        if (isset($_REQUEST['targa']))
+            return $_REQUEST['targa'];
+        else
+            return false;
+    }
+    
+    public function getOrdinamento() {
+        if (isset($_REQUEST['ordinamento']))
+            return $_REQUEST['ordinamento'];
+        else
+            return false;
+    }
     
     /**
      * @return string
@@ -126,7 +138,25 @@ class VRegistrazione extends View {
             return false;
     }
     
+       public function getUsernameRicerca() {
+        if (isset($_REQUEST['username_ricerca'])) {
+            return $_REQUEST['username_ricerca'];
+        } else
+            return 0;
+    }
+    public function getCognomeRicerca() {
+        if (isset($_REQUEST['cognome_ricerca'])) {
+            return $_REQUEST['cognome_ricerca'];
+        } else
+            return 0;
+    }
     
+    public function getCittaRicerca() {
+        if (isset($_REQUEST['citta_residenza_ricerca'])) {
+            return $_REQUEST['citta_residenza_ricerca'];
+        } else
+            return 0;
+    } 
 
     
 }

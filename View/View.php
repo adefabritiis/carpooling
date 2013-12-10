@@ -15,5 +15,10 @@ class View extends Smarty {
         $this->cache_dir = $config['smarty']['cache_dir'];
         $this->caching = false;
     }
+    
+    public function setControllerTaskDefault() {
+        $_REQUEST['controller']=NULL;
+        $_REQUEST['task']=NULL;
+    }
 }
 ?>

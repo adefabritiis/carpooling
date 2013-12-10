@@ -8,8 +8,8 @@ class CRicerca {
     private $_viaggi_per_pagina=8;
     
     public function index() {
-        $view = USingleton::getInstance('VRicerca');
-        $view->setLayout('prova');
+        $view = USingleton::getInstance('VHome');
+        $view->setController('prova');
         return $view->processaTemplate();
     }
    
@@ -46,6 +46,7 @@ class CRicerca {
             $FGuidatore->store($EGuidatore);
             $this->riepilogoViaggio($num_viaggio);
         }
+        else $this->errore_aggiornamento();
     }
     
     public function aggiungiVeicolo(){
@@ -73,18 +74,24 @@ class CRicerca {
                     $CRegistrazione=USingleton::getInstance('CRegistrazione');
                     $CRegistrazione->gestisciProfilo();
                 }
-            }    
+            }
+            else $this->errore_aggiornamento();
     }
     
     public function inserimentoVeicolo(){
-            $view=USingleton::getInstance('VRicerca');
-            $view->setLayout('veicolo');
-            $da=$view->getDa();
-            $view->impostaDati('da',$da);
-            $view->impostaDati('citta_partenza',$view->getCittaPartenza());
-            $view->impostaDati('citta_arrivo',$view->getCittaArrivo());
-            $view->impostaDati('data_partenza',$view->getDataPartenza());
-            $view->processaTemplateParziale();
+            $session=USingleton::getInstance('USession');
+            $username=$session->leggi_valore('username');
+            if ($username!=false) {
+                $view=USingleton::getInstance('VRicerca');
+                $view->setLayout('veicolo');
+                $da=$view->getDa();
+                $view->impostaDati('da',$da);
+                $view->impostaDati('citta_partenza',$view->getCittaPartenza());
+                $view->impostaDati('citta_arrivo',$view->getCittaArrivo());
+                $view->impostaDati('data_partenza',$view->getDataPartenza());
+                $view->processaTemplateParziale();
+            }
+            else $this->errore_aggiornamento();
     }
     
     public function riepilogoViaggio($num_viaggio){
@@ -136,46 +143,52 @@ class CRicerca {
      public function partecipaViaggio($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
-            $FPasseggero= new FPasseggero();
-            $passeggero_presente= $FPasseggero->verificaPasseggero($num_viaggio,$username);
-            $FGuidatore= new FGuidatore();
-            $guidatore_presente= $FGuidatore->verificaGuidatore($num_viaggio,$username);
-            if(!$passeggero_presente && !$guidatore_presente ){
-                $EPasseggero= new EPasseggero();
-                $EPasseggero->username_passeggero=$username;
-                $EPasseggero->num_viaggio=$num_viaggio;
+            if ($username!=false) {
                 $FPasseggero= new FPasseggero();
-                $FPasseggero->store($EPasseggero);
-                $FViaggio=new FViaggio();
-                $viaggio=$FViaggio->load($num_viaggio);
-                $posti=$viaggio->posti_disponibili;
-                $posti--;
-                $viaggio->posti_disponibili=$posti;
-                $FViaggio->update($viaggio);
-                $this->riepilogoViaggio($num_viaggio);
+                $passeggero_presente= $FPasseggero->verificaPasseggero($num_viaggio,$username);
+                $FGuidatore= new FGuidatore();
+                $guidatore_presente= $FGuidatore->verificaGuidatore($num_viaggio,$username);
+                if(!$passeggero_presente && !$guidatore_presente ){
+                    $EPasseggero= new EPasseggero();
+                    $EPasseggero->username_passeggero=$username;
+                    $EPasseggero->num_viaggio=$num_viaggio;
+                    $FPasseggero= new FPasseggero();
+                    $FPasseggero->store($EPasseggero);
+                    $FViaggio=new FViaggio();
+                    $viaggio=$FViaggio->load($num_viaggio);
+                    $posti=$viaggio->posti_disponibili;
+                    $posti--;
+                    $viaggio->posti_disponibili=$posti;
+                    $FViaggio->update($viaggio);
+                    $this->riepilogoViaggio($num_viaggio);
+                }
+                else{
+                    $view=USingleton::getInstance('VRicerca');
+                    $view->setLayout('riepilogo');
+                    return $view->processaTemplateParziale();
+                }
             }
-            else{
-                $view=USingleton::getInstance('VRicerca');
-                $view->setLayout('riepilogo');
-                return $view->processaTemplateParziale();
-            }
+            else $this->errore_aggiornamento();
      }
      
      public function cancellaPasseggero($num_viaggio, $username){
-            $FPasseggero= new FPasseggero();
-            $passeggero_presente= $FPasseggero->verificaPasseggero($num_viaggio,$username);
-            if($passeggero_presente){
-                $FPasseggero->cancellaPasseggero($num_viaggio, $username);
-                $FViaggio=new FViaggio();
-                $viaggio=$FViaggio->load($num_viaggio);
-                $posti=$viaggio->posti_disponibili;
-                $posti++;
-                $viaggio->posti_disponibili=$posti;
-                $FViaggio->update($viaggio);
-                $this->riepilogoViaggio($num_viaggio);
-                
+            $session=USingleton::getInstance('USession');
+            $username=$session->leggi_valore('username');
+            if ($username!=false) {
+                $FPasseggero= new FPasseggero();
+                $passeggero_presente= $FPasseggero->verificaPasseggero($num_viaggio,$username);
+                if($passeggero_presente){
+                    $FPasseggero->cancellaPasseggero($num_viaggio, $username);
+                    $FViaggio=new FViaggio();
+                    $viaggio=$FViaggio->load($num_viaggio);
+                    $posti=$viaggio->posti_disponibili;
+                    $posti++;
+                    $viaggio->posti_disponibili=$posti;
+                    $FViaggio->update($viaggio);
+                    $this->riepilogoViaggio($num_viaggio); 
+                }
             }
-            
+            else $this->errore_aggiornamento();
      }
      
     public function ricarica_veicoli() {
@@ -189,6 +202,7 @@ class CRicerca {
             $view->impostaDati('veicoli',$veicoli);
             return $view->processaTemplateParziale();
         }
+        else $this->errore_aggiornamento();
     }
      
      public function inserimentoViaggio(){
@@ -211,8 +225,7 @@ class CRicerca {
     public function ricercaViaggio() {
             $view=USingleton::getInstance('VRicerca');
             $view->setLayout('avanzata');
-            $view->processaTemplateParziale();
-           
+            $view->processaTemplateParziale();   
     }
     
     public function invioRicerca() {
@@ -225,40 +238,41 @@ class CRicerca {
             $FViaggio=new FViaggio();
             $viaggi=$FViaggio->cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza);
             $view->mostraListaViaggi($viaggi);
-            
     }
     
      public function inserisciFeedback($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
-            $FPasseggero= new FPasseggero();
-            $array= $FPasseggero->loadPasseggero($num_viaggio, $username);
-            $array_passeggeri= $FPasseggero->loadPasseggeri($num_viaggio);
-            $FGuidatore= new FGuidatore();
-            $EGuidatore= $FGuidatore->getGuidatore($num_viaggio);
-            $FViaggio= new FViaggio();
-            $EViaggio= $FViaggio->load($num_viaggio);
-            if($username==$array['username_passeggero']){
-                $view=USingleton::getInstance('VRicerca');
-                $view->impostaDati('num_viaggio',$num_viaggio);
-                $view->impostaDati('username_guidatore',$EGuidatore['username_guidatore']);
-                $view->impostaDati('citta_partenza',$EViaggio->citta_partenza);
-                $view->impostaDati('citta_arrivo',$EViaggio->citta_arrivo);
-                $view->impostaDati('data_partenza',$EViaggio->data_partenza);
-                $view->setLayout('feedback_passeggero');
-                $view->processaTemplateParziale();
+            if ($username!=false) {
+                $FPasseggero= new FPasseggero();
+                $array= $FPasseggero->loadPasseggero($num_viaggio, $username);
+                $array_passeggeri= $FPasseggero->loadPasseggeri($num_viaggio);
+                $FGuidatore= new FGuidatore();
+                $EGuidatore= $FGuidatore->getGuidatore($num_viaggio);
+                $FViaggio= new FViaggio();
+                $EViaggio= $FViaggio->load($num_viaggio);
+                if($username==$array['username_passeggero']){
+                    $view=USingleton::getInstance('VRicerca');
+                    $view->impostaDati('num_viaggio',$num_viaggio);
+                    $view->impostaDati('username_guidatore',$EGuidatore['username_guidatore']);
+                    $view->impostaDati('citta_partenza',$EViaggio->citta_partenza);
+                    $view->impostaDati('citta_arrivo',$EViaggio->citta_arrivo);
+                    $view->impostaDati('data_partenza',$EViaggio->data_partenza);
+                    $view->setLayout('feedback_passeggero');
+                    $view->processaTemplateParziale();
+                }
+                elseif($username==$EGuidatore['username_guidatore']){
+                    $view=USingleton::getInstance('VRicerca');
+                    $view->impostaDati('username_passeggero',$view->getUsernamePasseggero());
+                    $view->impostaDati('num_viaggio',$num_viaggio);
+                    $view->impostaDati('citta_partenza',$EViaggio->citta_partenza);
+                    $view->impostaDati('citta_arrivo',$EViaggio->citta_arrivo);
+                    $view->impostaDati('data_partenza',$EViaggio->data_partenza);
+                    $view->setLayout('feedback_guidatore');
+                    $view->processaTemplateParziale();
+                }
             }
-            elseif($username==$EGuidatore['username_guidatore']){
-                $view=USingleton::getInstance('VRicerca');
-                $view->impostaDati('username_passeggero',$view->getUsernamePasseggero());
-                $view->impostaDati('num_viaggio',$num_viaggio);
-                $view->impostaDati('citta_partenza',$EViaggio->citta_partenza);
-                $view->impostaDati('citta_arrivo',$EViaggio->citta_arrivo);
-                $view->impostaDati('data_partenza',$EViaggio->data_partenza);
-                $view->setLayout('feedback_guidatore');
-                $view->processaTemplateParziale();
-            }
-            
+            else $this->errore_aggiornamento();
     }
     
     public function verificaValutazione($num_viaggio){
@@ -303,22 +317,89 @@ class CRicerca {
             $commento= $view->getCommento();
             $FPasseggero->votaPasseggero($num_viaggio,$username_passeggero,$feedback,$commento);
             $view->setLayout('conferma_valutazione');
-            $view->processaTemplateParziale();
-            
-            
+            $view->processaTemplateParziale();        
+    }
+    
+    public function riepilogoVeicolo($targa){
+            $session=USingleton::getInstance('USession');
+            $username=$session->leggi_valore('username');
+            if ($username!=false) {
+                $FVeicolo=new FVeicolo();
+                $EVeicolo=$FVeicolo->load($targa);
+                $view=Usingleton::getInstance('VRicerca');
+                $view->impostaDati('targa',$targa);
+                $view->impostaDati('tipo',$EVeicolo->tipo);
+                $view->impostaDati('num_posti',$EVeicolo->num_posti);
+                $view->impostaDati('carburante',$EVeicolo->carburante);
+                $view->impostaDati('consumo_medio',$EVeicolo->consumo_medio);
+                $view->setLayout('riepilogo_veicolo');
+                $view->processaTemplateParziale();
+            }
+            else $this->errore_aggiornamento();
     }
     
     public function eliminaViaggio($num_viaggio){
-           $FPasseggero= new FPasseggero();
-           $array_passeggeri= $FPasseggero->loadPasseggeri($num_viaggio);
-           $FPasseggero->eliminaTuttiPasseggeri($num_viaggio, $array_passeggeri);
-           $FGuidatore= new FGuidatore();
-           $FGuidatore->eliminaGuidatore($num_viaggio);
-           $FViaggio=new FViaggio();
-           $FViaggio->eliminaViaggio($num_viaggio);
-           $view=Usingleton::getInstance('VRegistrazione');
-           $view->setLayout('gestisci_viaggi');
-           return $view->processaTemplateParziale();
+            $session=USingleton::getInstance('USession');
+            $username=$session->leggi_valore('username');
+            if ($username!=false) {
+                $FViaggio=new FViaggio();
+                $FViaggio->eliminaViaggio($num_viaggio);
+                $view=Usingleton::getInstance('VRicerca');
+                $view->setLayout('viaggio_eliminato');
+                $view->processaTemplateParziale();
+            }
+            else $this->errore_aggiornamento();
+    }
+    
+    public function eliminaVeicolo($targa){
+            $session=USingleton::getInstance('USession');
+            $username=$session->leggi_valore('username');
+            if ($username!=false) {
+                $FVeicolo=new FVeicolo();
+                $FVeicolo->eliminaVeicolo($targa);
+                $view=Usingleton::getInstance('VRicerca');
+                $view->setLayout('veicolo_eliminato');
+                $view->processaTemplateParziale();
+            }
+            else $this->errore_aggiornamento();
+    }
+    
+    public function errore_aggiornamento(){
+        $view=USingleton::getInstance('VRegistrazione');
+        $view->setControllerTaskDefault();
+        $view->setLayout('errore_aggiornamento');
+        return $view->processaTemplateParziale();
+    }
+        
+    public function amministraUtenti($ordinamento){
+        $session=USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username!=false && $amministratore) {
+            $FUtente=new FUtente();
+            $utenti=$FUtente->getUtenti($ordinamento);
+            $view=USingleton::getInstance('VRicerca');
+            $view->mostraListaUtenti($utenti);
+            $view->impostaDati('avanzata',false);
+            $view->setLayout('amministra_utenti');
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function ricercaUtenti($username_ricerca,$cognome,$citta_residenza){
+        $session=USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username!=false && $amministratore) {
+            $view=USingleton::getInstance('VRicerca');
+            $FUtente=new FUtente();
+            $utenti=$FUtente->ricercaUtenti($username_ricerca,$cognome,$citta_residenza);
+            $view->mostraListaUtenti($utenti);
+            $view->setLayout('amministra_utenti_lista');
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
     }
     /**
      * Smista le richieste ai vari metodi
@@ -354,6 +435,16 @@ class CRicerca {
                 return $this->verificaValutazioneGuidatore($view->getNumViaggio(), $view->getUsernamePasseggero());
             case 'elimina_viaggio':
                 return $this->eliminaViaggio($view->getNumviaggio());
+            case 'riepilogo_veicolo':
+                return $this->riepilogoVeicolo($view->getTarga());
+            case 'elimina_veicolo':
+                return $this->eliminaVeicolo($view->getTarga());
+            case 'amministra_utenti':
+                return $this->amministraUtenti($view->getOrdinamento());
+            case 'amministra_viaggi':
+                return $this->amministraViaggi();
+            case 'ricerca_utenti':
+                return $this->ricercaUtenti($view->getUsernameRicerca(),$view->getCognomeRicerca(),$view->getCittaRicerca());
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-21 11:54:34
+<?php /* Smarty version 2.6.26, created on 2013-12-03 16:42:54
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/index.js"></script>
@@ -42,8 +42,9 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 )&nbsp<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
 &nbspDa:&nbsp<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>
 &nbspA:&nbsp<b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
-</b>&nbsp</h5></a><p><input type="button" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
-" class="elimina_viaggio" class="button" value="Elimina" tabindex="1" /><br></p>
+</b>&nbsp</h5></a>
+        <p><input type="button" name="<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+" class="elimina_viaggio button" value="Elimina" tabindex="1" /><br></p>
     </div>  
 <hr>
 <?php endfor; endif; ?>

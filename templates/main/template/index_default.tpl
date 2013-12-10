@@ -25,21 +25,6 @@
   <title>CarPooling</title>
   <script src="js/jquery-1.9.1.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script  type="text/javascript">
-      {literal}
-      $(initmenu);
-      function initmenu(){
-          $("#prova").hover(slidedown,slideup);
-      }
-      function slidedown(){
-          $("ul#menu_profilo").slideDown("medium");
-      } 
-      function slideup(){
-          $("ul#menu_profilo").slideUp("fast");
-      }    
-      
-      {/literal}
-  </script>
   <script src="js/index.js"></script>
 </head>
 
@@ -95,11 +80,19 @@
                 {else}
             <a href="#">Account</a>
                  <ul id="menu_profilo">
-                    <li><a id="visualizza" class="pulsante">Profilo</a></li>
-                    <li><a id="gestisci" class="pulsante">Gestisci</a></li>
-                    <li><a id="gestisci_viaggi_personali" class="pulsante">I miei viaggi</a></li>
-                 </ul>   
-                {/if}      
+                    <li><a class="visualizza pulsante">Profilo</a></li>
+                    <li><a class="gestisci pulsante">Gestisci</a></li>
+                    <li><a class="gestisci_viaggi_personali pulsante">I miei viaggi</a></li>
+                 </ul> 
+                {/if}
+                {if ($amministratore)}
+                <li><a id="amministra" class="pulsante">Amministra</a>
+                    <ul id="menu_profilo">
+                        <li><a id="amm_viaggi" class="pulsante">Viaggi</a></li>
+                        <li><a id="amm_utenti" class="pulsante">Utenti</a></li>
+                    </ul>
+                {/if}
+                </li>
           </ul>          
 
           <!-- Navigation item -->
@@ -126,7 +119,8 @@
               {$corpo_centrale}
           
           </div>
-              <div id="form_veicolo"></div>
+          <div id="form_veicolo"></div>
+          <div id="ricerca_utenti"></div>
       </div>
           
           

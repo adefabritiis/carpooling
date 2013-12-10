@@ -48,6 +48,11 @@ class CRegistrazione {
                     $session=USingleton::getInstance('USession');
                     $session->imposta_valore('username',$username);
                     $session->imposta_valore('nome_cognome',$utente->nome.' '.$utente->cognome);
+                    $session->imposta_valore('amministratore',false);
+                    $FUtente=new FUtente();
+                    $amministratore=$FUtente->isAmministratore($username);
+                    if($amministratore)
+                        $session->imposta_valore('amministratore',true);
                     $this->_autenticato=true;
                     return true;
                 } else {
@@ -133,35 +138,53 @@ class CRegistrazione {
         $session=USingleton::getInstance('USession');
         $session->cancella_valore('username');
         $session->cancella_valore('nome_cognome');
-        $view=USingleton::getInstance('CRicerca');
-        return $view->ultimiViaggi(); 
+        return $this->ultimiViaggi(); 
+    }
+        
+    public function errore_aggiornamento(){
+        $view=USingleton::getInstance('VRegistrazione');
+        $view->setControllerTaskDefault();
+        $view->setLayout('errore_aggiornamento');
+        return $view->processaTemplateParziale();
+    }
+    
+    public function ultimiViaggi(){
+        $view=USingleton::getInstance('VRicerca');
+        $FViaggio=new FViaggio();
+        $viaggi=$FViaggio->ultimiViaggi();
+        $view->mostraListaUltimiViaggi($viaggi);
+        return $view->processaTemplate();
     }
     
     public function visualizzaProfilo() {
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
-        $view=Usingleton::getInstance('VRegistrazione');
-        $view->setLayout('visualizza_profilo');
-        $FUtente=new FUtente();
-        $utente=$FUtente->load($username);
-	$view->impostaDati('immagine_profilo',$utente->immagine_profilo);
-        $view->impostaDati('username',$utente->username);
-        $view->impostaDati('nome',$utente->nome);
-        $view->impostaDati('cognome',$utente->cognome);
-        $view->impostaDati('data_nascita',$utente->data_nascita);
-        $view->impostaDati('citta_residenza',$utente->citta_residenza);
-	$view->impostaDati('citta_nascita',$utente->citta_nascita);
-        $view->impostaDati('email',$utente->email);
-        $dati_guidatore= $FUtente->getMediaGuidatore($username);
-        $dati_passeggero= $FUtente->getMediaPasseggero($username);
-        $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
-        $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
-        $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
-        return $view->processaTemplateParziale();
-        
+        if ($username!=false) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $view->setLayout('visualizza_profilo');
+            $FUtente=new FUtente();
+            $utente=$FUtente->load($username);
+            $view->impostaDati('immagine_profilo',$utente->immagine_profilo);
+            $view->impostaDati('username',$utente->username);
+            $view->impostaDati('nome',$utente->nome);
+            $view->impostaDati('cognome',$utente->cognome);
+            $view->impostaDati('data_nascita',$utente->data_nascita);
+            $view->impostaDati('citta_residenza',$utente->citta_residenza);
+            $view->impostaDati('citta_nascita',$utente->citta_nascita);
+            $view->impostaDati('email',$utente->email);
+            $dati_guidatore= $FUtente->getMediaGuidatore($username);
+            $dati_passeggero= $FUtente->getMediaPasseggero($username);
+            $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
+            $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
+            $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
     }
     
     public function visualizzaUtente($username){
+        $session=USingleton::getInstance('USession');
+        $loggato_amministratore=$session->leggi_valore('amministratore');
         $view=Usingleton::getInstance('VRegistrazione');
         $view->setLayout('visualizza_profilo_utente');
         $FUtente=new FUtente();
@@ -174,28 +197,32 @@ class CRegistrazione {
         $view->impostaDati('citta_residenza',$utente->citta_residenza);
 	$view->impostaDati('citta_nascita',$utente->citta_nascita);
         $view->impostaDati('email',$utente->email);
+        $view->impostaDati('amministratore',$utente->amministratore);
         $dati_guidatore= $FUtente->getMediaGuidatore($username);
         $dati_passeggero= $FUtente->getMediaPasseggero($username);
         $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
         $view->impostaDati('num_voti_guid',$dati_guidatore[1]);
         $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
+        $view->impostaDati('loggato_amministratore',$loggato_amministratore);
         $view->processaTemplateParziale();
     }
     
     public function gestisciProfilo(){
-        $view=Usingleton::getInstance('VRegistrazione');
-        $view->setLayout('gestisci_profilo');
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
-        $FUtente=new FUtente();
-        $utente=$FUtente->load($username);
-        $view->impostaDati('username', $utente->username);
-	$view->impostaDati('immagine_profilo',$utente->immagine_profilo);
-	$FVeicolo = new FVeicolo();
-        $array= $FVeicolo->getVeicoli($username);
-        $view->impostaDati('array',$array);
-        return $view->processaTemplateParziale();
-        
+        if ($username!=false) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $view->setLayout('gestisci_profilo');
+            $FUtente=new FUtente();
+            $utente=$FUtente->load($username);
+            $view->impostaDati('username', $utente->username);
+            $view->impostaDati('immagine_profilo',$utente->immagine_profilo);
+            $FVeicolo = new FVeicolo();
+            $array= $FVeicolo->getVeicoli($username);
+            $view->impostaDati('array',$array);
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
     }
     
     public function confermaLogin() {
@@ -210,18 +237,85 @@ class CRegistrazione {
     }
     
     public function gestisciViaggi(){
-        $view=Usingleton::getInstance('VRegistrazione');
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
-        $FViaggio= new FViaggio();
-        $array_viaggi= $FViaggio->ViaggiPersonali($username);
-        $array_passeggero= $FViaggio->ViaggiPasseggero($username);
-        $view->impostaDati('array_passeggero', $array_passeggero);
-        $view->impostaDati('array_viaggi',$array_viaggi);
-        $view->setLayout('gestisci_viaggi');
-        return $view->processaTemplateParziale();
-            
-        
+        if ($username!=false) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $FViaggio= new FViaggio();
+            $array_viaggi= $FViaggio->ViaggiPersonali($username);
+            $array_passeggero= $FViaggio->ViaggiPasseggero($username);
+            $view->impostaDati('username', $username);
+            $view->impostaDati('array_passeggero', $array_passeggero);
+            $view->impostaDati('array_viaggi',$array_viaggi);
+            $view->setLayout('gestisci_viaggi');
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function rendi_amministratore($username){
+        $session=USingleton::getInstance('USession');
+        $username_loggato=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username_loggato!=false && $amministratore) {
+            $FUtente=new FUtente();
+            $FUtente->rendi_amministratore($username);
+            $this->verifica_tipo_utente($username);
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function rendi_utente($username){
+        $session=USingleton::getInstance('USession');
+        $username_loggato=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username_loggato!=false && $amministratore) {
+            $FUtente=new FUtente();
+            $FUtente->rendi_utente($username);
+            $this->verifica_tipo_utente($username);
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function attiva_account($username){
+        $session=USingleton::getInstance('USession');
+        $username_loggato=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username_loggato!=false && $amministratore) {
+            $FUtente=new FUtente();
+            $FUtente->attiva_account($username);
+            $this->verifica_tipo_utente($username);
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function disattiva_account($username){
+        $session=USingleton::getInstance('USession');
+        $username_loggato=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username_loggato!=false && $amministratore) {
+            $FUtente=new FUtente();
+            $FUtente->disattiva_account($username);
+            $this->verifica_tipo_utente($username);
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function verifica_tipo_utente($username){
+        $session=USingleton::getInstance('USession');
+        $username_loggato=$session->leggi_valore('username');
+        $amministratore=$session->leggi_valore('amministratore');
+        if ($username_loggato!=false && $amministratore) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $FUtente=new FUtente();
+            $utente=$FUtente->verifica_tipo_utente($username);
+            $view->impostaDati('amministratore',$utente['amministratore']);
+            $view->impostaDati('attivo',$utente['stato_attivazione']);
+            $view->impostaDati('username',$username);
+            $view->setLayout('amministrazione_div');
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
     }
     
      /**
@@ -250,6 +344,16 @@ class CRegistrazione {
                 return $this->logout();
             case 'visualizza_utente':
                 return $this->visualizzaUtente($view->getUsername());
+            case 'rendi_amministratore':
+                return $this->rendi_amministratore($view->getUsername());
+            case 'rendi_utente':
+                return $this->rendi_utente($view->getUsername());
+            case 'verifica_tipo_utente':
+                return $this->verifica_tipo_utente($view->getUsername());
+            case 'attiva_account':
+                return $this->attiva_account($view->getUsername());
+            case 'disattiva_account':
+                return $this->disattiva_account($view->getUsername());
         }
     }
 }

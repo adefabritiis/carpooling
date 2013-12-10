@@ -119,6 +119,8 @@ class VRicerca extends View {
         } else
             return 0;
     }
+    
+
     /**
      * Processa il layout scelto nella variabile _layout
      *
@@ -159,6 +161,9 @@ class VRicerca extends View {
         $this->setLayout('ultimi');
     }
     
+    public function mostraListaUtenti($utenti){
+        $this->assign('utenti', $utenti);
+    }
     
     /**
      * restituisce il numero della pagina (utilizzato nella visualizzazione dei libri) passato per GET o POST

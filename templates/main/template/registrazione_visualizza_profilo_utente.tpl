@@ -1,4 +1,5 @@
 <br>
+<script src="js/index.js"></script>
 <h1 class="pagetitle">Dati profilo</h1>
 <div>
 <h1 class="block">&nbsp{$username}&nbsp</h1>
@@ -12,4 +13,11 @@
 	  <p>Email:<b>&nbsp{$email}</b></p>
           <p>Data di nascita:<b>&nbsp{$data_nascita}</b></p>
           <p>Città di nascita:<b>&nbsp{$citta_nascita}</b></p>
-        </div>
+</div>
+{if ($loggato_amministratore)}
+    <div>
+        <div id="mostra_amministrazione" name="{$username}"><input type="button" value="+ opzioni"></div>
+        <div id="nascondi_amministrazione"><input type="button" value="- opzioni"></div>
+        <div id="amministrazione"></div> 
+    </div>
+{/if}

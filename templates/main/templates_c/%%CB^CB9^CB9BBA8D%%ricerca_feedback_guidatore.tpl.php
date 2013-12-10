@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-21 10:02:07
+<?php /* Smarty version 2.6.26, created on 2013-12-04 12:16:09
          compiled from ricerca_feedback_guidatore.tpl */ ?>
 <script src="js/index.js"></script>
 <h1 class="pagetitle">Rilascia un feedback a <?php echo $this->_tpl_vars['username_passeggero']; ?>
@@ -18,7 +18,7 @@
                 <p><label for="valutazione" class="left">Valutazione:</label>
                    <input type="text" name="valutazione" class="valutazione" class="field" value="" tabindex="2"  /></p>
                 
-                <p><input type="button" class="valuta_pass" class="button" name1="<?php echo $this->_tpl_vars['username_passeggero']; ?>
+                <p><input type="button" class="valuta_pass" class="button_left" name1="<?php echo $this->_tpl_vars['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
 " value="Valuta" tabindex="3" /></p><br>
                 

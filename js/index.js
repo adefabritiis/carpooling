@@ -22,8 +22,25 @@ $('#submit_ricerca').on("click",function(){
         });    
     });
 
-
+$('#amm_viaggi').on("click",function(){
+    $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'amministra_viaggi'},
+            success:smista
+        });
+    });
     
+$('#amm_utenti').on("click",function(){
+    $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'amministra_utenti', ordinamento:'username'},
+            success:amm_utenti
+        });
+    });
 
 $('#cerca').on("click",function(){
     $.ajax({
@@ -97,7 +114,7 @@ $('#submit_veicolo_da_profilo').on("click",function(){
         });    
     });
     
-$('#visualizza').on("click",function(){
+$('.visualizza').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -107,7 +124,7 @@ $('#visualizza').on("click",function(){
         });    
     });
     
-$('#gestisci').on("click",function(){
+$('.gestisci').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -117,12 +134,12 @@ $('#gestisci').on("click",function(){
         });    
     });
     
-$('#gestisci_viaggi_personali').on("click",function(){
+$('.gestisci_viaggi_personali').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
             type:'GET',
-            data:{controller:'registrazione', task:'gestisci_viaggi', citta_partenza:$('#citta_partenza').val(), citta_arrivo:$('#citta_arrivo').val(), data_partenza:$('#data_partenza').val()},
+            data:{controller:'registrazione', task:'gestisci_viaggi'},
             success:smista
         });    
     });
@@ -173,16 +190,37 @@ $('#valuta').on("click",function(){
     });
 
 $('.visualizza_utente').on("click",function(){
-    var username_passeggero=$(this).attr('value');
+    var user=$(this).attr('value');
         $.ajax({
             url:'index.php',
             dataType:'html',
             type:'GET',
-            data:{controller:'registrazione', task:'visualizza_utente', username:username_passeggero},
-            success:smista
+            data:{controller:'registrazione', task:'visualizza_utente', username:user},
+            success:amministrazione
         });    
     });
 
+$('#rendi_amministratore').on("click",function(){
+    var user=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'registrazione', task:'rendi_amministratore', username:user},
+            success:mostra_amministrazione
+        });    
+    });
+
+$('#rendi_utente').on("click",function(){
+    var user=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'registrazione', task:'rendi_utente', username:user},
+            success:mostra_amministrazione
+        });    
+    });
 
 $('.feedback_passeggero').on("click",function(){
     var username=$(this).attr('name1');
@@ -219,7 +257,29 @@ $('.elimina_passeggero').on("click",function(){
             success:smista
         });    
     });
-    
+
+$('.riepilogo_veicolo').on("click",function(){
+    var targa_veicolo=$(this).attr('value');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'riepilogo_veicolo', targa:targa_veicolo},
+            success:smista
+        });    
+    });
+
+$('.elimina_veicolo').on("click",function(){
+    var targa_veicolo=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'elimina_veicolo', targa:targa_veicolo},
+            success:smista
+        });    
+    });
+
 $('.elimina_viaggio').on("click",function(){
     var viaggio=$(this).attr('name');
         $.ajax({
@@ -230,12 +290,143 @@ $('.elimina_viaggio').on("click",function(){
             success:smista
         });    
     });
-}); 
+
+$('#mostra_amministrazione').on("click",function(){
+    var user=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'registrazione', task:'verifica_tipo_utente', username:user},
+            success:mostra_amministrazione
+        });    
+    });
+
+$('#nascondi_amministrazione').on("click",function(){
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            success:nascondi_amministrazione
+        });    
+    }); 
+
+$('#attiva_account').on("click",function(){
+    var user=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'registrazione', task:'attiva_account', username:user},
+            success:mostra_amministrazione
+        });    
+    });
+
+$('#disattiva_account').on("click",function(){
+    var user=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'registrazione', task:'disattiva_account', username:user},
+            success:mostra_amministrazione
+        });    
+    });
+
+$('#mostra_avanzata').on("click",function(){
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            success:mostra_avanzata
+        });    
+    });
+
+$('#nascondi_avanzata').on("click",function(){
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            success:nascondi_avanzata
+        });    
+    });
 
 
+$('#submit_ricerca_utenti').on("click",function(){
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'ricerca_utenti', username_ricerca:$('#username_ricerca').val(), cognome_ricerca:$('#cognome_ricerca').val(), citta_residenza_ricerca:$('#citta_residenza_ricerca').val()},
+            success:ricerca_utenti
+        });    
+    });
+    
+$('.ordina_utenti').on("click",function(){  //DA FARE
+    var ordina=$(this).attr('name');
+    $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'amministra_utenti', ordinamento:ordina},
+            success:smista
+        });
+    });
+    
+    
+});
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
+    $('#ricerca_utenti').hide('slow');
+}
+
+function ricerca_utenti(data){
+    $('#pagina_parziale').hide('slow');
+    $('#ricerca_utenti').show('slow');
+    $('#mostra_avanzata').show();
+    $('#nascondi_avanzata').hide();
+    $('.mostra_ricerca').show();
+    $('#risultati_utenti').hide('slow');
+    $('#risultati_ricerca_utenti').html(data).show('slow');
+}
+
+function amm_utenti(data){
+    $('#pagina_parziale').hide('slow');
+    $('#ricerca_utenti').html(data).show('slow');
+    $('#mostra_avanzata').hide();
+    $('#nascondi_avanzata').show();
+    $('.mostra_ricerca').hide();
+}
+
+function mostra_avanzata(){
+    $('#nascondi_avanzata').show('slow');
+    $('#mostra_avanzata').hide('slow');
+    $('.mostra_ricerca').hide('slow');
+}
+function nascondi_avanzata(){
+    $('#mostra_avanzata').show('slow');
+    $('#nascondi_avanzata').hide('slow');
+    $('.mostra_ricerca').show('slow');
+}
+function amministrazione(data){
+    $('#pagina_parziale').html(data).show('slow');
+    $('#amministrazione').hide('slow');
+    $('#mostra_amministrazione').show('slow');
+    $('#nascondi_amministrazione').hide('slow');
+    $('#ricerca_utenti').hide();
+}
+
+function mostra_amministrazione(data){
+    $('#amministrazione').html(data).show('slow');
+    $('#mostra_amministrazione').hide('slow');
+    $('#nascondi_amministrazione').show('slow');
+}
+
+function nascondi_amministrazione(){
+    $('#amministrazione').hide('slow');
+    $('#mostra_amministrazione').show('slow');
+    $('#nascondi_amministrazione').hide('slow');
 }
 
 function aggiungi_veicolo(data){
