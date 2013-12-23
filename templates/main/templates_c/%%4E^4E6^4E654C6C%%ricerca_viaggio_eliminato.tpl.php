@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-03 16:16:00
+<?php /* Smarty version 2.6.26, created on 2013-12-14 09:50:11
          compiled from ricerca_viaggio_eliminato.tpl */ ?>
 <!-- VIAGGIO ELIMINATO -->
 <script src="js/index.js"></script>

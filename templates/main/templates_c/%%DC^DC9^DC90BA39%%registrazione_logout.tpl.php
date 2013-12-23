@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-06 16:56:23
+<?php /* Smarty version 2.6.26, created on 2013-12-11 10:57:45
          compiled from registrazione_logout.tpl */ ?>
 <div class="main-navigation">
         <div class="loginform">

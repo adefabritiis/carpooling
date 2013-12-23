@@ -1,18 +1,33 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-13 09:47:29
+<?php /* Smarty version 2.6.26, created on 2013-12-23 12:25:28
          compiled from ricerca_elenco.tpl */ ?>
-		<br>
-        <h1 class="pagetitle">Elenco Viaggi</h1>
-
-        <!-- Content unit - One column -->
-		 <h1 class="block">Dati viaggi</h1>
-         <script src="js/index.js"></script>         
-        <div class="column1-unit">
-          <div class="contactform" >
-            
-            <?php if ($this->_tpl_vars['viaggi']): ?>
-<h1> Lista viaggi cercati </h1>
-<hr>
-<?php unset($this->_sections['nr']);
+<br>
+<h1 class="pagetitle">Elenco Viaggi</h1>
+<!-- Content unit - One column -->
+<h1 class="block">Dati viaggi</h1>
+<script src="js/ricerca_elenco.js"></script>         
+<div class="column1-unit">
+    <div class="contactform" >
+        <?php if ($this->_tpl_vars['viaggi']): ?>
+            <div style="width:650px;height:500px;overflow-y: scroll; border:1px ">
+                <table width:650px;>
+                    <tr>
+                        <th class="mini">
+                            <div>ID</div>
+			</th>
+			<th class="mini">
+                            <div>Data  </div>
+			</th>
+			<th class="top">
+                            <div>Partenza da  </div>
+                        </th>
+			<th class="top">
+                            <div>Arrivo a  </div>
+			</th>
+			<th class="mini">
+                            <div>Costo  </div>
+			</th>
+                    </tr>
+                    <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
 $this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['viaggi']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['nr']['show'] = true;
@@ -35,18 +50,35 @@ $this->_sections['nr']['index_prev'] = $this->_sections['nr']['index'] - $this->
 $this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->_sections['nr']['step'];
 $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
-?>
-    <div>     
-        <a class="riepilogo_viaggio" value="<?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
-"><h5><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>
-&nbsp<?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
-&nbsp<?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
-</h5></a>
-    </div>  
-<hr>
-<?php endfor; endif; ?>
-<?php else: ?>
-<h3> Non ci sono viaggi</h3>    
-<?php endif; ?>
-           </div>              
-        </div>
+?>     
+                    <tr class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+" name="true">
+                        <td>
+                            <div><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+</div>
+			</td>
+			<td>
+                            <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
+</b></div>
+			</td>
+                        <td>
+                            <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>
+</b></div>
+			</td>
+                        <td>
+                            <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
+</b></div>
+			</td>
+			<td>
+                            <div><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['costo']; ?>
+&nbsp €</div>
+			</td>
+                    </tr>
+                    <?php endfor; endif; ?>
+		</table>
+            </div>
+        <?php else: ?>
+            <p class="center"><label class="center-title"> Non ci sono viaggi!</label></p>     
+        <?php endif; ?>
+    </div>              
+</div>

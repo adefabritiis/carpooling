@@ -16,14 +16,30 @@ class FViaggio extends FDatabase{
     }
     
     public function cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza){
-        $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` WHERE `citta_partenza`='$citta_partenza' OR `citta_arrivo`='$citta_arrivo' OR `data_partenza`='$data_partenza'";
+        if ($citta_partenza OR $citta_arrivo OR $data_partenza)
+    {
+        $query="SELECT * FROM `viaggio` WHERE";
+        if ($citta_partenza)
+            $query.=" `citta_partenza`='$citta_partenza'";
+        if ($citta_arrivo) {
+            if ($citta_partenza)
+                $query.=" AND";
+            $query.=" `citta_arrivo`='$citta_arrivo'";
+        }
+        if ($data_partenza) {
+            if ($citta_partenza OR $citta_arrivo)
+                $query.=" AND";
+            $query.=" `data_partenza`='$data_partenza'";
+        }
+        $query.=" AND `data_partenza`>CURRENT_DATE()"; // Per estrarre solo viaggi con data successiva ad oggi
+    }
         $this->query($query);
         $array=$this->getResultAssoc();
         return $array;
         }
         
     public function ultimiViaggi(){
-        $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` ORDER BY `num_viaggio` desc LIMIT 8";
+        $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` WHERE `data_partenza`>CURRENT_DATE() ORDER BY `num_viaggio` DESC";
         $this->query($query);
         $array=$this->getResultAssoc();
         return $array;
@@ -48,13 +64,36 @@ class FViaggio extends FDatabase{
         return $this->query($query);
     }
     
-   /* public function VerificaPosti($num_viaggio){
-        $query="SELECT `posti_disponibili` FROM viaggio WHERE `num_viaggio` = '$num_viaggio'";
+    
+    //AMMINISTRATORE
+    public function getViaggi($ordinamento){
+        $query="SELECT * FROM `viaggio` ORDER BY `$ordinamento` ASC";
         $this->query($query);
-        $=$this->getResultAssoc();
-        return $posti_disponibili;
+        $viaggi=$this->getResultAssoc();
+        return $viaggi;
     }
-    */
+    
+    public function ricercaViaggi($citta_partenza, $citta_arrivo, $data_partenza){
+    if ($citta_partenza OR $citta_arrivo OR $data_partenza)
+    {
+        $query="SELECT * FROM `viaggio` WHERE";
+        if ($citta_partenza)
+            $query.=" `citta_partenza`='$citta_partenza'";
+        if ($citta_arrivo) {
+            if ($citta_partenza)
+                $query.=" AND";
+            $query.=" `citta_arrivo`='$citta_arrivo'";
+        }
+        if ($data_partenza) {
+            if ($citta_partenza OR $citta_arrivo)
+                $query.=" AND";
+            $query.=" `data_partenza`='$data_partenza'";
+        }
+    }
+    $this->query($query);
+    $viaggi=$this->getResultAssoc();
+    return $viaggi;
+}
 }
 
 ?>

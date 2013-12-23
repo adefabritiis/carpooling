@@ -31,9 +31,6 @@ class FGuidatore extends FDatabase{
     $query= "DELETE FROM `guidatore` WHERE `num_viaggio`='$num_viaggio'";
     return $this->query($query);
 }
-
- 
- 
 }
 
 ?>

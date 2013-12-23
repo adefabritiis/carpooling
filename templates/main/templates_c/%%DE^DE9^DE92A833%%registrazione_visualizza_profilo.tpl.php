@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-26 11:57:48
+<?php /* Smarty version 2.6.26, created on 2013-12-19 15:53:43
          compiled from registrazione_visualizza_profilo.tpl */ ?>
 <br>
 <h1 class="pagetitle">Dati profilo</h1>
@@ -20,6 +20,8 @@
           <p>Valutazione passeggero: <?php echo $this->_tpl_vars['media_feedback_passeggero']; ?>
 </p>
 	  <p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
+</b></p>
+          <p>Numero di telefono:<b>&nbsp<?php echo $this->_tpl_vars['num_telefono']; ?>
 </b></p>
           <p>Data di nascita:<b>&nbsp<?php echo $this->_tpl_vars['data_nascita']; ?>
 </b></p>

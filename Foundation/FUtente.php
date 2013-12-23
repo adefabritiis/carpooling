@@ -97,6 +97,38 @@ public function verifica_tipo_utente($username){
     $utente=$this->getResult();
     return $utente;
 }
+
+public function aggiornaImmagine($username,$file_nome){
+    $query="UPDATE `utente` SET `immagine_profilo`='img/$file_nome' WHERE `username`='$username'";
+    return $this->query($query);
+}
+
+public function verificaUsername($username){
+    $query="SELECT `username` FROM `utente` WHERE `username`='$username'";
+    $this->query($query);
+    $trovato=$this->getResult();
+    return $trovato;
+}
+
+public function verificaEmail($email){
+    $query="SELECT `username`,`email` FROM `utente` WHERE `email`='$email'";
+    $this->query($query);
+    $trovato=$this->getResult();
+    return $trovato;
+}
+
+public function verificaCodFiscale($cod_fiscale){
+    $query="SELECT `cod_fiscale` FROM `utente` WHERE `cod_fiscale`='$cod_fiscale'";
+    $this->query($query);
+    $trovato=$this->getResult();
+    return $trovato;
+}
+
+public function impostaPassword($username,$password){
+    $query="UPDATE `utente` SET `password`='$password' WHERE `username`='$username'";
+    return $this->query($query);
+}
+
 }
 ?>
 

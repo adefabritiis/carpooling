@@ -1,5 +1,5 @@
 <!-- VIAGGIO ELIMINATO -->
-<script src="js/index.js"></script>
+<script src="js/gestisci_viaggi.js"></script>
 <div id="viaggio_eliminato">
 		<br>
         <h1 class="pagetitle">Viaggio eliminato con successo</h1><br><br>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-04 16:08:32
+<?php /* Smarty version 2.6.26, created on 2013-12-12 10:50:39
          compiled from ricerca_veicolo.tpl */ ?>
  <h1 class="pagetitle">Inserimento nuovo veicolo</h1>
  <script src="js/index.js"></script>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-06 16:23:53
+<?php /* Smarty version 2.6.26, created on 2013-12-12 10:38:51
          compiled from registrazione_problemi.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>

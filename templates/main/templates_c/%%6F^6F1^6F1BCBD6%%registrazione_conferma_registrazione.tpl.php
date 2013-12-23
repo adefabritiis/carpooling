@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-10-23 17:10:28
+<?php /* Smarty version 2.6.26, created on 2013-12-17 17:46:25
          compiled from registrazione_conferma_registrazione.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>

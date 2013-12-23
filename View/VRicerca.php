@@ -59,11 +59,20 @@ class VRicerca extends View {
             return 0;
     }
     
+    public function getRicerca() {
+        if (isset($_REQUEST['ricerca'])) {
+            return $_REQUEST['ricerca'];
+        } else
+            return 0;
+    }
     
-    /**
-     * restituisce il campo note passato per GET o POST
-     * @return string
-     */
+    public function getCosto() {
+        if (isset($_REQUEST['costo'])) {
+            return $_REQUEST['costo'];
+        } else
+            return 0;
+    }
+   
     public function getNote() {
         if (isset($_REQUEST['note'])) {
             return $_REQUEST['note'];
@@ -164,6 +173,12 @@ class VRicerca extends View {
     public function mostraListaUtenti($utenti){
         $this->assign('utenti', $utenti);
     }
+    
+    public function mostraListaCompletaViaggi($viaggi){
+        $this->assign('viaggi', $viaggi);
+    }
+    
+    
     
     /**
      * restituisce il numero della pagina (utilizzato nella visualizzazione dei libri) passato per GET o POST

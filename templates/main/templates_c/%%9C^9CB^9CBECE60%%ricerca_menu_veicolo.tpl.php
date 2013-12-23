@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-02 17:18:52
+<?php /* Smarty version 2.6.26, created on 2013-12-12 10:51:04
          compiled from ricerca_menu_veicolo.tpl */ ?>
 <script src="js/index.js"></script>
 <div id="menu_veicoli">

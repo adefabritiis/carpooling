@@ -1,4 +1,3 @@
-<script src="js/index.js"></script>
 <div id="menu_veicoli">
    <select class="veicoli"> 
        {section name=nr loop=$veicoli}

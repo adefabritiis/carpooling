@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-07 23:10:18
+<?php /* Smarty version 2.6.26, created on 2013-12-19 16:51:22
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -27,6 +27,7 @@
   <title>CarPooling</title>
   <script src="js/jquery-1.9.1.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
   <script src="js/index.js"></script>
 </head>
 
@@ -124,6 +125,7 @@
           </div>
           <div id="form_veicolo"></div>
           <div id="ricerca_utenti"></div>
+          <div id="ricerca_viaggi"></div>
       </div>
           
           

@@ -75,50 +75,81 @@ class CRegistrazione {
      *
      * @return mixed
      */
-     public function creaUtente() {
+    
+    public function validaDati($dati) {
+         //array('username','password','password_1','nome','cognome','sesso','data_nascita',
+         //'citta_nascita','citta_residenza','email','num_telefono','cod_fiscale');
+         $username=$dati['username'];
+         $password=$dati['password'];
+         $password_1=$dati['password_1'];
+         $nome=$dati['nome'];
+         $cognome=$dati['cognome'];
+         $sesso=$dati['sesso'];
+         $data_nascita=$dati['data_nascita'];
+         $citta_nascita=$dati['citta_nascita'];
+         $citta_residenza=$dati['citta_residenza'];
+         $email=$dati['email'];
+         $num_telefono=$dati['num_telefono'];
+         $cod_fiscale=$dati['cod_fiscale'];
+         list($anno,$mese,$giorno) = explode("/", $data_nascita);
+         $FUtente=new FUtente();
+         if($FUtente->verificaUsername($username)) // Se l'username è gia presente
+            return false;
+         elseif($password!=$password_1)
+            return false;
+         elseif($sesso!='m')
+             if ($sesso!='f')
+                return false;
+         elseif(!preg_match("/^([a-zA-Z ]+)$/i", $nome))
+            return false;
+         elseif(!preg_match("/^[A-Z '-]{2,30}$/i", $cognome))
+            return false;
+         elseif(!preg_match("/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/", $email)) 
+            return false;
+         elseif($FUtente->verificaEmail($email))
+            return false;
+         elseif($FUtente->verificaCodFiscale($cod_fiscale))
+            return false;
+         elseif(!preg_match("/^(?=.*\d).{4,12}$/i" , $password))
+            return false;
+         elseif(!checkdate($mese,$giorno,$anno))
+            return false;
+         else
+            return true;
+    }
+
+
+    public function creaUtente() {
         $view=USingleton::getInstance('VRegistrazione');
         $dati_registrazione=$view->getDatiRegistrazione();
         $utente=new EUtente();
         $FUtente=new FUtente();
-        $result = $FUtente->load($dati_registrazione['username']);
-        $registrato=false;
-        if ($result==false) {
-            //utente non esiste
-            if($dati_registrazione['password_1']==$dati_registrazione['password']) {
-                unset($dati_registrazione['password_1']);
-                $keys=array_keys($dati_registrazione);
-                $i=0;
-                foreach ($dati_registrazione as $dato) {
-                    $utente->$keys[$i]=$dato;
-                    $i++;
-                }
-                //$utente->generaCodiceAttivazione();
-                $utente->setAccountAttivo();
-                $FUtente->store($utente);
-               
-                // $this->emailAttivazione($utente);
-                $registrato=true;
-            } else {
-                $this->_errore='Le password immesse non coincidono';
+        $validazione=$this->validaDati($dati_registrazione);
+        echo $validazione;
+        if($validazione) {
+            unset($dati_registrazione['password_1']);
+            $keys=array_keys($dati_registrazione);
+            $i=0;
+            foreach ($dati_registrazione as $dato) {
+                $utente->$keys[$i]=$dato;
+                $i++;
             }
-        } else {
-            //utente esistente
-            $this->_errore='Username gi&agrave; utilizzato';
+            //$utente->generaCodiceAttivazione();
+            $utente->setAccountAttivo();
+            $FUtente->store($utente);
+            // $this->emailAttivazione($utente);
+            $view->setLayout('conferma_registrazione');
+            return $view->processaTemplate();
         }
-        if (!$registrato) {
-            $view->impostaErrore($this->_errore);
-            $this->_errore='';
+        else {
             $view->setLayout('problemi');
             $result=$view->processaTemplate();
             $view->setLayout('modulo');
             $result.=$view->processaTemplate();
-            $view->impostaErrore('');
             return $result;
-        } else {
-            $view->setLayout('conferma_registrazione');
-            return $view->processaTemplate();
         }
-     }
+    }
+            
      
     
     /**
@@ -156,6 +187,14 @@ class CRegistrazione {
         return $view->processaTemplate();
     }
     
+    public function ultimiViaggiParziale(){
+        $view=USingleton::getInstance('VRicerca');
+        $FViaggio=new FViaggio();
+        $viaggi=$FViaggio->ultimiViaggi();
+        $view->mostraListaUltimiViaggi($viaggi);
+        return $view->processaTemplateParziale();
+    }
+    
     public function visualizzaProfilo() {
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -172,6 +211,7 @@ class CRegistrazione {
             $view->impostaDati('citta_residenza',$utente->citta_residenza);
             $view->impostaDati('citta_nascita',$utente->citta_nascita);
             $view->impostaDati('email',$utente->email);
+            $view->impostaDati('num_telefono',$utente->num_telefono);
             $dati_guidatore= $FUtente->getMediaGuidatore($username);
             $dati_passeggero= $FUtente->getMediaPasseggero($username);
             $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
@@ -197,6 +237,7 @@ class CRegistrazione {
         $view->impostaDati('citta_residenza',$utente->citta_residenza);
 	$view->impostaDati('citta_nascita',$utente->citta_nascita);
         $view->impostaDati('email',$utente->email);
+        $view->impostaDati('num_telefono',$utente->num_telefono);
         $view->impostaDati('amministratore',$utente->amministratore);
         $dati_guidatore= $FUtente->getMediaGuidatore($username);
         $dati_passeggero= $FUtente->getMediaPasseggero($username);
@@ -204,6 +245,7 @@ class CRegistrazione {
         $view->impostaDati('num_voti_guid',$dati_guidatore[1]);
         $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
         $view->impostaDati('loggato_amministratore',$loggato_amministratore);
+        $view->impostaDati('partecipa',$view->isPartecipante());
         $view->processaTemplateParziale();
     }
     
@@ -216,6 +258,8 @@ class CRegistrazione {
             $FUtente=new FUtente();
             $utente=$FUtente->load($username);
             $view->impostaDati('username', $utente->username);
+            $view->impostaDati('nome', $utente->nome);
+            $view->impostaDati('cognome', $utente->cognome);
             $view->impostaDati('immagine_profilo',$utente->immagine_profilo);
             $FVeicolo = new FVeicolo();
             $array= $FVeicolo->getVeicoli($username);
@@ -318,6 +362,122 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    public function caricaImmagine(){
+        $session = USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        if ($username!=false) {
+            $upload_percorso = 'img/'; 
+            $file_tmp = $_FILES['img']['tmp_name'];
+            $file_nome = $_FILES['img']['name']; 
+            move_uploaded_file($file_tmp, $upload_percorso.$file_nome);
+            $FUtente=new FUtente();
+            $FUtente->aggiornaImmagine($username, $file_nome);
+            $view=Usingleton::getInstance('VRegistrazione');
+            $view->setLayout('conferma_immagine');
+            return $view->processaTemplate();
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function verificaEmail($email) {
+        $FUtente=new FUtente();
+        $esistente=$FUtente->verificaEmail($email);
+        $mail=array(
+            'unique'=>"$esistente"
+        );
+        echo json_encode($mail);
+    }
+    
+    public function verificaUsername($username) {
+        $FUtente=new FUtente();
+        $esistente=$FUtente->verificaUsername($username);
+        $user=array(
+            'unique'=>"$esistente"
+        );
+        echo json_encode($user);
+    }
+    
+    public function recuperoPassword() {
+        $view=Usingleton::getInstance('VRegistrazione');
+        $view->setLayout('recupero');
+        return $view->processaTemplateParziale();
+    }
+    
+    public function invioRecupero($email) {
+        $FUtente=new FUtente();
+        $esiste=$FUtente->verificaEmail($email);
+        if ($esiste) {
+            $username=$esiste['username'];
+            $password=$this->genera_codice();
+            $FUtente->impostaPassword($username, $password);
+            $this->inviaMailPassword($email, $username, $password);
+        }
+        return $this->ultimiViaggiParziale();
+    }
+
+    /**
+     * Invia la mail con la nuova password dell'utente.
+     * 
+     * @param string $mail mail dell'utente.
+     * @param string $password password dell'utente
+     */
+    public function inviaMailPassword($email, $username, $password) {
+       $to=$email;      
+       $subject="Nuova Password!";
+       $message="Il tuo username è: " . $username . "La tua nuova password è: " . $password;
+       $headers='From: carpooling@altervista.org' . "\r\n" .
+                   'Reply-To: carpooling@altervista.org' . "\r\n" .
+                   'X-Mailer: PHP/' . phpversion();
+                   'MIME-Version: 1.0\n' .
+                   'Content-Type: text/html; charset=\"iso-8859-1\"\n' .
+                   'Content-Transfer-Encoding: 7bit\n\n';
+       mail($to, $subject, $message, $headers); 
+    }
+    /**
+     * Fornisce un id univoco utilizzando l' orario. Prende i secondi
+     * e i microsecondi e li usa come chiave per generare un numero random
+     * di cui viene fatto l'md5
+     *
+     * @return string codice generato.
+     */
+    public function genera_codice() {
+        list($usec, $sec) = explode(' ', microtime());
+        mt_srand((float) $sec + ((float) $usec * 100000));
+        return md5(uniqid(mt_rand(), true));
+    }
+    
+    public function modificaPassword() {
+        $session = USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        if ($username!=false) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $view->setLayout('modifica_pwd');
+            return $view->processaTemplateParziale();
+        }
+        else $this->errore_aggiornamento();
+    }
+    
+    public function confermaModificaPwd() {
+        $session=USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        if ($username!=false) {
+            $view=Usingleton::getInstance('VRegistrazione');
+            $pwdattuale=$view->getPwdAttuale();
+            $pwd=$view->getPwd();
+            $pwd1=$view->getPwd1();
+            $FUtente=new FUtente();
+            $utente=$FUtente->load($username);
+            if ($utente->password==$pwdattuale)
+                if ($pwd==$pwd1) {
+                    $FUtente->impostaPassword($username,$pwd);
+                    return $this->gestisciProfilo();
+                }
+            $errore=true;
+            $view->impostaDati('errore',$errore);
+            return $this->modificaPassword();
+        }
+        else $this->errore_aggiornamento();    
+    }
      /**
      * Smista le richieste ai relativi metodi della classe
      * 
@@ -354,6 +514,22 @@ class CRegistrazione {
                 return $this->attiva_account($view->getUsername());
             case 'disattiva_account':
                 return $this->disattiva_account($view->getUsername());
+            case 'carica_immagine':
+                return $this->caricaImmagine();
+            case 'verifica_email':
+                return $this->verificaEmail($view->getEmail());
+            case 'verifica_username':
+                return $this->verificaUsername($view->getUsername());
+            //case 'verifica_cod_fiscale'
+            //    return $this->verificaCodFiscale($view->getCodFiscale());
+            case 'recupero_password':
+                return $this->recuperoPassword();
+            case 'invio_recupero':
+                return $this->invioRecupero($view->getEmail());
+            case 'modifica_password':
+                return $this->modificaPassword();
+            case 'conferma_password':
+                return $this->confermaModificaPwd();
         }
     }
 }

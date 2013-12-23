@@ -1,40 +1,43 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-03 11:56:30
+<?php /* Smarty version 2.6.26, created on 2013-12-23 15:17:01
          compiled from registrazione_gestisci_profilo.tpl */ ?>
 <br>
-<script src="js/index.js"></script>
+<script src="js/gestisci_profilo.js"></script>
 <h1 class="pagetitle">Gestisci profilo</h1>
-<div>
 <h1 class="block">&nbsp<?php echo $this->_tpl_vars['username']; ?>
 &nbsp</h1>
-</div>
         <div class="column1-unit">
-		<div class="contactform">
-          <h1><b><?php echo $this->_tpl_vars['nome']; ?>
+            <div class="contactform">
+                <h1><b><?php echo $this->_tpl_vars['nome']; ?>
 &nbsp<?php echo $this->_tpl_vars['cognome']; ?>
-</b></h1>
-          <h3><?php echo $this->_tpl_vars['citta_residenza']; ?>
-</h3>                    
-         <div>
-         <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
+</b></h1>                   
+                    <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
  alt="Image description"/></p>
-         </div>
-         <div>
-          <p>
-          <label class="left">Cambia immagine profilo</label><input type="file" />
-          </p>
-          </div>
-          
-		  <br><br>
-		  </div>
-		  </div>
-		  <h1 class="block"> I tuoi veicoli </h1>
-		  <div class="coloum1-unit">
-		  <div class="contactform">
-                  <?php if ($this->_tpl_vars['array']): ?>
-		
-
-<hr>
-<?php unset($this->_sections['nr']);
+                <div>
+                    <form action="index.php" method="post" enctype="multipart/form-data" name="carica_immagine">
+                        <p><input type="hidden" name="controller" value="registrazione" /></p>
+                        <p><input type="hidden" name="task" value="carica_immagine" /></p>    
+                        <h3><label class="left">Cambia immagine profilo:</label><br><input type="file" name="img" style="font-weight: bold;"/></h3>
+                        <p><input type="submit" class="button_center" name="carica_immagine"  value="Carica immagine" tabindex="5" /></p>
+                    </form>
+                </div>
+            <h3><label class="left">Modifica password</label></h3><br><br>        
+            <p><input type="button" id="modifica_password" class="button_center" value="Modifica" tabindex="6" /></p>
+            </div>
+        </div>
+        <h1 class="block"> I tuoi veicoli </h1>
+        <div class="coloum1-unit">
+            <div class="contactform">
+                <?php if ($this->_tpl_vars['array']): ?>
+                    <table>
+                        <tr>
+                            <th class="mini">
+                                <div>Targa</div>
+                            </th>
+                            <th class="mini">
+                                <div>Tipo</div>
+                            </th>
+                            </tr>
+                    <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
 $this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['array']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['nr']['show'] = true;
@@ -57,20 +60,24 @@ $this->_sections['nr']['index_prev'] = $this->_sections['nr']['index'] - $this->
 $this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->_sections['nr']['step'];
 $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
-?>
-    <div class="pulsante">     
-        <a class="riepilogo_veicolo" value="<?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['targa']; ?>
-"><h5><?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['targa']; ?>
-&nbsp-&nbsp<?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['tipo']; ?>
-</h5></a>
-    </div>  
-<hr>
-<?php endfor; endif; ?>
-<?php else: ?>
-<h3> Non ci sono veicoli</h3>    
-<?php endif; ?>
-<br><br>
- <p><input type="button" id="submit_veicolo_da_profilo" class="button" value="Aggiungi veicolo" tabindex="5" /></p>
- <br><br>
+?>     
+                        <tr class="riepilogo_veicolo pulsante" value="<?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['targa']; ?>
+">
+                            <td>
+                                <div><?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['targa']; ?>
+</div>
+                            </td>
+                            <td>
+                                <div><b><?php echo $this->_tpl_vars['array'][$this->_sections['nr']['index']]['tipo']; ?>
+</b></div>
+                            </td>
+                        </tr>
+                    <?php endfor; endif; ?>
+                    </table>
+                <?php else: ?>
+                    <p class="center"><label class="center-title"> Non ci sono veicoli!</label></p>  
+                <?php endif; ?>
+                <p><input type="button" id="submit_veicolo_da_profilo" class="button" value="Aggiungi veicolo" tabindex="5" /></p>
+                <br><br><br>
+            </div>
         </div>
-		</div>

@@ -81,10 +81,11 @@
 .main-content p.details {clear:both; margin:-0.25em 0 1.0em 0; line-height:1.0em; font-size:110%;}
 .main-content blockquote {clear:both; margin:0 30px 0.6em 30px; font-size:90%;}
 
-.main-content table {clear:both; width:600px; margin:2.0em 0 0.2em 20px; table-layout: fixed; border-collapse:collapse; empty-cells:show; background-color:rgb(233,232,244);}
-.main-content table th.top {height:3.5em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(175,175,175); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:110%;}
-.main-content table th {height:3.0em; padding:2px 20px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 2px rgb(255,255,255); background-color:rgb(225,225,225); text-align:left; color:rgb(80,80,80); font-weight:bold; font-size:110%;}
-.main-content table td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 2px rgb(255,255,255); background-color:rgb(225,225,225); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:110%;}
+.main-content table {clear:both; width:600px; margin:2.0em 0 0.2em 5px; table-layout: fixed; border-collapse:collapse; empty-cells:show; background-color:rgb(233,232,244);}
+.main-content table th.top {height:3.0em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(175,175,175); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:100%;}
+.main-content table th.mini {height:3.0em; width:5em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(175,175,175); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:100%;}
+.main-content table th {height:3.0em; width:7.5em; padding:2px 20px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 5px rgb(255,255,255); background-color:rgb(225,225,225); text-align:left; color:rgb(80,80,80); font-weight:bold; font-size:80%;}
+.main-content table td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 2px rgb(255,255,255); background-color:rgb(225,225,225); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:80%;}
 p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,80,80); font-size:110%;}
 
 .main-content ul {list-style:none; margin:0.5em 0 1.0em 0;}
@@ -101,20 +102,27 @@ p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,
 .contactform label.center {float:center; width:300px; margin:0 0 0 0; padding:2px;  font-size:130%;}
 .contactform select.combo {width:175px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform input.field {width:230px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
+.contactform input.field.error {border-color: red; border-width: medium;}
+#errore_email{display:none;}
+#errore_username{display:none;}
+.contactform input.mini {width:55px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform textarea {width:230px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%; resize:none;}
 .contactform input.button {float:left; width:9.0em;margin-top:20px;margin-bottom:20px;margin-left:210px; padding:2px !important /*Non-IE6*/; padding:1 /*IE6*/; background:rgb(220,220,220); border:solid 1px rgb(80,80,80); text-align:center; font-family:verdana,arial,sans-serif; color:rgb(80,80,80); font-size:110%;}
+.contactform input.button_center{float:none; width:11.0em;margin-top:20px;margin-bottom:20px;margin-left:10px; padding:2px !important /*Non-IE6*/; padding:1 /*IE6*/; background:rgb(220,220,220); border:solid 1px rgb(80,80,80); text-align:center; font-family:verdana,arial,sans-serif; color:rgb(80,80,80); font-size:110%;}
 .contactform input.button_left {float:left; width:9.0em;margin-left:5px; padding:2px !important /*Non-IE6*/; padding:1 /*IE6*/; background:rgb(220,220,220); border:solid 1px rgb(80,80,80); text-align:center; font-family:verdana,arial,sans-serif; color:rgb(80,80,80); font-size:110%;}
 .contactform input.button:hover {cursor: pointer; border:solid 1px rgb(80,80,80); background:rgb(230,230,230); color:rgb(150,150,150);}
 .contactform input.button_left:hover {cursor: pointer; border:solid 1px rgb(80,80,80); background:rgb(230,230,230); color:rgb(150,150,150);}
+.contactform input.button_center:hover {cursor: pointer; border:solid 1px rgb(80,80,80); background:rgb(230,230,230); color:rgb(150,150,150);}
 
 /********************/
 /*  COMMON CLASSES  */
 /********************/
-.main img {clear:both; float:left; margin:3px 10px 7px 0; padding:1px; border:1px solid rgb(150,150,150);}
+.main img {clear:both; float:left; margin:3px 10px 10px 0; padding:1px; border:1px solid rgb(150,150,150);}
 .main img.center {clear:both; float:none; display:block; margin:0 auto; padding:1px; border:1px solid rgb(150,150,150);}
 .main img.right {clear:both; float:right; margin:3px 0 7px 10px; padding:1px; border:1px solid rgb(150,150,150);}
 
 .main a {color:rgb(70,122,167); font-weight:bold; text-decoration:none;}
+
 .main-content h1 a {color:rgb(70,122,167); font-weight:normal; text-decoration:none;}
 .main a:hover {color:rgb(42,90,138); text-decoration:underline;}
 .main a:visited {color:rgb(42,90,138);}

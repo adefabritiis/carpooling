@@ -1,25 +1,25 @@
-<script src="js/index.js"></script>
-<br><br>
+<script src="js/amministrazione_utenti.js"></script>
+<br>
 {if $attivo}
     {if ($amministratore)}
         <div id="utente_amministratore">
-            <p>- Amministratore</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" id="rendi_utente" value="Rendi Utente normale" name="{$username}">
+            <p>Tipo utente: <b> Amministratore</b></p>
+            <p><input type="button" class="button_center" id="rendi_utente" value="◄ Utente default" name="{$username}"></P>
         </div>
     {else}
         <div id="utente_normale">
-            <p>- Utente</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" id="rendi_amministratore" value="Rendi Amministratore" name="{$username}">
+            <p>Tipo utente: <b>Utente default</b></p>
+            <p><input type="button" class="button_center" id="rendi_amministratore" value="► Amministratore" name="{$username}"></p>
         </div>
     {/if}
     <br><br>
     <div id="utente_attivo">
-        <p>- Attivo</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="button" id="disattiva_account" value="Disattiva Account" name="{$username}">
+        <p>Stato: <b> Attivo </b></p>
+        <p><input type="button" class="button_center" id="disattiva_account" value="◄ Disattiva" name="{$username}"></p>
     </div>
 {else}
     <div id="utente_non_attivo">
-        <p>- Non attivo</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="button" id="attiva_account" value="Attiva Account" name="{$username}">
+        <p>Stato:<b> Non attivo</b></p>
+        <p><input type="button" class="button_center" id="attiva_account" value="► Attiva" name="{$username}"></p>
     </div>
 {/if}

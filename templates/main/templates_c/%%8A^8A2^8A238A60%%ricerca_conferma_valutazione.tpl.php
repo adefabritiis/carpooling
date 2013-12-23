@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-11-19 15:56:57
+<?php /* Smarty version 2.6.26, created on 2013-12-14 10:11:45
          compiled from ricerca_conferma_valutazione.tpl */ ?>
 <script src="js/index.js"></script>
 <h1 class="pagetitle">Conferma Valutazione</h1>

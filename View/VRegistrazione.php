@@ -96,7 +96,7 @@ class VRegistrazione extends View {
             if (isset($_REQUEST[$dato]))
                 
                 $dati[$dato]=$_REQUEST[$dato];
-                echo($dati[$dato]);
+                //echo($dati[$dato]);
         }
 		$dati["immagine_profilo"]="img/".$dati['sesso']."_imgprofilo.jpg";   
         return $dati;
@@ -131,6 +131,9 @@ class VRegistrazione extends View {
      *
      * @return mixed
      */
+    
+     
+    
     public function getDatiAttivazione() {
         if(isset($_REQUEST['codice_attivazione']) && isset($_REQUEST['username']))
             return array('codice'=>$_REQUEST['codice_attivazione'], 'username'=>$_REQUEST['username']);
@@ -138,12 +141,13 @@ class VRegistrazione extends View {
             return false;
     }
     
-       public function getUsernameRicerca() {
+    public function getUsernameRicerca() {
         if (isset($_REQUEST['username_ricerca'])) {
             return $_REQUEST['username_ricerca'];
         } else
             return 0;
     }
+    
     public function getCognomeRicerca() {
         if (isset($_REQUEST['cognome_ricerca'])) {
             return $_REQUEST['cognome_ricerca'];
@@ -157,8 +161,62 @@ class VRegistrazione extends View {
         } else
             return 0;
     } 
-
     
+    public function getCittaPartenzaRicerca() {
+        if (isset($_REQUEST['citta_partenza_ricerca'])) {
+            return $_REQUEST['citta_partenza_ricerca'];
+        } else
+            return 0;
+    }
+    
+    public function getCittaArrivoRicerca() {
+        if (isset($_REQUEST['citta_arrivo_ricerca'])) {
+            return $_REQUEST['citta_arrivo_ricerca'];
+        } else
+            return 0;
+    }
+    
+    public function getDataPartenzaRicerca() {
+        if (isset($_REQUEST['data_partenza_ricerca'])) {
+            return $_REQUEST['data_partenza_ricerca'];
+        } else
+            return 0;
+    }
+    
+    public function getEmail() {
+        if (isset($_REQUEST['email'])) {
+            return $_REQUEST['email'];
+        } else
+            return 0;
+    }
+
+    public function getPwdAttuale() {
+        if (isset($_REQUEST['pwdattuale']))
+            return $_REQUEST['pwdattuale'];
+        else
+            return false;
+    }
+    
+    public function getPwd() {
+        if (isset($_REQUEST['pwd']))
+            return $_REQUEST['pwd'];
+        else
+            return false;
+    }
+    
+    public function getPwd1() {
+        if (isset($_REQUEST['pwd1']))
+            return $_REQUEST['pwd1'];
+        else
+            return false;
+    }
+    
+    public function isPartecipante() {
+        if (isset($_REQUEST['partecipa']))
+            return $_REQUEST['partecipa'];
+        else
+            return false;
+    }
 }
 
 ?>
