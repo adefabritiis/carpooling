@@ -18,17 +18,11 @@
 					<div>Data  </div>
 				</th>
 				<th class="mini">
-					<div>Partenza da  </div>
-				</th>
-				<th class="mini">
 					<div>Arrivo a  </div>
 				</th>
-				<th class="mini">
-					<div>Costo  </div>
-				</th>
-                                <th class="mini">
-                                        <div>Opzioni  </div>
-                                </th>
+                <th class="mini">
+                <div>Opzioni  </div>
+                </th>
                                     
 				
 			</tr>
@@ -42,16 +36,10 @@
                                 <div><b>{$array_viaggi[nr].data_partenza}</b></div>
 			 </td>
                          <td>
-                                <div><b>{$array_viaggi[nr].citta_partenza}</b></div>
-			 </td>
-                         <td>
                                 <div><b>{$array_viaggi[nr].citta_arrivo}</b></div>
 			 </td>
-			 <td>
-				<div>{$array_viaggi[nr].costo}&nbsp €</div>
-			 </td>
                          <td> 
-                                <div><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio pulsante" value="Elimina" tabindex="1" /></div>
+                                <div><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
                          </td>    
                     </tr>
         {/section}

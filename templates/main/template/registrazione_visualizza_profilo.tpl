@@ -7,7 +7,7 @@
     <div class="contactform">
         <h1><b>{$nome}&nbsp{$cognome}</b></h1>
         <h3>{$citta_residenza}</h3>                    
-        <p><img src={$immagine_profilo} alt="Image description"/></p>
+        <p><img src={$immagine_profilo} alt="Image description" height="200" width="200"/></p>
         <p>Valutazione guidatore: {$media_feedback_guidatore}({$num_viaggi_guid})</p>
         <p>Valutazione passeggero: {$media_feedback_passeggero}</p>
 	<p>Email:<b>&nbsp{$email}</b></p>
