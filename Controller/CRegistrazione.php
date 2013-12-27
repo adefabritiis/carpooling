@@ -381,18 +381,26 @@ class CRegistrazione {
     
     public function verificaEmail($email) {
         $FUtente=new FUtente();
-        $esistente=$FUtente->verificaEmail($email);
+        $verifica=$FUtente->verificaEmail($email);
+        $esistente=true;
+        if(isset($verifica['email'])){
+            $esistente=false;
+        }
         $mail=array(
-            'unique'=>"$esistente"
+            'unique'=>$esistente
         );
         echo json_encode($mail);
     }
     
     public function verificaUsername($username) {
         $FUtente=new FUtente();
-        $esistente=$FUtente->verificaUsername($username);
+        $verifica=$FUtente->verificaUsername($username);
+        $esistente=true;
+        if(isset($verifica['username'])){
+            $esistente=false;
+        }
         $user=array(
-            'unique'=>"$esistente"
+            'unique'=>$esistente
         );
         echo json_encode($user);
     }
@@ -478,6 +486,24 @@ class CRegistrazione {
         }
         else $this->errore_aggiornamento();    
     }
+    
+    public function comuni(){
+        if (isset($_GET['term'])) {
+            $term = $_GET['term'];
+            $results = array();
+            $var1 = file_get_contents("codici_comuni_italiani.csv");     
+            $var = explode("\n", $var1);     
+            foreach ($var as $line => $data) {
+        $exploded_data = explode(",", $data);
+        if (strlen($data) > 0) {
+            if (preg_match("/^" . $term . "/i", substr($exploded_data[1], 1, -1))) {
+                $results[] = substr($exploded_data[1], 1, -1) . ' (' . substr($exploded_data[2], 1, -1) . ')';
+            }
+        }
+    }
+    echo json_encode($results);
+}
+    }
      /**
      * Smista le richieste ai relativi metodi della classe
      * 
@@ -530,6 +556,8 @@ class CRegistrazione {
                 return $this->modificaPassword();
             case 'conferma_password':
                 return $this->confermaModificaPwd();
+            case 'comuni':
+                return $this->comuni();
         }
     }
 }

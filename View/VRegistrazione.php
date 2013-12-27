@@ -217,6 +217,8 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
+    
 }
 
 ?>
