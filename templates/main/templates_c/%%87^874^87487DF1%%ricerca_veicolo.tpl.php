@@ -1,12 +1,12 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-12 10:50:39
+<?php /* Smarty version 2.6.26, created on 2013-12-27 12:42:02
          compiled from ricerca_veicolo.tpl */ ?>
- <h1 class="pagetitle">Inserimento nuovo veicolo</h1>
- <script src="js/index.js"></script>
-        <!-- Content unit - One column -->
-        <div>
-		 <h1 class="block">Dati veicolo</h1>
-        <div class="column1-unit">
-          <div class="contactform">
+<h1 class="pagetitle">Inserimento nuovo veicolo</h1>
+<script src="js/veicolo.js"></script>
+<!-- Content unit - One column -->
+<div>
+    <h1 class="block">Dati veicolo</h1>
+    <div class="column1-unit">
+        <div class="contactform">
             <form>
                 <fieldset>
                 <p><label for="targa" class="left">Targa:</label>
@@ -20,12 +20,12 @@
                 <p><label for="consumo_medio" class="left">Consumo Medio (km/l):</label>
                    <input type="text" name="consumo_medio" id="consumo_medio" class="field" value="" tabindex="5" /></p>
                 <?php if (( $this->_tpl_vars['da'] == 'inserisci' )): ?>
-                <p><input type="button" id="submit_aggiungi_da_inserisci" class="button" value="Aggiungi" tabindex="6" /></p>
+                    <p><input type="button" id="submit_aggiungi_da_inserisci" class="button" value="Aggiungi" tabindex="6" /></p>
                 <?php else: ?>
-                <p><input type="button" id="submit_aggiungi_da_profilo" class="button" value="Aggiungi" tabindex="7" /></p>
+                    <p><input type="button" id="submit_aggiungi_da_profilo" class="button" value="Aggiungi" tabindex="7" /></p>
                 <?php endif; ?>
-		</fieldset> 
+		</fieldset>
             </form>   
-           </div>              
         </div>
+    </div>
 </div>

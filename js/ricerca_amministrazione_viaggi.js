@@ -54,10 +54,11 @@ $('.riepilogo_viaggio').on("click",function(){
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
-    $('#ricerca_utenti').hide('slow');
+    $('#ricerca_utenti').hide();
     $('#ricerca_viaggi').hide('slow');
     $('.mostra_ricerca').hide('slow');
     $('#mostra_avanzata').hide('slow');
+    $('#form_veicolo').hide();
 }
 
 function mostra_avanzata(){

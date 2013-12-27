@@ -1,4 +1,3 @@
-<!-- VIAGGIO ELIMINATO -->
 <script src="js/gestisci_viaggi.js"></script>
 <div id="viaggio_eliminato">
 		<br>

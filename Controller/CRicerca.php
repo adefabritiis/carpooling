@@ -129,7 +129,6 @@ class CRicerca {
             $view->impostaDati('array_passeggeri',$array_passeggeri);
             $votato= $FPasseggero->viaggioVotato($num_viaggio,$username);
             $view->impostaDati('votato',$votato);
-            $FGuidatore= new FGuidatore();
             $isGuidatore= $FGuidatore->verificaGuidatore($num_viaggio,$username);
             $view->impostaDati('isGuidatore',$isGuidatore);
             $view->impostaDati('isAmministratore',$amministratore);
@@ -215,7 +214,7 @@ class CRicerca {
             $FVeicolo=new FVeicolo();
             $veicoli=$FVeicolo->getVeicoli($username);
             $view->impostaDati('veicoli',$veicoli);
-     }
+        }
         else {
             $view=USingleton::getInstance('VRicerca');
             $view->setLayout('errore');
@@ -235,8 +234,11 @@ class CRicerca {
             $citta_partenza=$view->getCittaPartenza();
             $citta_arrivo=$view->getCittaArrivo();
             $data_partenza=$view->getDataPartenza();
-            $FViaggio=new FViaggio();
-            $viaggi=$FViaggio->cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza);
+            $viaggi=NULL;
+            if ($citta_partenza OR $citta_arrivo OR $data_partenza) {
+                $FViaggio=new FViaggio();
+                $viaggi=$FViaggio->cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza);
+            }
             $view->mostraListaViaggi($viaggi);
     }
     
@@ -410,7 +412,6 @@ class CRicerca {
                 $view=USingleton::getInstance('VRicerca');
                 $FViaggio=new FViaggio();
                 $viaggi=$FViaggio->getViaggi($ordinamento);
-                $view=USingleton::getInstance('VRicerca');
                 $view->mostraListaCompletaViaggi($viaggi);
                 $view->setLayout('amministra_viaggi');
                 return $view->processaTemplateParziale();

@@ -69,6 +69,17 @@ $('.elimina_viaggio').on("click",function(){
         });    
     });
 
+$('#feedback').on("click",function(){
+    var viaggio=$(this).attr('name');
+        $.ajax({
+            url:'index.php',
+            dataType:'html',
+            type:'GET',
+            data:{controller:'ricerca', task:'inserisci_feedback', num_viaggio:viaggio},
+            success:smista
+        });    
+    });
+
 $('.indietro').on("click",function(){
     $.ajax({
             url:'index.php',
@@ -81,6 +92,9 @@ $('.indietro').on("click",function(){
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
+    $('#ricerca_utenti').hide();
+    $('#ricerca_viaggi').hide();
+    $('#form_veicolo').hide();
 }
 
 function utente(data){

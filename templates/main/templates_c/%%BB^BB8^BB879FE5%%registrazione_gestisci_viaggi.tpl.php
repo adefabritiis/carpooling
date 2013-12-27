@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 17:00:23
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:26
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/gestisci_viaggi.js"></script>
@@ -21,17 +21,11 @@
 					<div>Data  </div>
 				</th>
 				<th class="mini">
-					<div>Partenza da  </div>
-				</th>
-				<th class="mini">
 					<div>Arrivo a  </div>
 				</th>
-				<th class="mini">
-					<div>Costo  </div>
-				</th>
-                                <th class="mini">
-                                        <div>Opzioni  </div>
-                                </th>
+                <th class="mini">
+                <div>Opzioni  </div>
+                </th>
                                     
 				
 			</tr>
@@ -71,20 +65,12 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 </b></div>
 			 </td>
                          <td>
-                                <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>
-</b></div>
-			 </td>
-                         <td>
                                 <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
 </b></div>
 			 </td>
-			 <td>
-				<div><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['costo']; ?>
-&nbsp €</div>
-			 </td>
                          <td> 
                                 <div><input type="button" name="<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
-" class="elimina_viaggio pulsante" value="Elimina" tabindex="1" /></div>
+" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
                          </td>    
                     </tr>
         <?php endfor; endif; ?>

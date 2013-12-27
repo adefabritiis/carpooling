@@ -53,8 +53,9 @@ $('.ordina_utenti').on("click",function(){
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
     $('#ricerca_utenti').hide('slow');
-    $('#ricerca_viaggi').hide('slow');
+    $('#ricerca_viaggi').hide();
     $('.mostra_ricerca').hide('slow');
+    $('#form_veicolo').hide();
     $('#mostra_avanzata').hide('slow');
 }
 

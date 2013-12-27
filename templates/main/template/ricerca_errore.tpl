@@ -1,4 +1,4 @@
-<!-- INSERIMENTO VIAGGIO -->
+<script src="js/index.js"/>
 <br>
 <h1 class="pagetitle">Inserimento nuovo viaggio</h1>
 <!-- Content unit - One column -->

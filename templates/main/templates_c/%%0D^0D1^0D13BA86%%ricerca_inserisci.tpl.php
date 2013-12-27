@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-23 13:10:04
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:02
          compiled from ricerca_inserisci.tpl */ ?>
 <!-- INSERIMENTO VIAGGIO -->
 <script src="js/inserisci_viaggio.js"></script>

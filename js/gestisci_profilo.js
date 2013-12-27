@@ -29,8 +29,12 @@ $('#submit_veicolo_da_profilo').on("click",function(){
             success:smista
         });    
     });
+    
 });
 
-function smista(data){
+    function smista(data){
     $('#pagina_parziale').html(data).show('slow');
+    $('#ricerca_utenti').hide();
+    $('#ricerca_viaggi').hide();
+    $('#form_veicolo').hide();
 }

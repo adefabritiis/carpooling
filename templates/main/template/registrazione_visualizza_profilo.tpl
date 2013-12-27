@@ -1,3 +1,4 @@
+<script src="js/index.js"/>
 <br>
 <h1 class="pagetitle">Dati profilo</h1>
 <div>

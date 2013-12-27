@@ -7,16 +7,16 @@
                     <table width:650px;>
                         <tr>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="username">Username  ▼</div>
+					<div name="username">Username  ▼</div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="nome">Nome  ▼</div>
+					<div name="nome">Nome  </div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="cognome">Cognome  ▼</div>
+					<div name="cognome">Cognome  </div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="citta_residenza">Città di residenza  ▼</div>
+					<div name="citta_residenza">Città di residenza  </div>
 				</th>
 			</tr>
             {section name=nr loop=$utenti}

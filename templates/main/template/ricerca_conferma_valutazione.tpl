@@ -1,3 +1,4 @@
+<script src="js/index.js"/>
 <h1 class="pagetitle">Conferma Valutazione</h1>
 <!-- Content unit - One column -->
 <div> 

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 18:21:47
+<?php /* Smarty version 2.6.26, created on 2013-12-27 16:29:40
          compiled from ricerca_amministra_utenti_lista.tpl */ ?>
 <script src="js/ricerca_amministrazione_utenti.js"></script>
 <div class="column1-unit">
@@ -9,16 +9,16 @@
                     <table width:650px;>
                         <tr>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="username">Username  ▼</div>
+					<div name="username">Username  ▼</div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="nome">Nome  ▼</div>
+					<div name="nome">Nome  </div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="cognome">Cognome  ▼</div>
+					<div name="cognome">Cognome  </div>
 				</th>
 				<th class="top">
-					<div class="ordina_utenti pulsante" name="citta_residenza">Città di residenza  ▼</div>
+					<div name="citta_residenza">Città di residenza  </div>
 				</th>
 			</tr>
             <?php unset($this->_sections['nr']);

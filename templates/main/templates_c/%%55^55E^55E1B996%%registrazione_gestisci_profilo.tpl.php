@@ -1,27 +1,30 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-23 15:17:01
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:16
          compiled from registrazione_gestisci_profilo.tpl */ ?>
 <br>
 <script src="js/gestisci_profilo.js"></script>
 <h1 class="pagetitle">Gestisci profilo</h1>
 <h1 class="block">&nbsp<?php echo $this->_tpl_vars['username']; ?>
-&nbsp</h1>
-        <div class="column1-unit">
-            <div class="contactform">
-                <h1><b><?php echo $this->_tpl_vars['nome']; ?>
+&nbsp&nbsp(<?php echo $this->_tpl_vars['nome']; ?>
 &nbsp<?php echo $this->_tpl_vars['cognome']; ?>
-</b></h1>                   
-                    <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
- alt="Image description"/></p>
+)</h1>
+        <div class="column1-unit">
+            <div class="contactform">  
+					<p class="center"><label class="center-title">Immagine del profilo:</label></p><br>
+                    <p><img class="center" src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
+ alt="Image description" height="200" width="200"/></p><br>
                 <div>
                     <form action="index.php" method="post" enctype="multipart/form-data" name="carica_immagine">
-                        <p><input type="hidden" name="controller" value="registrazione" /></p>
-                        <p><input type="hidden" name="task" value="carica_immagine" /></p>    
-                        <h3><label class="left">Cambia immagine profilo:</label><br><input type="file" name="img" style="font-weight: bold;"/></h3>
-                        <p><input type="submit" class="button_center" name="carica_immagine"  value="Carica immagine" tabindex="5" /></p>
+                        <input type="hidden" name="controller" value="registrazione" />
+                        <input type="hidden" name="task" value="carica_immagine" />    
+                        <p class="center"><label for="img" class="center-title">Cambia immagine del profilo:</label></p><br>
+						<p class="center"><input type="file" name="img" style="font-weight: bold;"/>
+                        <input type="submit" class="button_center" name="carica_immagine"  value="Carica immagine" tabindex="5" /></p>
                     </form>
                 </div>
-            <h3><label class="left">Modifica password</label></h3><br><br>        
-            <p><input type="button" id="modifica_password" class="button_center" value="Modifica" tabindex="6" /></p>
+				<hr>
+				<br>
+            <p><label for="modifica_password" class="center-title">Modifica password:</label>
+            <input type="button" name="modifica_password" id="modifica_password" class="button_center" value="Modifica" tabindex="6" /></p>
             </div>
         </div>
         <h1 class="block"> I tuoi veicoli </h1>
@@ -77,7 +80,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <?php else: ?>
                     <p class="center"><label class="center-title"> Non ci sono veicoli!</label></p>  
                 <?php endif; ?>
-                <p><input type="button" id="submit_veicolo_da_profilo" class="button" value="Aggiungi veicolo" tabindex="5" /></p>
+                <p class="center"><input type="button" id="submit_veicolo_da_profilo" class="button_center" value="Aggiungi un veicolo" tabindex="5" /></p>
                 <br><br><br>
             </div>
         </div>

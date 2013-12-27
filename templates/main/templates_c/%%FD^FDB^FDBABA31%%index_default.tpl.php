@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 12:11:16
+<?php /* Smarty version 2.6.26, created on 2013-12-27 17:21:04
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -119,34 +119,17 @@
   
       <!-- B.1 MAIN CONTENT -->
       <div class="main-content" >
-          
-          <div id="pagina_parziale">
-          
-              <?php echo $this->_tpl_vars['corpo_centrale']; ?>
-
-          
-          </div>
+          <div id="pagina_parziale"><?php echo $this->_tpl_vars['corpo_centrale']; ?>
+</div>
           <div id="form_veicolo"></div>
           <div id="ricerca_utenti"></div>
           <div id="ricerca_viaggi"></div>
-      </div>
-          
-          
-              
-          
-          
-        
-          
+      </div> 
         <!-- Content unit - Two columns -->
-       
-        
-        
 
         <!-- Content unit - Three columns -->
-        
-       
-      
-	  <!-- fine main content -->
+
+	<!-- fine main content -->
 
       <!-- B.2 MAIN NAVIGATION -->
       <div class="main-navigation">

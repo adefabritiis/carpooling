@@ -7,15 +7,15 @@
                     <table width:650px;>
                     <tr>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="num_viaggio">Numero viaggio  ▼</div>
+                            <div name="num_viaggio">Numero viaggio  ▼</div>
                         </th>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="citta_partenza">Citta Partenza  ▼</div>
+                            <div name="citta_partenza">Citta Partenza  </div>
                         </th>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="citta_arrivo">Citta Arrivo  ▼</div>
+                            <div name="citta_arrivo">Citta Arrivo  </div>
                         <th class="top">    
-                            <div class="ordina_viaggi pulsante" name="data-partenza">Data Partenza  ▼</div>
+                            <div name="data-partenza">Data Partenza  </div>
                         </th>
                      </tr>   
                 {section name=nr loop=$viaggi}

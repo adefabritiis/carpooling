@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 18:35:26
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:31
          compiled from ricerca_amministra_viaggi.tpl */ ?>
 <br>
 <h1 class="pagetitle">Elenco Viaggi</h1><br>

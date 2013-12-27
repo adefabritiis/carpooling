@@ -1,6 +1,5 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-12 10:51:04
+<?php /* Smarty version 2.6.26, created on 2013-12-27 17:02:21
          compiled from ricerca_menu_veicolo.tpl */ ?>
-<script src="js/index.js"></script>
 <div id="menu_veicoli">
    <select class="veicoli"> 
        <?php unset($this->_sections['nr']);

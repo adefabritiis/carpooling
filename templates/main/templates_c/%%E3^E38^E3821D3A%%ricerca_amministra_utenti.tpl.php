@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 18:21:37
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:36
          compiled from ricerca_amministra_utenti.tpl */ ?>
 <br>
 <h1 class="pagetitle">Gestione utenti</h1><br>

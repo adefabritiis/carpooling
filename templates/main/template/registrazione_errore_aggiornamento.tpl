@@ -1,4 +1,5 @@
 <!-- Content unit - One column -->
+<script src="js/index.js"/>
 <div>
     <div class="column1-unit">
         <div class="contactform">

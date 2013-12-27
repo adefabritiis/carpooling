@@ -1,3 +1,4 @@
+<script src="js/index.js"/>
 <a id="anchor-heading-noicon-1"></a>
 <div class="content-1col-nobox">
     <h1 class="noicon">Conferma Registrazione</h1>

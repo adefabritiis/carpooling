@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-23 12:03:35
+<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:00
          compiled from ricerca_avanzata.tpl */ ?>
 <!-- RICERCA VIAGGI --> 
 		<br>
-<script src="js/ricerca_viaggi.js"></script>
+<script src="js/ricerca_viaggi.js"/>
 <h1 class="pagetitle">Cerca un passaggio</h1>
 <div id="viaggio_ricerca">
     <div class="mostra_ricerca">

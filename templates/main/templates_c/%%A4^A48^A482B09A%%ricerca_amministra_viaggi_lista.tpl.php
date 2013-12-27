@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 18:35:37
+<?php /* Smarty version 2.6.26, created on 2013-12-27 16:27:47
          compiled from ricerca_amministra_viaggi_lista.tpl */ ?>
 <script src="js/ricerca_amministrazione_viaggi.js"></script>
 <div class="column1-unit">
@@ -9,15 +9,15 @@
                     <table width:650px;>
                     <tr>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="num_viaggio">Numero viaggio  ▼</div>
+                            <div name="num_viaggio">Numero viaggio  ▼</div>
                         </th>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="citta_partenza">Citta Partenza  ▼</div>
+                            <div name="citta_partenza">Citta Partenza  ▼</div>
                         </th>
                         <th class="top">
-                            <div class="ordina_viaggi pulsante" name="citta_arrivo">Citta Arrivo  ▼</div>
+                            <div name="citta_arrivo">Citta Arrivo  ▼</div>
                         <th class="top">    
-                            <div class="ordina_viaggi pulsante" name="data-partenza">Data Partenza  ▼</div>
+                            <div name="data-partenza">Data Partenza  ▼</div>
                         </th>
                      </tr>   
                 <?php unset($this->_sections['nr']);

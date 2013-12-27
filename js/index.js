@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ $(document).ready(function(){
 $('.riepilogo_viaggio').on("click",function(){
     var viaggio=$(this).attr('value');
     var indietro=$(this).attr('name'); //se vero appare il tasto indietro
@@ -89,25 +89,14 @@ $('.gestisci_viaggi_personali').on("click",function(){
             success:smista
         });    
     });
-    
-$('#feedback').on("click",function(){
-    var viaggio=$(this).attr('name');
-        $.ajax({
-            url:'index.php',
-            dataType:'html',
-            type:'GET',
-            data:{controller:'ricerca', task:'inserisci_feedback', num_viaggio:viaggio},
-            success:smista
-        });    
-    });
+
 });
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
-    $('#ricerca_utenti').hide('slow');
-    $('#ricerca_viaggi').hide('slow');
-    $('.mostra_ricerca').hide('slow');
-    $('#mostra_avanzata').hide('slow');
+    $('#ricerca_utenti').hide();
+    $('#ricerca_viaggi').hide();
+    $('#form_veicolo').hide();
 }
 
 function amm_utenti(data){
@@ -117,6 +106,7 @@ function amm_utenti(data){
     $('#mostra_avanzata').hide();
     $('#nascondi_avanzata').show();
     $('.mostra_ricerca').hide();
+    $('#form_veicolo').hide();
 }
 
 function amm_viaggi(data){
@@ -126,6 +116,7 @@ function amm_viaggi(data){
     $('#mostra_avanzata').hide();
     $('#nascondi_avanzata').show();
     $('.mostra_ricerca').hide();
+    $('#form_veicolo').hide();
 }
 
 function indietro_admin(){
@@ -139,9 +130,10 @@ function indietro_admin(){
 }
 
 function ricerca(data){
-    $('#pagina_parziale').hide('slow');
-    $('#ricerca_utenti').hide('slow');
+    $('#pagina_parziale').hide();
+    $('#ricerca_utenti').hide();
     $('#ricerca').hide();
     $('.mostra_ricerca').show('slow');
     $('#ricerca_viaggi').html(data).show('slow');
+    $('#form_veicolo').hide();
 }

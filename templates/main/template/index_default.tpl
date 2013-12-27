@@ -117,33 +117,16 @@
   
       <!-- B.1 MAIN CONTENT -->
       <div class="main-content" >
-          
-          <div id="pagina_parziale">
-          
-              {$corpo_centrale}
-          
-          </div>
+          <div id="pagina_parziale">{$corpo_centrale}</div>
           <div id="form_veicolo"></div>
           <div id="ricerca_utenti"></div>
           <div id="ricerca_viaggi"></div>
-      </div>
-          
-          
-              
-          
-          
-        
-          
+      </div> 
         <!-- Content unit - Two columns -->
-       
-        
-        
 
         <!-- Content unit - Three columns -->
-        
-       
-      
-	  <!-- fine main content -->
+
+	<!-- fine main content -->
 
       <!-- B.2 MAIN NAVIGATION -->
       <div class="main-navigation">

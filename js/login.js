@@ -33,4 +33,7 @@ $('#mail_recupero').on("click",function(){
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
+    $('#ricerca_utenti').hide();
+    $('#ricerca_viaggi').hide();
+    $('#form_veicolo').hide();
 }

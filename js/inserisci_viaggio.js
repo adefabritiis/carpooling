@@ -23,10 +23,12 @@ $('#submit_offri').on("click",function(){
 
 function aggiungi_veicolo(data){
     $('#pagina_parziale').hide('slow');
-    $('#ricerca_viaggi').hide('slow');
     $('#form_veicolo').html(data).show('slow');
 }
 
 function smista(data){
     $('#pagina_parziale').html(data).show('slow');
+    $('#ricerca_utenti').hide();
+    $('#ricerca_viaggi').hide('slow');
+    $('#form_veicolo').hide();
 }
