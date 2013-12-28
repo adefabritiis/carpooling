@@ -8,7 +8,7 @@
           <div class="contactform" >
             
             {if $array_viaggi}
-                <div style="width:650px;height:700px;overflow-y: scroll; border:1px ">
+                <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
                 <table width:650px;>
 			<tr>
 				<th class="mini">
@@ -57,7 +57,8 @@
           <div class="contactform" >
             
             {if $array_passeggero}
-                <table>
+              <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
+                <table width:650px;>
 			<tr>
 				<th class="mini">
 					<div>ID</div>
@@ -78,7 +79,7 @@
 			</tr>
             {section name=nr loop=$array_passeggero}
                  <div class="pulsante">     
-                       <tr class="riepilogo_viaggio" value="{$array_passeggero[nr].num_viaggio}"><p>
+                       <tr class="riepilogo_viaggio pulsante" value="{$array_passeggero[nr].num_viaggio}"><p>
                            <td>
                                 <div>{$array_passeggero[nr].num_viaggio}</div>
 			 </td>
@@ -97,6 +98,7 @@
 		</tr>
             {/section}
                 </table>
+                </div>
             {else}
                     <p class="center"><label class="center-title"> Non partecipi a nessun viaggio!</label></p>    
             {/if}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-20 17:21:02
+<?php /* Smarty version 2.6.26, created on 2013-12-28 18:40:06
          compiled from registrazione_visualizza_profilo_utente.tpl */ ?>
 <br>
 <script src="js/amministrazione_utenti.js"></script>

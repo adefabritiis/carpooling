@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 01:01:52
+<?php /* Smarty version 2.6.26, created on 2013-12-28 18:50:42
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/gestisci_viaggi.js"></script>
@@ -11,7 +11,7 @@
           <div class="contactform" >
             
             <?php if ($this->_tpl_vars['array_viaggi']): ?>
-                <div style="width:650px;height:700px;overflow-y: scroll; border:1px ">
+                <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
                 <table width:650px;>
 			<tr>
 				<th class="mini">
@@ -88,7 +88,8 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
           <div class="contactform" >
             
             <?php if ($this->_tpl_vars['array_passeggero']): ?>
-                <table>
+              <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
+                <table width:650px;>
 			<tr>
 				<th class="mini">
 					<div>ID</div>
@@ -132,7 +133,7 @@ $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
 ?>
                  <div class="pulsante">     
-                       <tr class="riepilogo_viaggio" value="<?php echo $this->_tpl_vars['array_passeggero'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+                       <tr class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['array_passeggero'][$this->_sections['nr']['index']]['num_viaggio']; ?>
 "><p>
                            <td>
                                 <div><?php echo $this->_tpl_vars['array_passeggero'][$this->_sections['nr']['index']]['num_viaggio']; ?>
@@ -157,6 +158,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 		</tr>
             <?php endfor; endif; ?>
                 </table>
+                </div>
             <?php else: ?>
                     <p class="center"><label class="center-title"> Non partecipi a nessun viaggio!</label></p>    
             <?php endif; ?>
