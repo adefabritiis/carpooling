@@ -48,7 +48,6 @@
       <div class="header-top">
         
         <!-- Sitelogo and sitename -->
-		<a class="sitelogo" href="index.php"></a>
         <div class="sitename">
           <h1>Car&bull;Pooling</a></h1>
         </div>
@@ -107,7 +106,6 @@
 
       <!-- A.4 HEADER BREADCRUMBS -->
 
-     <br>
 
 </div>
     <!-- For alternative headers END PASTE here -->

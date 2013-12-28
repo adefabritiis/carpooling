@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 18:57:09
+<?php /* Smarty version 2.6.26, created on 2013-12-28 16:47:59
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -112,20 +112,20 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <h3> Non ci sono ancora passeggeri</h3>    
             <?php endif; ?>
         </div>
-        <?php if ($this->_tpl_vars['loggato']): ?>
+
+		
             <?php if ($this->_tpl_vars['isGuidatore'] || $this->_tpl_vars['isAmministratore']): ?>
-                <h1 class="block"> Modifica viaggio </h1>
-                <div class="contactform">
-                    <div>
-                        <p class="center"><input type="button" class="elimina_viaggio button_center" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
+				<h1 class="block"> Modifica viaggio </h1>
+        <div class="contactform">
+                <div>
+                    <p class="center"><input type="button" class="elimina_viaggio button_center" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
 " value="Elimina viaggio" tabindex="8" /></p>
-                    </div>
                 </div>
             <?php endif; ?>
-        <?php endif; ?>
-        <?php if ($this->_tpl_vars['indietro']): ?>
-            <div class="contactform">
-                <p class="right"><input type="button" class="indietro button_center" value="Indietro" tabindex="8" /></p>
-            </div>
-        <?php endif; ?>             
+			</div>
+            <?php if ($this->_tpl_vars['indietro']): ?>
+                <div>
+                    <p class="center"><input type="button_center" class="indietro button_center" value="Indietro" tabindex="8" /></p>
+                </div>
+            <?php endif; ?>             
 </div>

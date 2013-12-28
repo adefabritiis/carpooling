@@ -8,97 +8,101 @@
           <div class="contactform" >
             
             {if $array_viaggi}
-                <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
-                <table width:650px;>
-			<tr>
-				<th class="mini">
-					<div>ID</div>
-				</th>
-				<th class="mini">
-					<div>Data  </div>
-				</th>
-				<th class="mini">
-					<div>Arrivo a  </div>
-				</th>
-                <th class="mini">
-                <div>Opzioni  </div>
-                </th>
-                                    
-				</table>
-				<table width="650">
-			</tr>
-           {section name=nr loop=$array_viaggi}
-                <div class="pulsante">     
-                    <tr class="riepilogo_viaggio pulsante" value="{$array_viaggi[nr].num_viaggio}">
-                        <td>
-                                <div>{$array_viaggi[nr].num_viaggio}</div>
-			 </td>
-			 <td>
-                                <div><b>{$array_viaggi[nr].data_partenza}</b></div>
-			 </td>
-                         <td>
-                                <div><b>{$array_viaggi[nr].citta_arrivo}</b></div>
-			 </td>
-                         <td> 
-                                <div><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
-                         </td>    
+               <table width:650px;>
+			<th class="mini">
+                            <div>ID  </div>
+			</th>
+			<th class="mini">
+                            <div>Data  </div>
+			</th>
+			<th class="mini">
+                            <div>Arrivo a  </div>
+			</th>
+			<th class="mini">
+                            <div>Opzioni  </div>
+			</th>
                     </tr>
-        {/section}
-            </table>
+			</table>
+			<div class="contenitore">
+			<table width:650px>
+				
+                    {section name=nr loop=$array_viaggi}
+                        <tr  class="riepilogo_viaggio pulsante" value="{$array_viaggi[nr].num_viaggio}"> 
+                            <td width="108">
+                                <div>{$array_viaggi[nr].num_viaggio}</div>
+                            </td>
+                            <td width="108">
+                                <div><b>{$array_viaggi[nr].data_partenza}</b></div>
+                            </td>
+                            <td width="108">
+                                <div><b>{$array_viaggi[nr].citta_arrivo}</b></div>
+                            </td>
+                            <td width="108">
+                                <div><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
+                            </td>
+			</tr>
+                    {/section}
+			
+                
+                </table>
             </div>
         {else}
                 <p class="center"><label class="center-title"> Non hai inserito viaggi!</label></p>     
         {/if}
-           </div>              
         </div>
+		</div>
+		
+
            
-<h1 class="block">Viaggi a cui partecipi </h1>        
-        <div class="column1-unit">
+      <h1 class="block">Viaggi a cui partecipi </h1>        
+		 <div class="column1-unit">
           <div class="contactform" >
             
             {if $array_passeggero}
-              <div style="width:650px;height:300px;overflow-y: scroll; border:1px ">
-                <table width:650px;>
-			<tr>
-				<th class="mini">
-					<div>ID</div>
-				</th>
-				<th class="mini">
-					<div>Data  </div>
-				</th>
-				<th class="top">
-					<div>Partenza da  </div>
-				</th>
-				<th class="top">
-					<div>Arrivo a  </div>
-				</th>
-				<th class="mini">
-					<div>Costo  </div>
-				</th>
+               <table width:650px;>
+                    <tr>
+                        <th class="mini">
+                            <div>ID</div>
+			</th>
+			<th class="mini">
+                            <div>Data  </div>
+			</th>
+			<th class="top">
+                            <div>Partenza da  </div>
+			</th>
+			<th class="top">
+                            <div>Arrivo a  </div>
+			</th>
+			<th class="mini">
+                            <div>Costo  </div>
+			</th>
+                    </tr>
+			</table>
+			<div class="contenitore">
+			<table width:650px>
 				
-			</tr>
-            {section name=nr loop=$array_passeggero}
-                 <div class="pulsante">     
-                       <tr class="riepilogo_viaggio pulsante" value="{$array_passeggero[nr].num_viaggio}"><p>
-                           <td>
+                    {section name=nr loop=$array_passeggero}
+                        <tr  class="riepilogo_viaggio pulsante" value="{$array_passeggero[nr].num_viaggio}"> 
+                            <td width="87">
                                 <div>{$array_passeggero[nr].num_viaggio}</div>
-			 </td>
-			 <td>
+                            </td>
+                            <td width="87">
                                 <div><b>{$array_passeggero[nr].data_partenza}</b></div>
-			 </td>
-                         <td>
+                            </td>
+                            <td>
                                 <div><b>{$array_passeggero[nr].citta_partenza}</b></div>
-			 </td>
-                         <td>
+                            </td>
+                            <td>
                                 <div><b>{$array_passeggero[nr].citta_arrivo}</b></div>
-			 </td>
-			 <td>
-				<div>{$array_passeggero[nr].costo}&nbsp €</div>
-			 </td>
-		</tr>
-            {/section}
+                            </td>
+                            <td width="87">
+                                <div>{$array_passeggero[nr].costo}&nbsp €</div>
+                            </td>
+			</tr>
+                    {/section}
+			
+                
                 </table>
-                </div>
             {else}
                     <p class="center"><label class="center-title"> Non partecipi a nessun viaggio!</label></p>    
             {/if}

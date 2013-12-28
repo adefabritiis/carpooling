@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 16:29:40
+<?php /* Smarty version 2.6.26, created on 2013-12-28 16:54:46
          compiled from ricerca_amministra_utenti_lista.tpl */ ?>
 <script src="js/ricerca_amministrazione_utenti.js"></script>
 <div class="column1-unit">
     <div> 
         <?php if ($this->_tpl_vars['utenti']): ?>
             <h1 class="block"> Risultati ricerca</h1>
-                <div style="width:650px;height:800px;overflow-y: scroll; border:1px solid white;">
+                <div class="contenitore"></div>
                     <table width:650px;>
                         <tr>
 				<th class="top">

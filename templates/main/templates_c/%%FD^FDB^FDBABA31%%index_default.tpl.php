@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 17:21:04
+<?php /* Smarty version 2.6.26, created on 2013-12-29 00:04:24
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -50,7 +50,6 @@
       <div class="header-top">
         
         <!-- Sitelogo and sitename -->
-		<a class="sitelogo" href="index.php"></a>
         <div class="sitename">
           <h1>Car&bull;Pooling</a></h1>
         </div>
@@ -109,7 +108,6 @@
 
       <!-- A.4 HEADER BREADCRUMBS -->
 
-     <br>
 
 </div>
     <!-- For alternative headers END PASTE here -->

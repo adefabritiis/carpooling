@@ -1,6 +1,8 @@
 <script src="js/index.js"/>
-<a id="anchor-heading-noicon-1"></a>
-<div class="content-1col-nobox">
-    <h1 class="noicon">Conferma Registrazione</h1>
-    <h2 class="noicon">L'account &egrave; stato correttamente registrato esegui il login</h2>
-</div>    
+<h1 class="pagetitle">Conferma registrazione</h1>
+<div><h1 class="block">La registrazione è avvenuta con successo</h1></div>
+<div class="column1-unit">	
+    <div class="contactform" >
+    <p><h1>Effettua il login!</h1></p>
+	</div>
+</div>

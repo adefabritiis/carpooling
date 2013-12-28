@@ -60,19 +60,19 @@
                 <h3> Non ci sono ancora passeggeri</h3>    
             {/if}
         </div>
-        {if $loggato}
+
+		
             {if $isGuidatore || $isAmministratore}
-                <h1 class="block"> Modifica viaggio </h1>
-                <div class="contactform">
-                    <div>
-                        <p class="center"><input type="button" class="elimina_viaggio button_center" name="{$num_viaggio}" value="Elimina viaggio" tabindex="8" /></p>
-                    </div>
+				<h1 class="block"> Modifica viaggio </h1>
+        <div class="contactform">
+                <div>
+                    <p class="center"><input type="button" class="elimina_viaggio button_center" name="{$num_viaggio}" value="Elimina viaggio" tabindex="8" /></p>
                 </div>
             {/if}
-        {/if}
-        {if $indietro}
-            <div class="contactform">
-                <p class="right"><input type="button" class="indietro button_center" value="Indietro" tabindex="8" /></p>
-            </div>
-        {/if}             
+			</div>
+            {if $indietro}
+                <div>
+                    <p class="center"><input type="button_center" class="indietro button_center" value="Indietro" tabindex="8" /></p>
+                </div>
+            {/if}             
 </div>

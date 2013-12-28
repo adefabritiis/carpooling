@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 17:39:15
+<?php /* Smarty version 2.6.26, created on 2013-12-29 00:35:05
          compiled from registrazione_visualizza_profilo.tpl */ ?>
 <script src="js/index.js"/>
 <br>

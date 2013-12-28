@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 18:40:06
+<?php /* Smarty version 2.6.26, created on 2013-12-29 00:35:45
          compiled from registrazione_visualizza_profilo_utente.tpl */ ?>
 <br>
 <script src="js/amministrazione_utenti.js"></script>
@@ -15,22 +15,22 @@
         <h3><?php echo $this->_tpl_vars['citta_residenza']; ?>
 </h3>                    
         <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
- alt="Image description"/></p>
+ alt="Image description" width="200" height="200"/></p>
         <p>Valutazione guidatore: <?php echo $this->_tpl_vars['media_feedback_guidatore']; ?>
 (<?php echo $this->_tpl_vars['num_viaggi_guid']; ?>
 )</p>
         <p>Valutazione passeggero: <?php echo $this->_tpl_vars['media_feedback_passeggero']; ?>
 </p>
-        <?php if ($this->_tpl_vars['partecipa'] || $this->_tpl_vars['loggato_amministratore']): ?>
-            <p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
+		<p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
 </b></p>
+        <?php if ($this->_tpl_vars['partecipa'] || $this->_tpl_vars['loggato_amministratore']): ?>
             <p>Numero di telefono:<b>&nbsp<?php echo $this->_tpl_vars['num_telefono']; ?>
 </b></p>
         <?php endif; ?>
         <p>Data di nascita:<b>&nbsp<?php echo $this->_tpl_vars['data_nascita']; ?>
 </b></p>
         <p>Città di nascita:<b>&nbsp<?php echo $this->_tpl_vars['citta_nascita']; ?>
-</b></p>
+</b></p><br><br>
 	<p><hr></p>
         <?php if (( $this->_tpl_vars['loggato_amministratore'] )): ?>
             <div id="mostra_amministrazione" name="<?php echo $this->_tpl_vars['username']; ?>
