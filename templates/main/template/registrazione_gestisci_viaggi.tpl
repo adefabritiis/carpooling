@@ -24,7 +24,8 @@
                 <div>Opzioni  </div>
                 </th>
                                     
-				
+				</table>
+				<table width="650">
 			</tr>
            {section name=nr loop=$array_viaggi}
                 <div class="pulsante">     

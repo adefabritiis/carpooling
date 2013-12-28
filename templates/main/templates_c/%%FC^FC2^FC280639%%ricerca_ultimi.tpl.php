@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-23 15:16:48
+<?php /* Smarty version 2.6.26, created on 2013-12-28 15:28:57
          compiled from ricerca_ultimi.tpl */ ?>
 <br>
 <script src="js/index.js"></script>
@@ -7,8 +7,7 @@
 <div class="column1-unit">	
     <div class="contactform" >
         <?php if ($this->_tpl_vars['viaggi']): ?>
-            <div style="width:650px;height:800px;overflow-y: scroll; border:1px;">
-                <table width:650px;>
+             <table width:650px;>
                     <tr>
                         <th class="mini">
                             <div>ID</div>
@@ -26,6 +25,10 @@
                             <div>Costo  </div>
 			</th>
                     </tr>
+			</table>
+			<div class="contenitore">
+			<table width:650px>
+				
                     <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
 $this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['viaggi']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -52,11 +55,11 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 ?>
                         <tr  class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
 "> 
-                            <td>
+                            <td width="87">
                                 <div><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
 </div>
                             </td>
-                            <td>
+                            <td width="87">
                                 <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
 </b></div>
                             </td>
@@ -68,12 +71,14 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                                 <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
 </b></div>
                             </td>
-                            <td>
+                            <td width="87">
                                 <div><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['costo']; ?>
 &nbsp €</div>
                             </td>
 			</tr>
                     <?php endfor; endif; ?>
+			
+                
                 </table>
             </div>
         <?php else: ?>

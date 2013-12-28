@@ -6,15 +6,15 @@
                 <div style="width:650px;height:800px;overflow-y: scroll; border:1px solid white;">
                     <table width:650px;>
                     <tr>
-                        <th class="top">
-                            <div name="num_viaggio">Numero viaggio  ▼</div>
+                        <th class="mini">
+                            <div name="num_viaggio">ID ▼</div>
                         </th>
                         <th class="top">
                             <div name="citta_partenza">Citta Partenza  </div>
                         </th>
                         <th class="top">
                             <div name="citta_arrivo">Citta Arrivo  </div>
-                        <th class="top">    
+                        <th class="mini">    
                             <div name="data-partenza">Data Partenza  </div>
                         </th>
                      </tr>   

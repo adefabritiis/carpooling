@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:26
+<?php /* Smarty version 2.6.26, created on 2013-12-28 01:01:52
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/gestisci_viaggi.js"></script>
@@ -27,7 +27,8 @@
                 <div>Opzioni  </div>
                 </th>
                                     
-				
+				</table>
+				<table width="650">
 			</tr>
            <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';

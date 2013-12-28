@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:02
+<?php /* Smarty version 2.6.26, created on 2013-12-28 14:15:14
          compiled from ricerca_inserisci.tpl */ ?>
 <!-- INSERIMENTO VIAGGIO -->
 <script src="js/inserisci_viaggio.js"></script>
@@ -56,7 +56,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <p><label for="costo" class="left">Costo:</label>
                     <input type="text" name="costo" id="costo" class="mini" value="" tabindex="6"  />&nbsp € (a persona)</p>
                 <p><label for="note" class="left">Note viaggio:</label>
-                   <textarea name="note" id="note" cols="45" rows="7" tabindex="7"></textarea></p>
+                   <textarea name="note" maxlength="300" id="note" cols="45" rows="7" tabindex="7"></textarea></p>
                 <p><input type="button" id="submit_offri" class="button" value="Inserisci viaggio" tabindex="8" /></p>
 		</fieldset>
             </form>

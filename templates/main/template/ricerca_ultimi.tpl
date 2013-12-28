@@ -24,7 +24,7 @@
 			</th>
                     </tr>
 			</table>
-			<div style="width:650px;height:300px;overflow-y: scroll; border:1px;">
+			<div class="contenitore">
 			<table width:650px>
 				
                     {section name=nr loop=$viaggi}
