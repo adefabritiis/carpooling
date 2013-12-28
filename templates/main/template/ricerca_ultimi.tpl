@@ -5,8 +5,7 @@
 <div class="column1-unit">	
     <div class="contactform" >
         {if $viaggi}
-            <div style="width:650px;height:800px;overflow-y: scroll; border:1px;">
-                <table width:650px;>
+             <table width:650px;>
                     <tr>
                         <th class="mini">
                             <div>ID</div>
@@ -24,12 +23,16 @@
                             <div>Costo  </div>
 			</th>
                     </tr>
+			</table>
+			<div style="width:650px;height:300px;overflow-y: scroll; border:1px;">
+			<table width:650px>
+				
                     {section name=nr loop=$viaggi}
                         <tr  class="riepilogo_viaggio pulsante" value="{$viaggi[nr].num_viaggio}"> 
-                            <td>
+                            <td width="87">
                                 <div>{$viaggi[nr].num_viaggio}</div>
                             </td>
-                            <td>
+                            <td width="87">
                                 <div><b>{$viaggi[nr].data_partenza}</b></div>
                             </td>
                             <td>
@@ -38,11 +41,13 @@
                             <td>
                                 <div><b>{$viaggi[nr].citta_arrivo}</b></div>
                             </td>
-                            <td>
+                            <td width="87">
                                 <div>{$viaggi[nr].costo}&nbsp €</div>
                             </td>
 			</tr>
                     {/section}
+			
+                
                 </table>
             </div>
         {else}
