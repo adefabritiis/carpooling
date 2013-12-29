@@ -138,3 +138,47 @@
 @media print {.main {clear:both; width:900px; padding-bottom:30px; background:transparent;}}
 @media print {.main-navigation {display:inline /*Fix IE floating margin bug*/; float:left; width:199px; border-right:solid 1px rgb(200,200,200); border-bottom:solid 1px rgb(200,200,200); background-color:rgb(240,240,240); overflow:visible !important /*Firefox*/; overflow:hidden /*IE*/;}}
 @media print {.footer {clear:both; width:900px; height:3.7em; padding:1.1em 0 0; background:rgb(240,240,240); font-size:1.0em; overflow:visible !important /*Firefox*/; overflow:hidden /*IE6*/;}}
+
+/*jqxRating*/
+.jqx-rating
+{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    overflow: hidden;
+}
+.jqx-rating-image
+{
+    border-width: 0px;
+}
+.jqx-rating-image-default
+{
+    margin: 0px;
+    padding: 0px;
+    outline: none;    
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(img/star1.png);
+    overflow: hidden;
+}
+/*applied to the rating when it is hovered.*/
+.jqx-rating-image-hover
+{
+    background-color: transparent;
+    padding: 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(img/star_yellow.png);
+    overflow: hidden;
+}
+/*applied to the rating when it is disabled.*/
+.jqx-rating-image-backward
+{
+    background-color: transparent;
+    padding: 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(img/star.png);
+    overflow: hidden;
+}

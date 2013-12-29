@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-29 00:04:24
+<?php /* Smarty version 2.6.26, created on 2013-12-29 16:39:20
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -23,12 +23,16 @@
   <meta name="keywords" content="Your keywords, keywords, keywords, here ..." />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/layout3_setup.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/layout3_text.css" />
+ 
+
   <!--<link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.min.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.css" />-->
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
   <title>CarPooling</title>
-  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/jquery-1.10.2.min.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="js/jqxcore.js"></script>
+  <script src="js/jqxrating.js"></script>
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/registrazione.js"></script>
