@@ -1,35 +1,15 @@
-$(document).ready(function(){
-                $("#citta_nascita").keyup(function() {
-                    $(this).autocomplete({source: "index.php", minLength: 2 })
-                });
-
-                function importdata(term) {
-                    $.ajax({
-                        type: "GET",
-                        url: "index.php",
-                        data: "term="+term, controller:'registrazione', task:'comuni',
-                        dataType: "json",
-                        success: function(response){
-                            if (response === null) {
-                                $("#citta_nascita").val("");
-                            } else {
-                                $("#citta_nascita").val(response[0]);
-                            }
-                        },
-                        error: function(){
-                            $("#citta").val("");
-                        }
-                    });
+$(document).ready(function(){    
+    $("#citta_nascita").autocomplete({
+        minLength: 2,
+        source: 'province.txt',
+        change: function (event, ui) {
+                if(!ui.item){
+                    $("#citta_nascita").val("");
                 }
-
-                $("#citta_nascita").focusout(function() {
-                    if ($("#citta_nascita").val().length >= 2) {
-                        var comune = $(this).val().split(" (");
-                        importdata(comune[0]);
-                    } else {
-                        $("#citta_nascita").val("");
-                    }
-                });     
+        }
+        
+     });
+     
     // Inserisco il calendario di jQuery UI
     $("#data_nascita").datepicker({
         changeMonth: true,
