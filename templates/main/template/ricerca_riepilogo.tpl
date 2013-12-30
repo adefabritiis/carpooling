@@ -40,7 +40,7 @@
             <p><label class="left">Posti:</label><label class="left">&nbsp<b>{$num_posti}</b><br></label><br></p>
             <p><label class="left">Carburante:</label><label class="left">&nbsp<b>{$carburante}</b></label><br></p>
             <p><label class="left">Consumo medio:</label><label class="left">&nbsp<b>{$consumo_medio}</b>&nbsp (Km con 1 litro)</label><br></p>
-        
+        <br>
         </div>
     <h1 class="block">Informazioni sui passeggeri</h1>
         <div class="contactform">
@@ -57,6 +57,7 @@
                 <br>
                 {/section}
             {else}
+                <br>
                 <h3> Non ci sono ancora passeggeri</h3>    
             {/if}
         </div>
@@ -69,10 +70,11 @@
                     <p class="center"><input type="button" class="elimina_viaggio button_center" name="{$num_viaggio}" value="Elimina viaggio" tabindex="8" /></p>
                 </div>
             {/if}
-			</div>
+			
             {if $indietro}
                 <div>
                     <p class="center"><input type="button_center" class="indietro button_center" value="Indietro" tabindex="8" /></p>
                 </div>
-            {/if}             
+            {/if}  
+        </div>
 </div>

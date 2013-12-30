@@ -1,4 +1,16 @@
 $(document).ready(function(){
+// Inserisco il calendario di jQuery UI
+    $("#data_partenza_ricerca").datepicker({
+        showOn: "button",
+        buttonImage: "templates/main/template/img/calendario.gif",
+        buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "2000:2020",
+        dateFormat: "yy/mm/dd",
+        defaultDate: "2000/01/01"
+    });
+    
 $('#mostra_avanzata').on("click",function(){
         $.ajax({
             url:'index.php',

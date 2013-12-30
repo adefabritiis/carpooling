@@ -12,10 +12,13 @@ $(document).ready(function(){
      
     // Inserisco il calendario di jQuery UI
     $("#data_nascita").datepicker({
+        showOn: "button",
+        buttonImage: "templates/main/template/img/calendario.gif",
+        buttonImageOnly: true,
         changeMonth: true,
         changeYear: true,
         yearRange: "1935:2005",
-        dateFormat: "yyyy/mm/dd",
+        dateFormat: "yy/mm/dd",
         defaultDate: "2000/01/01"
     });
     // Controllo sul server se la mail è già utilizzata.

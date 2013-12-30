@@ -360,16 +360,21 @@ button.ui-button::-moz-focus-inner {
 	font-size: .9em;
 	border-collapse: collapse;
 	margin: 0 0 .4em;
+        background: none;
+        background-color: #f0ead8;
 }
 .ui-datepicker th {
 	padding: .7em .3em;
 	text-align: center;
 	font-weight: bold;
 	border: 0;
+        background-color: #f0c040;
 }
 .ui-datepicker td {
 	border: 0;
 	padding: 1px;
+        color:#f0ead8;
+        background-color: #f0c040;
 }
 .ui-datepicker td span,
 .ui-datepicker td a {
@@ -397,6 +402,7 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
 	float: left;
 }
+.ui-datepicker-trigger { position:relative;top:-24px ;left:385px ; height:18px }
 
 /* with multiple calendars */
 .ui-datepicker.ui-datepicker-multi {

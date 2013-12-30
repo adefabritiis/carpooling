@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 11:54:54
+<?php /* Smarty version 2.6.26, created on 2013-12-30 17:02:31
          compiled from registrazione_modulo.tpl */ ?>
 <script src="js/registrazione.js"></script>
 		<br>
@@ -22,7 +22,7 @@
                     F <input type="radio" name="sesso" value="f" tabindex="4"/>
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="5" /></p>
-                <p><label for="citta_nascita" class="left">Città di nascita:</label>
+                <p><label for="citta_nascita" class="left1">Città di nascita:</label>
                    <input type="text" name="citta_nascita" id="citta_nascita" maxlength="30" class="field" value="" tabindex="6" />
                 <p><label for="citta_residenza" class="left">Città di residenza:</label>
                    <input type="text" name="citta_residenza" id="citta_residenza" maxlength="30" class="field" value="" tabindex="7" /></p>

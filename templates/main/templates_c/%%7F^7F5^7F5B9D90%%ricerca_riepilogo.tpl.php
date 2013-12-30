@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 16:47:59
+<?php /* Smarty version 2.6.26, created on 2013-12-30 16:04:40
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -62,7 +62,7 @@
 </b></label><br></p>
             <p><label class="left">Consumo medio:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['consumo_medio']; ?>
 </b>&nbsp (Km con 1 litro)</label><br></p>
-        
+        <br>
         </div>
     <h1 class="block">Informazioni sui passeggeri</h1>
         <div class="contactform">
@@ -122,10 +122,11 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 " value="Elimina viaggio" tabindex="8" /></p>
                 </div>
             <?php endif; ?>
-			</div>
+			
             <?php if ($this->_tpl_vars['indietro']): ?>
                 <div>
                     <p class="center"><input type="button_center" class="indietro button_center" value="Indietro" tabindex="8" /></p>
                 </div>
-            <?php endif; ?>             
+            <?php endif; ?>  
+        </div>
 </div>
