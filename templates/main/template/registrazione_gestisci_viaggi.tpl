@@ -16,10 +16,10 @@
                             <div>Data  </div>
 			</th>
 			<th class="mini">
-                            <div>Arrivo a  </div>
+                            <div>Partenza da  </div>
 			</th>
 			<th class="mini">
-                            <div>Opzioni  </div>
+                            <div>Arrivo a  </div>
 			</th>
                     </tr>
 			</table>
@@ -27,18 +27,18 @@
 			<table width:650px>
 				
                     {section name=nr loop=$array_viaggi}
-                        <tr  class="riepilogo_viaggio pulsante" value="{$array_viaggi[nr].num_viaggio}"> 
+                        <tr class="riepilogo_viaggio pulsante" value="{$array_viaggi[nr].num_viaggio}"> 
                             <td width="108">
                                 <div>{$array_viaggi[nr].num_viaggio}</div>
                             </td>
                             <td width="108">
                                 <div><b>{$array_viaggi[nr].data_partenza}</b></div>
                             </td>
-                            <td width="108">
-                                <div><b>{$array_viaggi[nr].citta_arrivo}</b></div>
+                             <td width="108">
+                                <div><b>{$array_viaggi[nr].citta_partenza}</b></div>
                             </td>
                             <td width="108">
-                                <div><input type="button" name="{$array_viaggi[nr].num_viaggio}" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
+                                <div><b>{$array_viaggi[nr].citta_arrivo}</b></div>
                             </td>
 			</tr>
                     {/section}

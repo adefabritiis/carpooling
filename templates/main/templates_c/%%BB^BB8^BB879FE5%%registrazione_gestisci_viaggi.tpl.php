@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 22:26:38
+<?php /* Smarty version 2.6.26, created on 2013-12-31 12:25:00
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/gestisci_viaggi.js"></script>
@@ -19,10 +19,10 @@
                             <div>Data  </div>
 			</th>
 			<th class="mini">
-                            <div>Arrivo a  </div>
+                            <div>Partenza da  </div>
 			</th>
 			<th class="mini">
-                            <div>Opzioni  </div>
+                            <div>Arrivo a  </div>
 			</th>
                     </tr>
 			</table>
@@ -53,7 +53,7 @@ $this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->
 $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
 ?>
-                        <tr  class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+                        <tr class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
 "> 
                             <td width="108">
                                 <div><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
@@ -63,13 +63,13 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                                 <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
 </b></div>
                             </td>
-                            <td width="108">
-                                <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
+                             <td width="108">
+                                <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>
 </b></div>
                             </td>
                             <td width="108">
-                                <div><input type="button" name="<?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['num_viaggio']; ?>
-" class="elimina_viaggio button_left" value="Elimina" tabindex="1" /></div>
+                                <div><b><?php echo $this->_tpl_vars['array_viaggi'][$this->_sections['nr']['index']]['citta_arrivo']; ?>
+</b></div>
                             </td>
 			</tr>
                     <?php endfor; endif; ?>
