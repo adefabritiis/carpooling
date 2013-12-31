@@ -48,10 +48,18 @@ $(document).ready(function(){
     {   // Regole di validazione
         rules:
         {
+            nome: 
+            {   
+                required: true,
+                maxlength: 20,
+                minlength:2,
+                nome:true
+            },
             cognome: 
             {   
                 required: true,
                 maxlength: 20,
+                minlength:2,
                 nome:true
             },
             data_nascita:
@@ -77,35 +85,25 @@ $(document).ready(function(){
             },
             num_telefono:
             {
-                required: false,
-                maxlength: 15
+                required: true,
+                maxlength: 15,
+                number: true
             },
             cod_fiscale:
             {
                 required: true,
                 maxlength: 16
-            },
-            username: 
-            {   
-                    required: true,
-                    maxlength: 20,
-                    nome:true
-            },
-            password: 
-            {       required: true,
-                    password: true,
-                    minlength: 4,
-                    maxlength: 20
-            },
-            password_1:
-            {
-                required: true,
-                equalTo: '#password'
             }
         },
         // Messaggi di errore.
         messages:
         {
+            nome: 
+            {
+                    required: " Inserisci il tuo nome!",
+                    maxlength: " La lunghezza massima è 30",
+                    nome: " Il nome deve contenere solo lettere"
+            },
             cognome: 
             {
                     required: " Inserisci il tuo cognome!",
@@ -128,7 +126,35 @@ $(document).ready(function(){
                     maxlength : " La lunghezza massima è 80",
                     email : " Il formato è 'example@gmail.com'"
             },
+            data_nascita: "Inserisci una data valida"
+        }
+        });
+        $("#modulo_log").validate(
+        {   // Regole di validazione
+        rules:
+        {
             username: 
+            {   
+                    required: true,
+                    maxlength: 20,
+                    minlength: 2
+            },
+            password: 
+            {       required: true,
+                    password: true,
+                    minlength: 4,
+                    maxlength: 20
+            },
+            password_1:
+            {
+                required: true,
+                equalTo: '#password'
+            }
+        },
+         // Messaggi di errore.
+        messages:
+        {
+        username: 
             {
                     required: " Inserisci il tuo nome!",
                     maxlength: " La lunghezza massima è 30",
@@ -143,10 +169,9 @@ $(document).ready(function(){
             {   
                     required: "La conferma non corrisponde alla scelta della password!",
                     equalTo: "Inserire password uguali"
-            },
-            data_nascita: "Inserisci una data valida"
+            }
         }
-        });
+    });        
 });
 function check_esiste(data) {
 

@@ -98,6 +98,7 @@ p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,
 .contactform {width:618px; margin:2.0em 0 0 0; padding:10px 10px 0 10px; border:solid 1px rgb(200,200,200); background-color:rgb(240,240,240);}
 .contactform fieldset {padding:20px 0 0 0 !important /*Non-IE6*/; padding:0 /*IE6*/; margin:0 0 20px 0; border:solid 1px rgb(220,220,220);}
 .contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:rgb(80,80,80); font-weight:bold; font-size:130%;}
+.contactform label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
 .contactform label.left {float:left; width:140px; margin:0 0 0 10px; padding:2px; font-size:110%;}
 .contactform label.left1 {float:left; width:140px; margin:0 0 0 -23px; padding:2px; font-size:110%;}
 .contactform label.contenitore { width:10px; height: 10px; margin:0 0 0 10px; padding: 2px;  background-color:rgb(200,200,200);}

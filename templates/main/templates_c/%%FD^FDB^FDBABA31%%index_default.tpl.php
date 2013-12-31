@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-30 10:25:21
+<?php /* Smarty version 2.6.26, created on 2013-12-31 09:58:00
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -32,6 +32,7 @@
   <script src="js/jqxcore.js"></script>
   <script src="js/jqxrating.js"></script>
   <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.form.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/registrazione.js"></script>
 </head>

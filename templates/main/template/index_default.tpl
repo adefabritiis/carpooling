@@ -30,6 +30,7 @@
   <script src="js/jqxcore.js"></script>
   <script src="js/jqxrating.js"></script>
   <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.form.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/registrazione.js"></script>
 </head>

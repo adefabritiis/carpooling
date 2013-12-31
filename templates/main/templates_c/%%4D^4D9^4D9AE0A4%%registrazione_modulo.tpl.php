@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-30 17:02:31
+<?php /* Smarty version 2.6.26, created on 2013-12-31 10:30:01
          compiled from registrazione_modulo.tpl */ ?>
 <script src="js/registrazione.js"></script>
 		<br>
@@ -7,36 +7,38 @@
         <!-- Content unit - One column -->
         <div>
 		<h1 class="block">Dati personali</h1>
-        <div id="modulo_reg" class="column1-unit">
+        <div  class="column1-unit">
           <div class="contactform">
-            <form method="post" action="index.php">
+            <form id="modulo_reg" method="post" action="index.php">
                 <p><input type="hidden" name="controller" value="registrazione" /></p>
                 <p><input type="hidden" name="task" value="salva" /></p>
                 <fieldset>
                 <p><label for="nome" class="left">Nome:</label>
-                   <input type="text" name="nome" id="nome" maxlength="20" class="field" value="" tabindex="1" autofocus /></p>
+                   <input type="text" name="nome" id="nome" class="field" value="" tabindex="1" autofocus /></p>
                 <p><label for="cognome" class="left">Cognome:</label>
-                   <input type="text" name="cognome" id="cognome"  maxlength="20" class="field" value="" tabindex="2" /></p>
+                   <input type="text" name="cognome" id="cognome" class="field" value="" tabindex="2" /></p>
                 <p><label for="sesso" class="left">Sesso:</label>
                     M <input type="radio" accept=""name="sesso" value="m" checked="checked" tabindex="3" />
                     F <input type="radio" name="sesso" value="f" tabindex="4"/>
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="5" /></p>
                 <p><label for="citta_nascita" class="left1">Città di nascita:</label>
-                   <input type="text" name="citta_nascita" id="citta_nascita" maxlength="30" class="field" value="" tabindex="6" />
+                   <input type="text" name="citta_nascita" id="citta_nascita" class="field" value="" tabindex="6" />
                 <p><label for="citta_residenza" class="left">Città di residenza:</label>
-                   <input type="text" name="citta_residenza" id="citta_residenza" maxlength="30" class="field" value="" tabindex="7" /></p>
+                   <input type="text" name="citta_residenza" id="citta_residenza" class="field" value="" tabindex="7" /></p>
                 <p><label for="email" class="left">Email:</label>
-                   <input type="text" name="email" id="email" maxlength="30" class="field" value="" tabindex="8" /></p>
+                   <input type="text" name="email" id="email" class="field" value="" tabindex="8" /></p>
                    <label id="errore_email" for="email"> Email già utilizzata </label>
                  <p><label for="num_telefono" class="left">Numero di telefono:</label>
-                   <input type="text" name="num_telefono" id="num_telefono" maxlength="15" class="field" value="" tabindex="9" /></p>
+                   <input type="text" name="num_telefono" id="num_telefono" class="field" value="" tabindex="9" /></p>
                 <p><label for="cod_fiscale" class="left">Codice fiscale:</label>
-                   <input type="text" name="cod_fiscale" id="cod_fiscale" maxlength="16" class="field" value="" tabindex="10" /></p>
-		</fieldset>  
+                   <input type="text" name="cod_fiscale" id="cod_fiscale" class="field" value="" tabindex="10" /></p>
+		</fieldset> 
+             </form>   
                 </div>
 		  <h1 class="block">Dati per il login</h1>
 		  <div class="contactform">
+              <form id="modulo_log" method="post" action="index.php">        
               <fieldset>
 				<p><label for="username" class="left">Username:</label>
                    <input type="text" name="username" id="username" class="field" value="" tabindex="11"  /></p>
