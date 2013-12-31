@@ -16,7 +16,7 @@
                 <p><label for="cognome" class="left">Cognome:</label>
                    <input type="text" name="cognome" id="cognome" class="field" value="" tabindex="2" /></p>
                 <p><label for="sesso" class="left">Sesso:</label>
-                    M <input type="radio" accept="" name="sesso" value="m"  tabindex="3" />
+                    M <input type="radio" name="sesso" value="m"  tabindex="3" />
                     F <input type="radio" name="sesso" value="f" tabindex="4"/>
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="5" /></p>
