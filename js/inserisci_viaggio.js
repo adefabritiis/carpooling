@@ -4,6 +4,7 @@ $(document).ready(function(){
         showOn: "button",
         buttonImage: "templates/main/template/img/calendario.gif",
         buttonImageOnly: true,
+        minDate: 0,
         changeMonth: true,
         changeYear: true,
         yearRange: "2000:2020",

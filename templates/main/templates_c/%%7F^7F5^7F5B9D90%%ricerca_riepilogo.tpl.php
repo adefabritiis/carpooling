@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-30 16:04:40
+<?php /* Smarty version 2.6.26, created on 2013-12-31 10:53:37
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -109,6 +109,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <br>
                 <?php endfor; endif; ?>
             <?php else: ?>
+                <br>
                 <h3> Non ci sono ancora passeggeri</h3>    
             <?php endif; ?>
         </div>

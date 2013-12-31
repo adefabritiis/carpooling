@@ -16,7 +16,7 @@
                 <p><label for="cognome" class="left">Cognome:</label>
                    <input type="text" name="cognome" id="cognome" class="field" value="" tabindex="2" /></p>
                 <p><label for="sesso" class="left">Sesso:</label>
-                    M <input type="radio" accept=""name="sesso" value="m" checked="checked" tabindex="3" />
+                    M <input type="radio" accept="" name="sesso" value="m"  tabindex="3" />
                     F <input type="radio" name="sesso" value="f" tabindex="4"/>
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="5" /></p>
@@ -30,20 +30,14 @@
                  <p><label for="num_telefono" class="left">Numero di telefono:</label>
                    <input type="text" name="num_telefono" id="num_telefono" class="field" value="" tabindex="9" /></p>
                 <p><label for="cod_fiscale" class="left">Codice fiscale:</label>
-                   <input type="text" name="cod_fiscale" id="cod_fiscale" class="field" value="" tabindex="10" /></p>
-		</fieldset> 
-             </form>   
-                </div>
-		  <h1 class="block">Dati per il login</h1>
-		  <div class="contactform">
-              <form id="modulo_log" method="post" action="index.php">        
-              <fieldset>
-				<p><label for="username" class="left">Username:</label>
+                   <input type="text" name="cod_fiscale" id="cod_fiscale" class="field" value="" tabindex="10" /></p><br>
+                <h1 class="block">Dati login</h1><br>
+		<p><label for="username" class="left">Username:</label>
                    <input type="text" name="username" id="username" class="field" value="" tabindex="11"  /></p>
-                                <label id="errore_username" for="username"> Username già utilizzato </label>
-				<p><label for="password" class="left">Password:</label>
+                   <label id="errore_username" for="username"> Username già utilizzato </label>
+		<p><label for="password" class="left">Password:</label>
                    <input type="password" name="password" id="password" class="field" value="" tabindex="12"  /></p>
-				<p><label for="password_1" class="left">Ripeti password:</label>
+		<p><label for="password_1" class="left">Ripeti password:</label>
                    <input type="password" name="password_1" id="password_1" class="field" value="" tabindex="13"  /></p>   
                 <p><input type="submit" name="submit" id="submit" class="button" value="Registrati" tabindex="14" /></p>
               </fieldset>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 14:15:14
+<?php /* Smarty version 2.6.26, created on 2013-12-31 10:42:52
          compiled from ricerca_inserisci.tpl */ ?>
 <!-- INSERIMENTO VIAGGIO -->
 <script src="js/inserisci_viaggio.js"></script>
@@ -18,7 +18,7 @@
                 <p><label for="data_partenza" class="left">Data di partenza:</label>
                    <input type="text" name="data_partenza" id="data_partenza" class="field" value="" tabindex="3" /></p>
 		<div id="menu_veicoli">
-                    <p><label for="targa" class="left">Scegli un veicolo:</label>
+                    <p><label for="targa" class="left1">Scegli un veicolo:</label>
                     <select name="targa" class="veicoli combo"> 
                         <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';

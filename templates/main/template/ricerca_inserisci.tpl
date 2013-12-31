@@ -16,7 +16,7 @@
                 <p><label for="data_partenza" class="left">Data di partenza:</label>
                    <input type="text" name="data_partenza" id="data_partenza" class="field" value="" tabindex="3" /></p>
 		<div id="menu_veicoli">
-                    <p><label for="targa" class="left">Scegli un veicolo:</label>
+                    <p><label for="targa" class="left1">Scegli un veicolo:</label>
                     <select name="targa" class="veicoli combo"> 
                         {section name=nr loop=$veicoli}
                             <option value="{$veicoli[nr].targa}"><h5>{$veicoli[nr].targa}</h5></option>
