@@ -85,7 +85,7 @@
 .main-content table th.top {height:3.0em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(65,191,239); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:100%;}
 .main-content table th.mini {height:3.0em; width:5em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(65,191,239); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:100%;}
 .main-content table th {height:3.0em; width:7.5em; padding:2px 20px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 5px rgb(255,255,255); background-color:rgb(225,225,225); text-align:left; color:rgb(80,80,80); font-weight:bold; font-size:80%;}
-.main-content table td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 2px rgb(255,255,255); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:80%;}
+.main-content table td {height:3.0em; word-wrap:break-word; padding:2px 7px 2px 7px; border-left:solid 2px rgb(255,255,255); border-right:solid 2px rgb(255,255,255); border-top:solid 2px rgb(255,255,255); border-bottom:solid 2px rgb(255,255,255); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:80%;}
 .main-content table tr {background-color:rgb(235,235,235);}
 .main-content table tr:hover {background-color:rgb(220,220,220);}
 p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,80,80); font-size:110%;}
