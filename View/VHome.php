@@ -83,11 +83,11 @@ class VHome extends View {
         $amministratore=$session->leggi_valore('amministratore');
         //$FUtente=new FUtente();
         //$amministratore=$FUtente->isAmministratore($username);
-        $this->colonna_laterale.="Benvenuto $username";
+        //$this->colonna_laterale.="Benvenuto, $username!";
         $this->assign('corpo_centrale',$this->corpo_centrale);
         $this->assign('registrato',true);
         $this->assign('amministratore',$amministratore);
-        $this->aggiungiTastoLogout();    
+        $this->aggiungiTastoLogout($username);    
     }
     /*
      * imposta la pagina per gli utenti non registrati/autenticati
@@ -101,10 +101,15 @@ class VHome extends View {
     /**
      * aggiunge il tasto logout al menu laterale
      */
-    public function aggiungiTastoLogout() {
+    public function aggiungiTastoLogout($username) {
     /*    $tasto_logout=array();
         $tasto_logout[]=array('testo' => 'Logout', 'link' => '?controller=registrazione&task=esci'); */
+		$FUtente=new FUtente();
+        $utente=$FUtente->load($username);
+		$img_profilo=$utente->immagine_profilo;
         $VRegistrazione=USingleton::getInstance('VRegistrazione');
+		$VRegistrazione->impostaDati('username',$username);
+		$VRegistrazione->impostaDati('immagine_profilo',$img_profilo);
         $VRegistrazione->setLayout('logout');
         $tasto_logout=$VRegistrazione->processaTemplate();
         $this->menu_laterale.=$tasto_logout;
