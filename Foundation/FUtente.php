@@ -26,6 +26,15 @@ public function getMediaGuidatore($username){
      $dati= array( "$media_guidatore", "$tot_viaggi");
      return $dati;
  }
+ public function getArrayFeedbackGuidatore($username){
+	$query="SELECT `num_viaggio`, `voto_totale`,`num_voti`, `commento` FROM `guidatore` WHERE `username_guidatore`='$username'";
+	$this->query($query);
+	$array=$this->getResultAssoc();
+	return $array;
+		
+	
+	
+ }
 
 public function getMediaPasseggero($username){
      $query="SELECT AVG(`feedback_guid`)as 'media' FROM `passeggero` WHERE `username_passeggero`='$username'";

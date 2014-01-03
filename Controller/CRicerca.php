@@ -288,7 +288,7 @@ class CRicerca {
             $num_voti= $EGuidatore->num_voti;
             $voto_totale= $EGuidatore->voto_totale;
             $commenti_presenti=$EGuidatore->commento;
-            $EGuidatore->commento=$commenti_presenti." ".$username.": ".$commento;
+            $EGuidatore->commento=$commenti_presenti."<b>".$username."</b>: ".$commento."<br>";
             $num_voti++;
             $voto_totale= $voto_totale+ $voto;
             $EGuidatore->num_voti= $num_voti;

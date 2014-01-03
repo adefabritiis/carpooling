@@ -23,7 +23,7 @@
 						<textarea name="commento" class="commento" cols="70" rows="5" tabindex="1" maxlength="100"></textarea></p>
 					</td>
 				</tr>
-			<table>
+			</table>
 			 
         
 

@@ -1,6 +1,6 @@
 <script src="js/index.js"/>
 <br>
-<h1 class="pagetitle">Dati profilo</h1>
+<h1 class="pagetitle">Il tuo profilo</h1>
 <div>
     <h1 class="block">&nbsp{$username}&nbsp</h1>
 </div>
@@ -16,4 +16,56 @@
         <p>Data di nascita:<b>&nbsp{$data_nascita}</b></p>
         <p>Città di nascita:<b>&nbsp{$citta_nascita}</b></p><br><br><br><br>
     </div>
+	</div>
+	<div>
+	<h1 class="block">Passaggi offerti e feedback ricevuti da {$username}</h1>
+	<div class="contactform">
+		{if $array_commenti_guidatore}
+		   <table>
+			<th class="top">
+                            <div>Commenti </div>
+			</th>
+			<th class="mini">
+                            <div>Media feedback </div>
+			</th>
+			<th class="mini">
+                            <div>ID </div>
+			</th>
+                    </tr>
+			</table>
+			<div class="contenitore">
+			<table>
+				
+                    {section name=nr loop=$array_commenti_guidatore}
+                        <tr class="riepilogo_viaggio pulsante" value="{$array_commenti_guidatore[nr].num_viaggio}"> 
+                            <td width="35%">
+								<div>
+								{if $array_commenti_guidatore[nr].num_voti>0}
+									{$array_commenti_guidatore[nr].commento}
+								{else}
+									[Nessun commento]
+								{/if}
+                            </td>
+                            <td width="25%">
+                                <div>
+								{if $array_commenti_guidatore[nr].num_voti>0}
+									{$array_commenti_guidatore[nr].voto_totale/$array_commenti_guidatore[nr].num_voti}
+								{else}
+									[Nessun voto]
+								{/if}
+								</div>
+                            </td>
+                             <td width="25%">
+                                <div>
+									{$array_commenti_guidatore[nr].num_viaggio}
+								</div>
+								
+                            </td>
+			</tr>
+                    {/section}
+		{else}
+		<p class="center"><label class="center-title"> Nessun feedback ricevuto!</label></p>
+		{/if}
+	</div>
+	
 </div>

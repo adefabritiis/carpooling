@@ -1,6 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-29 16:37:18
+<?php /* Smarty version 2.6.26, created on 2014-01-03 02:17:18
          compiled from ricerca_feedback_guidatore.tpl */ ?>
 <script src="js/valutazione.js"></script>
+<br>
 <h1 class="pagetitle">Rilascia un feedback a <?php echo $this->_tpl_vars['username_passeggero']; ?>
 </h1>
 <!-- Content unit - One column -->
@@ -12,18 +13,28 @@
 </h1>
     <div class="column1-unit">
         <div class="contactform">
-            <p><label for="commento" class="left">Commento:</label>
-                <textarea name="commento" class="commento" cols="45" rows="7" tabindex="1"></textarea></p>
-            <div id="jqxWidget" style="font-size: 13px; font-family: Verdana;">
-                <div id="jqxRating"></div>
-                <div style='margin-top:10px;'>
-                    <div style='float: left;'>Rating:</div> <div style='float: left;' id='rate'></div>
-                </div>
-            </div>
-            <br><br>
-            <!--<p><label for="valutazione" class="left">Valutazione:</label>
-                <input type="text" name="valutazione" class="valutazione" class="field" value="" tabindex="2"  /></p>-->
-            <p><input type="button" class="valuta_pass button_left" name1="<?php echo $this->_tpl_vars['username_passeggero']; ?>
+			<table>
+				<th class="mini">
+				<div id='rate' >Voto:&nbsp</div> 
+				</th>
+				<th class="top">
+				Commento: (facoltativo)
+				</th>
+				<tr>
+					<td>
+						<div id="jqxWidget">
+							<div id="jqxRating"></div>
+						</div>
+					</td>
+					<td>
+						<textarea name="commento" class="commento" cols="70" rows="5" tabindex="1" maxlength="100"></textarea></p>
+					</td>
+				</tr>
+			</table>
+			 
+        
+
+            <p class="center"><input type="button" class="valuta_pass button_center" name1="<?php echo $this->_tpl_vars['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
 " value="Valuta" tabindex="3" /></p>
             <br>              
