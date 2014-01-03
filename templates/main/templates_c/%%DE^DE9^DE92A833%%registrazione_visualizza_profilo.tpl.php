@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-03 13:39:36
+<?php /* Smarty version 2.6.26, created on 2014-01-03 18:13:17
          compiled from registrazione_visualizza_profilo.tpl */ ?>
 <script src="js/index.js"/>
 <br>
@@ -38,7 +38,7 @@
 		<?php if ($this->_tpl_vars['array_commenti_guidatore']): ?>
 		   <table>
 			<th class="top">
-                            <div>Commenti </div>
+                            <div>Commento dei passeggeri</div>
 			</th>
 			<th class="mini">
                             <div>Media feedback </div>
@@ -105,8 +105,88 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                             </td>
 			</tr>
                     <?php endfor; endif; ?>
+			</table>
 		<?php else: ?>
-		<p class="center"><label class="center-title"> Nessun feedback ricevuto!</label></p>
+		<p class="center"><label class="center-title"> Nessun passaggio offerto!</label></p>
+		<?php endif; ?>
+	</div>
+	</div>
+	<div>
+	<h1 class="block">Viaggi effettuati da passeggero e feedback ricevuti da <?php echo $this->_tpl_vars['username']; ?>
+</h1>
+	<div class="contactform">
+		<?php if ($this->_tpl_vars['array_commenti_guidatore']): ?>
+		   <table>
+			<th class="top">
+                            <div>Commento </div>
+			</th>
+			<th class="mini">
+                            <div>Feedback</div>
+			</th>
+			<th class="mini">
+                            <div>ID</div>
+			</th>
+                    </tr>
+			</table>
+			<div class="contenitore">
+			<table>
+				
+                    <?php unset($this->_sections['nr']);
+$this->_sections['nr']['name'] = 'nr';
+$this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['array_commenti_passeggero']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['nr']['show'] = true;
+$this->_sections['nr']['max'] = $this->_sections['nr']['loop'];
+$this->_sections['nr']['step'] = 1;
+$this->_sections['nr']['start'] = $this->_sections['nr']['step'] > 0 ? 0 : $this->_sections['nr']['loop']-1;
+if ($this->_sections['nr']['show']) {
+    $this->_sections['nr']['total'] = $this->_sections['nr']['loop'];
+    if ($this->_sections['nr']['total'] == 0)
+        $this->_sections['nr']['show'] = false;
+} else
+    $this->_sections['nr']['total'] = 0;
+if ($this->_sections['nr']['show']):
+
+            for ($this->_sections['nr']['index'] = $this->_sections['nr']['start'], $this->_sections['nr']['iteration'] = 1;
+                 $this->_sections['nr']['iteration'] <= $this->_sections['nr']['total'];
+                 $this->_sections['nr']['index'] += $this->_sections['nr']['step'], $this->_sections['nr']['iteration']++):
+$this->_sections['nr']['rownum'] = $this->_sections['nr']['iteration'];
+$this->_sections['nr']['index_prev'] = $this->_sections['nr']['index'] - $this->_sections['nr']['step'];
+$this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->_sections['nr']['step'];
+$this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
+$this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
+?>
+                        <tr class="riepilogo_viaggio pulsante" value="<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+"> 
+                            <td width="35%">
+								<div>
+								<?php if ($this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['votato']): ?>
+									<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['commento_guid']; ?>
+
+								<?php else: ?>
+									[Nessun commento]
+								<?php endif; ?>
+                            </td>
+                            <td width="25%">
+                                <div>
+								<?php if ($this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['votato']): ?>
+									<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['feedback_guid']; ?>
+
+								<?php else: ?>
+									[Nessun voto]
+								<?php endif; ?>
+								</div>
+                            </td>
+                             <td width="25%">
+                                <div>
+									<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['num_viaggio']; ?>
+
+								</div>
+								
+                            </td>
+			</tr>
+                    <?php endfor; endif; ?>
+		<?php else: ?>
+		<p class="center"><label class="center-title"> Nessun viaggio presente!</label></p>
 		<?php endif; ?>
 	</div>
 	

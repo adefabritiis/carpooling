@@ -1,7 +1,7 @@
 <br>
 <script src="js/index.js"></script>
 <h1 class="pagetitle">Home page</h1>
-<div><h1 class="block">Ultimi viaggi inseriti</h1></div>
+<div><h1 class="block">Ultimi viaggi inseriti dagli utenti</h1></div>
 <div class="column1-unit">	
     <div class="contactform" >
         {if $viaggi}
@@ -33,7 +33,7 @@
                                 <div>{$viaggi[nr].num_viaggio}</div>
                             </td>
                             <td width="87">
-                                <div><b>{$viaggi[nr].data_partenza}</b></div>
+                                <div>{$viaggi[nr].data_partenza}</div>
                             </td>
                             <td>
                                 <div><b>{$viaggi[nr].citta_partenza}</b></div>

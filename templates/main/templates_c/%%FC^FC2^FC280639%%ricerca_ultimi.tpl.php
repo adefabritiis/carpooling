@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 15:28:57
+<?php /* Smarty version 2.6.26, created on 2014-01-03 18:16:35
          compiled from ricerca_ultimi.tpl */ ?>
 <br>
 <script src="js/index.js"></script>
 <h1 class="pagetitle">Home page</h1>
-<div><h1 class="block">Ultimi viaggi inseriti</h1></div>
+<div><h1 class="block">Ultimi viaggi inseriti dagli utenti</h1></div>
 <div class="column1-unit">	
     <div class="contactform" >
         <?php if ($this->_tpl_vars['viaggi']): ?>
@@ -60,8 +60,8 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 </div>
                             </td>
                             <td width="87">
-                                <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
-</b></div>
+                                <div><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['data_partenza']; ?>
+</div>
                             </td>
                             <td>
                                 <div><b><?php echo $this->_tpl_vars['viaggi'][$this->_sections['nr']['index']]['citta_partenza']; ?>

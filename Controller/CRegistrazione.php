@@ -218,6 +218,8 @@ class CRegistrazione {
             $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
             $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
 			$commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
+			$commenti_passeggero=$FUtente->getArrayFeedbackPasseggero($username);
+			$view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
 			$view->impostaDati('array_commenti_guidatore',$commenti_guidatore);
             return $view->processaTemplateParziale();
         }

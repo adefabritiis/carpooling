@@ -31,10 +31,13 @@ public function getMediaGuidatore($username){
 	$this->query($query);
 	$array=$this->getResultAssoc();
 	return $array;
-		
-	
-	
- }
+	}
+public function getArrayFeedbackPasseggero($username){
+	$query="SELECT `num_viaggio`, `commento_guid`, `feedback_guid`, `votato` FROM `passeggero` WHERE `username_passeggero`='$username'";
+	$this->query($query);
+	$array=$this->getResultAssoc();
+	return $array;
+}	
 
 public function getMediaPasseggero($username){
      $query="SELECT AVG(`feedback_guid`)as 'media' FROM `passeggero` WHERE `username_passeggero`='$username'";

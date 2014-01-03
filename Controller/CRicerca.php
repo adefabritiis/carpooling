@@ -33,7 +33,7 @@ class CRicerca {
             $EViaggio->data_partenza=$view->getDataPartenza();
             $EViaggio->note=$view->getNote();
             $EViaggio->costo=$view->getCosto();
-            $EViaggio->posti_disponibili=$posti['num_posti'];
+            $EViaggio->posti_disponibili=$posti['num_posti']-1;
             $FViaggio=new FViaggio();
             $FViaggio->store($EViaggio);
             $num_viaggio=$FViaggio->getUltimoNumViaggio();
@@ -316,7 +316,7 @@ class CRicerca {
             $FPasseggero= new FPasseggero();
             $array= $FPasseggero->oggettoPasseggero($num_viaggio, $username_passeggero);
             $feedback= $view->getValutazione();
-            $commento= $view->getCommento();
+            $commento= "<b>".$username_guidatore."</b>: ".$view->getCommento();
             $FPasseggero->votaPasseggero($num_viaggio,$username_passeggero,$feedback,$commento);
             $view->setLayout('conferma_valutazione');
             $view->processaTemplateParziale();        
