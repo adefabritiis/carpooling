@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-31 10:53:37
+<?php /* Smarty version 2.6.26, created on 2014-01-03 20:04:12
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -20,20 +20,41 @@
 "><?php echo $this->_tpl_vars['username_guidatore']; ?>
 </a></label><?php if (( $this->_tpl_vars['isPasseggero'] && ! $this->_tpl_vars['votato'] )): ?><input type="button" id="feedback" class="button_center" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
 " value="Feedback" tabindex="1" /><?php endif; ?></p>
-            <p><label class="left">Data di partenza:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['data_partenza']; ?>
-</b></label></p><br>
-            <p><label class="left">Città di partenza:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['citta_partenza']; ?>
-</b></label></p><br>
-            <p><label class="left">Città di arrivo:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['citta_arrivo']; ?>
-</b><br></label></p><br>
-            <p><label class="left">Veicolo:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['tipo']; ?>
-</b></label></p><br>
-            <p><label class="left">Posti disponibili:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['posti_disponibili']; ?>
-</b></label></p><br>
-            <p><label class="left">Costo a persona:</label><label class="left">&nbsp<b><?php echo $this->_tpl_vars['costo']; ?>
-&nbsp€</b></label></p><br>
-			<p><label class="left">Note viaggio:</label><div class="contenitore_mini"><div style="width:430px;"><p><h3><b><?php echo $this->_tpl_vars['note']; ?>
-</b></h3></p></div></div><br><br>
+           <table>
+		   <tr class="normale">
+			<th class="top">Data di partenza:</th>
+			<td colspan="2"><h2><?php echo $this->_tpl_vars['data_partenza']; ?>
+</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Città di partenza:</th>
+			<td colspan="2"><h2><?php echo $this->_tpl_vars['citta_partenza']; ?>
+</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Città di arrivo:</th>
+			<td colspan="2"><h2><?php echo $this->_tpl_vars['citta_arrivo']; ?>
+</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Tipo di veicolo:</th>
+			<td width="220"><h2><?php echo $this->_tpl_vars['tipo']; ?>
+</h2></td>
+			<th class="top">Posti disponibili:</th>
+			<td width="220"><h2><?php echo $this->_tpl_vars['posti_disponibili']; ?>
+</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Costo a persona:</th>
+			<td width="220"><h2><?php echo $this->_tpl_vars['costo']; ?>
+&nbsp€</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Note:</th>
+			<td  colspan="3"><p><h3><b><?php echo $this->_tpl_vars['note']; ?>
+</b></h3></p></td>
+			</tr>
+		   </table>
 		   
 			<?php if (( $this->_tpl_vars['loggato'] && ! $this->_tpl_vars['isPasseggero'] && ! $this->_tpl_vars['isGuidatore'] && $this->_tpl_vars['posti_disponibili'] > 0 )): ?>
 			
@@ -64,12 +85,10 @@
 </b>&nbsp (Km con 1 litro)</label><br></p>
         <br>
         </div>
-    <h1 class="block">Informazioni sui passeggeri</h1>
+    <h1 class="block">Passeggeri partecipanti</h1>
         <div class="contactform">
             <?php if ($this->_tpl_vars['array_passeggeri']): ?>
-                <h2> Passeggeri partecipanti: </h2>
-		<br>
-                <hr>
+                <hr><br>
                 <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
 $this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['array_passeggeri']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

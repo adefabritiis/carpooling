@@ -1,4 +1,5 @@
 <script src="js/valutazione.js"></script>
+<br>
 <h1 class="pagetitle">Rilascia un feedback a {$username_guidatore}</h1>
 <!-- Content unit - One column -->
 <div> 
@@ -12,7 +13,7 @@
 				<th class="top">
 				Commento: (facoltativo)
 				</th>
-				<tr>
+				<tr class="normale">
 					<td>
 						<div id="jqxWidget">
 							<div id="jqxRating"></div>

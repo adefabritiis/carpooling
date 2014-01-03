@@ -13,13 +13,34 @@
                 <p class="center"><label class="center-title">Non ci sono più posti disponibili!</label></p>
              {/if}
             <p class="center"><b>organizzato da:</b>&nbsp<label class="center pulsante"><a class="visualizza_utente"  name="{$partecipa}" value="{$username_guidatore}">{$username_guidatore}</a></label>{if ($isPasseggero && !$votato)}<input type="button" id="feedback" class="button_center" name="{$num_viaggio}" value="Feedback" tabindex="1" />{/if}</p>
-            <p><label class="left">Data di partenza:</label><label class="left">&nbsp<b>{$data_partenza}</b></label></p><br>
-            <p><label class="left">Città di partenza:</label><label class="left">&nbsp<b>{$citta_partenza}</b></label></p><br>
-            <p><label class="left">Città di arrivo:</label><label class="left">&nbsp<b>{$citta_arrivo}</b><br></label></p><br>
-            <p><label class="left">Veicolo:</label><label class="left">&nbsp<b>{$tipo}</b></label></p><br>
-            <p><label class="left">Posti disponibili:</label><label class="left">&nbsp<b>{$posti_disponibili}</b></label></p><br>
-            <p><label class="left">Costo a persona:</label><label class="left">&nbsp<b>{$costo}&nbsp€</b></label></p><br>
-			<p><label class="left">Note viaggio:</label><div class="contenitore_mini"><div style="width:430px;"><p><h3><b>{$note}</b></h3></p></div></div><br><br>
+           <table>
+		   <tr class="normale">
+			<th class="top">Data di partenza:</th>
+			<td colspan="2"><h2>{$data_partenza}</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Città di partenza:</th>
+			<td colspan="2"><h2>{$citta_partenza}</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Città di arrivo:</th>
+			<td colspan="2"><h2>{$citta_arrivo}</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Tipo di veicolo:</th>
+			<td width="220"><h2>{$tipo}</h2></td>
+			<th class="top">Posti disponibili:</th>
+			<td width="220"><h2>{$posti_disponibili}</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Costo a persona:</th>
+			<td width="220"><h2>{$costo}&nbsp€</h2></td>
+			</tr>
+			<tr class="normale">
+			<th class="top">Note:</th>
+			<td  colspan="3"><p><h3><b>{$note}</b></h3></p></td>
+			</tr>
+		   </table>
 		   
 			{if ($loggato && !$isPasseggero && !$isGuidatore && $posti_disponibili>0)}
 			
@@ -42,12 +63,10 @@
             <p><label class="left">Consumo medio:</label><label class="left">&nbsp<b>{$consumo_medio}</b>&nbsp (Km con 1 litro)</label><br></p>
         <br>
         </div>
-    <h1 class="block">Informazioni sui passeggeri</h1>
+    <h1 class="block">Passeggeri partecipanti</h1>
         <div class="contactform">
             {if $array_passeggeri}
-                <h2> Passeggeri partecipanti: </h2>
-		<br>
-                <hr>
+                <hr><br>
                 {section name=nr loop=$array_passeggeri}
                     <div>
                         <br>

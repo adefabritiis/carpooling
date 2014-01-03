@@ -13,7 +13,7 @@
 				<th class="top">
 				Commento: (facoltativo)
 				</th>
-				<tr>
+				<tr class="normale">
 					<td>
 						<div id="jqxWidget">
 							<div id="jqxRating"></div>

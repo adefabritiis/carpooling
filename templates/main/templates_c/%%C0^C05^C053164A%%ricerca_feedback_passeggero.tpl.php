@@ -1,6 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-03 18:10:59
+<?php /* Smarty version 2.6.26, created on 2014-01-03 19:43:07
          compiled from ricerca_feedback_passeggero.tpl */ ?>
 <script src="js/valutazione.js"></script>
+<br>
 <h1 class="pagetitle">Rilascia un feedback a <?php echo $this->_tpl_vars['username_guidatore']; ?>
 </h1>
 <!-- Content unit - One column -->
@@ -19,7 +20,7 @@
 				<th class="top">
 				Commento: (facoltativo)
 				</th>
-				<tr>
+				<tr class="normale">
 					<td>
 						<div id="jqxWidget">
 							<div id="jqxRating"></div>
