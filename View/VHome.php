@@ -38,7 +38,6 @@ class VHome extends View {
         $VRegistrazione->setLayout('default');
         $modulo_login=$VRegistrazione->processaTemplate();
         $this->colonna_laterale.=$modulo_login;
-
     }
     /**
      * Assegna il contenuto al template e lo manda in output
@@ -48,14 +47,10 @@ class VHome extends View {
         $this->assign('menu_laterale',$this->menu_laterale);
         $this->display('index_'.$this->_layout.'.tpl');
     }
-    
     public function mostraPaginaParziale($template)
     {
         $this->display($template);
     }
-
-    
-
     /**
      * imposta il contenuto principale alla variabile privata della classe
      */
@@ -73,7 +68,6 @@ class VHome extends View {
         else
             return false;
     }
-    
     /**
      * Imposta la pagina per gli utenti registrati/autenticati
      */
@@ -102,27 +96,15 @@ class VHome extends View {
      * aggiunge il tasto logout al menu laterale
      */
     public function aggiungiTastoLogout($username) {
-    /*    $tasto_logout=array();
-        $tasto_logout[]=array('testo' => 'Logout', 'link' => '?controller=registrazione&task=esci'); */
-		$FUtente=new FUtente();
+	$FUtente=new FUtente();
         $utente=$FUtente->load($username);
-		$img_profilo=$utente->immagine_profilo;
+	$img_profilo=$utente->immagine_profilo;
         $VRegistrazione=USingleton::getInstance('VRegistrazione');
-		$VRegistrazione->impostaDati('username',$username);
-		$VRegistrazione->impostaDati('immagine_profilo',$img_profilo);
+	$VRegistrazione->impostaDati('username',$username);
+	$VRegistrazione->impostaDati('immagine_profilo',$img_profilo);
         $VRegistrazione->setLayout('logout');
         $tasto_logout=$VRegistrazione->processaTemplate();
         $this->menu_laterale.=$tasto_logout;
     }
-    /**
-     * aggiunge il tasto per la registrazione nel menu laterale (per gli utenti non autenticati)
-     */
-    /*public function aggiungiTastoRegistrazione() {
-        $menu_registrazione=array();
-        $menu_registrazione[]=array('testo' => 'Attivati', 'link' => '?controller=registrazione&task=attivazione');
-        $this->menu_laterale[]=array_merge(array('testo' => 'Registrati', 'link' => '?controller=registrazione&task=registra', 'submenu' => $menu_registrazione),$this->menu_laterale);
-    }*/
-    
 }
-
 ?>

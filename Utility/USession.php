@@ -1,4 +1,8 @@
 <?php
+/**
+ * @access public
+ * @package Utility
+ */
 class USession {
     public function __construct() {
         session_start();

@@ -30,6 +30,8 @@ class VRegistrazione extends View {
     }
     
     /**
+     * restituisce il task
+     *
      * @return mixed
      */
     public function getTask() {
@@ -40,6 +42,8 @@ class VRegistrazione extends View {
     }
     
     /**
+     * restituisce il controller
+     *
      * @return mixed
      */
     public function getController() {
@@ -60,14 +64,24 @@ class VRegistrazione extends View {
         else
             return false;
     }
-    
-     public function getUsernamePasseggero() {
+
+    /*
+    * restituisce l'username del passeggero
+    *
+    * @return mixed
+    */
+    public function getUsernamePasseggero() {
         if (isset($_REQUEST['username_passeggero']))
             return $_REQUEST['username_passeggero'];
         else
             return false;
     }
     
+    /*
+    * restituisce la targa
+    *
+    * @return mixed
+    */
     public function getTarga() {
         if (isset($_REQUEST['targa']))
             return $_REQUEST['targa'];
@@ -75,6 +89,11 @@ class VRegistrazione extends View {
             return false;
     }
     
+    /*
+    * restituisce l'ordinamento selezionato
+    *
+    * @return mixed
+    */
     public function getOrdinamento() {
         if (isset($_REQUEST['ordinamento']))
             return $_REQUEST['ordinamento'];
@@ -83,6 +102,8 @@ class VRegistrazione extends View {
     }
     
     /**
+     * Ricarica il template completo
+     * 
      * @return string
      */
     public function processaTemplate() {
@@ -90,9 +111,13 @@ class VRegistrazione extends View {
         return $contenuto;
     }
     
-     public function processaTemplateParziale() {
+    /*
+    * Mostra il template parziale
+    */
+    public function processaTemplateParziale() {
         $this->display('registrazione_'.$this->_layout.'.tpl');
     }
+    
     /**
      * Restituisce l'array contenente i dati di registrazione
      *
@@ -103,23 +128,21 @@ class VRegistrazione extends View {
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))
-                
                 $dati[$dato]=$_REQUEST[$dato];
-                //echo($dati[$dato]);
         }
-		$dati["immagine_profilo"]="img/".$dati['sesso']."_imgprofilo.jpg";   
+	$dati["immagine_profilo"]="img/".$dati['sesso']."_imgprofilo.jpg";   
         return $dati;
     }
     /**
      * Imposta l'eventuale errore nel template
      *
-     * @param string $errore
+     * @param $errore string
      */
     public function impostaErrore($errore){
         $this->assign('errore',$errore);
     }
      /**
-     * imposta il layout
+     * Imposta il layout per richiamare il template
      *
      * @param string $layout
      */
@@ -129,105 +152,132 @@ class VRegistrazione extends View {
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
      *
-     * @param string $key
-     * @param mixed $valore
+     * @param $key string
+     * @param $valore mixed
      */
     public function impostaDati($key,$valore){
         $this->assign($key,$valore);
     }
-    /**
-     * Restituisce un array contenente i dati di attivazione
-     *
-     * @return mixed
-     */
-    
-     
-    
-    public function getDatiAttivazione() {
-        if(isset($_REQUEST['codice_attivazione']) && isset($_REQUEST['username']))
-            return array('codice'=>$_REQUEST['codice_attivazione'], 'username'=>$_REQUEST['username']);
-        else
-            return false;
-    }
-    
+    /*
+    * Restituisce l'username ricercato
+    *
+    * @return mixed
+    */
     public function getUsernameRicerca() {
         if (isset($_REQUEST['username_ricerca'])) {
             return $_REQUEST['username_ricerca'];
         } else
             return 0;
     }
-    
+    /*
+    * Restituisce il cognome ricercato
+    *
+    * @return mixed
+    */
     public function getCognomeRicerca() {
         if (isset($_REQUEST['cognome_ricerca'])) {
             return $_REQUEST['cognome_ricerca'];
         } else
             return 0;
     }
-    
+    /*
+    * Restituisce la citta ricercata
+    *
+    * @return mixed
+    */
     public function getCittaRicerca() {
         if (isset($_REQUEST['citta_residenza_ricerca'])) {
             return $_REQUEST['citta_residenza_ricerca'];
         } else
             return 0;
     } 
-    
+    /*
+    * Restituisce la citta di partenza di ricerca
+    *
+    * @return mixed
+    */
     public function getCittaPartenzaRicerca() {
         if (isset($_REQUEST['citta_partenza_ricerca'])) {
             return $_REQUEST['citta_partenza_ricerca'];
         } else
             return 0;
     }
-    
+    /*
+    * Restituisce la citta di arrivo di ricerca
+    *
+    * @return mixed
+    */
     public function getCittaArrivoRicerca() {
         if (isset($_REQUEST['citta_arrivo_ricerca'])) {
             return $_REQUEST['citta_arrivo_ricerca'];
         } else
             return 0;
     }
-    
+    /*
+    * Restituisce la data di partenza di ricerca
+    *
+    * @return mixed
+    */
     public function getDataPartenzaRicerca() {
         if (isset($_REQUEST['data_partenza_ricerca'])) {
             return $_REQUEST['data_partenza_ricerca'];
         } else
             return 0;
     }
-    
+    /*
+    * Restituisce l'email
+    *
+    * @return mixed
+    */
     public function getEmail() {
         if (isset($_REQUEST['email'])) {
             return $_REQUEST['email'];
         } else
             return 0;
     }
-
+    /*
+    * Restituisce la vecchia password
+    *
+    * @return mixed
+    */
     public function getPwdAttuale() {
         if (isset($_REQUEST['pwdattuale']))
             return $_REQUEST['pwdattuale'];
         else
             return false;
     }
-    
+    /*
+    * Restituisce la nuova password
+    *
+    * @return mixed
+    */
     public function getPwd() {
         if (isset($_REQUEST['pwd']))
             return $_REQUEST['pwd'];
         else
             return false;
     }
-    
+    /*
+    * Restituisce la conferma della nuova password
+    *
+    * @return mixed
+    */
     public function getPwd1() {
         if (isset($_REQUEST['pwd1']))
             return $_REQUEST['pwd1'];
         else
             return false;
     }
-    
+    /*
+    * Restituisce se l'utente e' partecipante al viaggio
+    *
+    * @return bool
+    */
     public function isPartecipante() {
         if (isset($_REQUEST['partecipa']))
             return $_REQUEST['partecipa'];
         else
             return false;
     }
-    
-    
 }
-
 ?>
