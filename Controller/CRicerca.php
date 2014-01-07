@@ -4,13 +4,11 @@
  * @package Controller
  */
 class CRicerca {
-    
-    public function index() {
-        $view = USingleton::getInstance('VHome');
-        $view->setController('prova');
-        return $view->processaTemplate();
-    }
-   
+
+/**
+ * Mostra gli ultimi viaggi inseriti 
+ * @return mixed
+ */
     public function ultimiViaggi(){
         $view=USingleton::getInstance('VRicerca');
         $FViaggio=new FViaggio();
@@ -18,7 +16,10 @@ class CRicerca {
         $view->mostraListaUltimiViaggi($viaggi);
         return $view->processaTemplate();
     }
-    
+
+/**
+ * Inserisce il viaggio nel database prelevando dati da form 
+ */
     public function inserisciViaggio() {
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -48,6 +49,10 @@ class CRicerca {
         else $this->errore_aggiornamento();
     }
     
+/**
+ * Aggiunge un veicolo inserito dall'utente ai suoi veicoli
+ * @return mixed
+ */
     public function aggiungiVeicolo(){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -63,7 +68,6 @@ class CRicerca {
                 $FVeicolo=new FVeicolo();
                 $FVeicolo->store($EVeicolo);
                 if($_REQUEST['da']=='inserisci'){
-                    //$this->inserimentoViaggio();
                     $FVeicolo=new FVeicolo();
                     $veicoli=$FVeicolo->getVeicoli($username);
                     $view->impostaDati('veicoli',$veicoli);
@@ -77,6 +81,10 @@ class CRicerca {
             else $this->errore_aggiornamento();
     }
     
+/**
+ * Mostra form di inserimento veicolo 
+ * @return mixed
+ */
     public function inserimentoVeicolo(){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -92,7 +100,12 @@ class CRicerca {
             }
             else $this->errore_aggiornamento();
     }
-    
+
+/**
+ * Mostra i dati di uno specifico viaggio
+ * @param $num_viaggio int
+ * @return mixed
+ */
     public function riepilogoViaggio($num_viaggio){
             $FViaggio=new FViaggio();
             $viaggio=$FViaggio->load($num_viaggio);
@@ -137,9 +150,13 @@ class CRicerca {
             $view->impostaDati('indietro',$view->getRicerca());
             $view->setLayout('riepilogo');
             return $view->processaTemplateParziale();
-            
      }
      
+/**
+ * Registra un utente come partecipante al viaggio
+ * @param $num_viaggio int
+ * @return mixed
+ */
      public function partecipaViaggio($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -171,6 +188,12 @@ class CRicerca {
             else $this->errore_aggiornamento();
      }
      
+/**
+ * Cancella uno specifico passeggero da un viaggio
+ * @param $num_viaggio int
+ * @param $username string 
+ * @return mixed
+ */
      public function cancellaPasseggero($num_viaggio, $username){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -190,7 +213,11 @@ class CRicerca {
             }
             else $this->errore_aggiornamento();
      }
-     
+    
+/**
+ * Aggiorna la lista dei veicoli disponibili per l'utente in inserimento viaggio 
+ * @return mixed
+ */
     public function ricarica_veicoli() {
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -205,6 +232,10 @@ class CRicerca {
         else $this->errore_aggiornamento();
     }
      
+/**
+ * Mostra template di inserimento viaggio 
+ * @return mixed
+ */
      public function inserimentoViaggio(){
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -221,13 +252,20 @@ class CRicerca {
         }
         return $view->processaTemplateParziale();
      }
-     
+    
+/**
+ * Mostra template di ricerca viaggio 
+ * @return mixed
+ */
     public function ricercaViaggio() {
             $view=USingleton::getInstance('VRicerca');
             $view->setLayout('avanzata');
             $view->processaTemplateParziale();   
     }
     
+/**
+ * Ricerca dei viaggi relativi ai campi riempiti
+ */
     public function invioRicerca() {
             $view=USingleton::getInstance('VRicerca');
             $view->setLayout('elenco');
@@ -242,13 +280,18 @@ class CRicerca {
             $view->mostraListaViaggi($viaggi);
     }
     
+/**
+ * Mostra il template per rilasciare un feedback da guidatore a passeggero o da passeggero a guidatore per uno specifico viaggio
+ * @param $num_viaggio int 
+ * @return mixed
+ */
      public function inserisciFeedback($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
             if ($username!=false) {
                 $FPasseggero= new FPasseggero();
                 $array= $FPasseggero->loadPasseggero($num_viaggio, $username);
-                $array_passeggeri= $FPasseggero->loadPasseggeri($num_viaggio);
+                //$array_passeggeri= $FPasseggero->loadPasseggeri($num_viaggio);
                 $FGuidatore= new FGuidatore();
                 $EGuidatore= $FGuidatore->getGuidatore($num_viaggio);
                 $FViaggio= new FViaggio();
@@ -277,6 +320,11 @@ class CRicerca {
             else $this->errore_aggiornamento();
     }
     
+/**
+ * Rilascia un feedback per uno specifico viaggio da passeggero a guidatore
+ * @param $num_viaggio int
+ * @return mixed
+ */
     public function verificaValutazione($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -308,13 +356,19 @@ class CRicerca {
             $view->setLayout('conferma_valutazione');
             $view->processaTemplateParziale();
     }
-    
+
+/**
+ * Rilascia un feedback per uno specifico viaggio da guidatore a passeggero
+ * @param $num_viaggio int
+ * @param $username_passeggero string
+ * @return mixed
+ */
     public function verificaValutazioneGuidatore($num_viaggio,$username_passeggero){
             $session=USingleton::getInstance('USession');
             $username_guidatore=$session->leggi_valore('username');
             $view=USingleton::getInstance('VRicerca');
             $FPasseggero= new FPasseggero();
-            $array= $FPasseggero->oggettoPasseggero($num_viaggio, $username_passeggero);
+            //$array= $FPasseggero->oggettoPasseggero($num_viaggio, $username_passeggero);
             $feedback= $view->getValutazione();
             $commento= "<b>".$username_guidatore."</b>: ".$view->getCommento();
             $FPasseggero->votaPasseggero($num_viaggio,$username_passeggero,$feedback,$commento);
@@ -322,6 +376,11 @@ class CRicerca {
             $view->processaTemplateParziale();        
     }
     
+/**
+ * Riepilogo dei dati relativi ad uno specifico veicolo
+ * @param $targa string
+ * @return mixed
+ */
     public function riepilogoVeicolo($targa){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -340,6 +399,11 @@ class CRicerca {
             else $this->errore_aggiornamento();
     }
     
+/**
+ * Elimina un viaggio
+ * @param $num_viaggio int
+ * @return mixed
+ */
     public function eliminaViaggio($num_viaggio){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -353,6 +417,11 @@ class CRicerca {
             else $this->errore_aggiornamento();
     }
     
+/**
+ * Elimina un veicolo
+ * @param $targa string
+ * @return mixed
+ */
     public function eliminaVeicolo($targa){
             $session=USingleton::getInstance('USession');
             $username=$session->leggi_valore('username');
@@ -366,13 +435,22 @@ class CRicerca {
             else $this->errore_aggiornamento();
     }
     
+ /**
+ * Richiama template di errore in caso di problemi di logout e aggiornamento
+ * @return mixed
+ */
     public function errore_aggiornamento(){
         $view=USingleton::getInstance('VRegistrazione');
         $view->setControllerTaskDefault();
         $view->setLayout('errore_aggiornamento');
         return $view->processaTemplateParziale();
     }
-        
+
+/**
+ * Mostra template di amministrazione degli utenti secondo uno specifico ordinamento
+ * @param $ordinamento string
+ * @return mixed
+ */
     public function amministraUtenti($ordinamento){
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -389,6 +467,13 @@ class CRicerca {
         else $this->errore_aggiornamento();
     }
     
+/**
+ * Ricerca utenti secondo vari criteri
+ * @param $username_ricerca string
+ * @param $cognome string
+ * @param $citta_residenza string
+ * @return mixed
+ */
     public function ricercaUtenti($username_ricerca,$cognome,$citta_residenza){
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -404,6 +489,11 @@ class CRicerca {
         else $this->errore_aggiornamento();
     }
     
+/**
+ * Mostra template di amministrazione dei viaggi secondo uno specifico ordinamento
+ * @param $ordinamento string
+ * @return mixed
+ */
     public function amministraViaggi($ordinamento){
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -418,7 +508,14 @@ class CRicerca {
         }
         else $this->errore_aggiornamento();
     }
-    
+
+/**
+ * Ricerca viaggi da amministrazione secondo vari criteri
+ * @param $citta_partenza_ricerca string
+ * @param $citta_arrivo_ricerca string
+ * @param $data_partenza_ricerca string
+ * @return mixed
+ */
     public function ricercaViaggi($citta_partenza_ricerca,$citta_arrivo_ricerca,$data_partenza_ricerca){
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
