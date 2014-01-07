@@ -16,7 +16,7 @@ class VRicerca extends View {
     private $_layout='default';
     /**
      * restituisce la citta di partenza passata per GET o POST
-     * @return string
+     * @return mixed
      */
     public function getCittaPartenza() {
         if (isset($_REQUEST['citta_partenza'])) {
@@ -24,23 +24,29 @@ class VRicerca extends View {
         } else
             return 0;
     }
-    
+    /**
+     * restituisce la variabile da
+     * @return mixed
+     */
     public function getDa() {
         if (isset($_REQUEST['da']))
             return $_REQUEST['da'];
         else
             return false;
     }
-    
-     public function getUsernamePasseggero() {
+    /**
+     * restituisce l'username del passeggero
+     * @return mixed
+     */
+    public function getUsernamePasseggero() {
         if (isset($_REQUEST['username_passeggero']))
             return $_REQUEST['username_passeggero'];
         else
             return false;
     }
     /**
-     * restituisce la citta di arrivo passata per GET o POST
-     * @return string
+     * restituisce la citta di arrivo
+     * @return mixed
      */
     public function getCittaArrivo() {
         if (isset($_REQUEST['citta_arrivo'])) {
@@ -49,8 +55,8 @@ class VRicerca extends View {
             return 0;
     }
     /**
-     * restituisce la data di partenza passata per GET o POST
-     * @return string
+     * restituisce la data di partenza
+     * @return mixed
      */
     public function getDataPartenza() {
         if (isset($_REQUEST['data_partenza'])) {
@@ -58,78 +64,106 @@ class VRicerca extends View {
         } else
             return 0;
     }
-    
+    /**
+     * restituisce la variabile ricerca
+     * @return mixed
+     */
     public function getRicerca() {
         if (isset($_REQUEST['ricerca'])) {
             return $_REQUEST['ricerca'];
         } else
             return 0;
     }
-    
+    /**
+     * restituisce il costo
+     * @return mixed
+     */
     public function getCosto() {
         if (isset($_REQUEST['costo'])) {
             return $_REQUEST['costo'];
         } else
             return 0;
     }
-   
+    /**
+     * restituisce le note
+     * @return mixed
+     */
     public function getNote() {
         if (isset($_REQUEST['note'])) {
             return $_REQUEST['note'];
         } else
             return 0;
     }
-    
-     public function getTarga() {
+    /**
+     * restituisce la targa
+     * @return mixed
+     */
+    public function getTarga() {
         if (isset($_REQUEST['targa'])) {
             return $_REQUEST['targa'];
         } else
             return 0;
     }
-   
+   /**
+     * restituisce il tipo di veicolo
+     * @return mixed
+     */
     public function getTipo() {
         if (isset($_REQUEST['tipo'])) {
             return $_REQUEST['tipo'];
         } else
             return 0;
     }
-    
+    /**
+     * restituisce il numero dei posti disponibili per un veicolo
+     * @return mixed
+     */
     public function getNumPosti() {
         if (isset($_REQUEST['num_posti'])) {
             return $_REQUEST['num_posti'];
         } else
             return 0;
     }
-    
+    /**
+     * restituisce il tipo di carburante del veicolo
+     * @return mixed
+     */
     public function getCarburante() {
         if (isset($_REQUEST['carburante'])) {
             return $_REQUEST['carburante'];
         } else
             return 0;
     }
-    
+    /**
+     * restituisce il consumo medio del veicolo
+     * @return mixed
+     */
     public function getConsumoMedio() {
         if (isset($_REQUEST['consumo_medio'])) {
             return $_REQUEST['consumo_medio'];
         } else
             return 0;
     }
-    
-     public function getValutazione() {
+    /**
+     * restituisce la valutazione
+     * @return mixed
+     */
+    public function getValutazione() {
         if (isset($_REQUEST['valutazione'])) {
             return $_REQUEST['valutazione'];
         } else
             return 0;
     }
-    
+    /**
+     * restituisce il commento
+     * @return mixed
+     */
      public function getCommento() {
         if (isset($_REQUEST['commento'])) {
             return $_REQUEST['commento'];
         } else
             return 0;
     }
-    
-
     /**
      * Processa il layout scelto nella variabile _layout
      *
@@ -138,12 +172,13 @@ class VRicerca extends View {
     public function processaTemplate() {
         return $this->fetch('ricerca_'.$this->_layout.'.tpl');
     }
-    
+    /**
+     * visualizza il template parziale
+     */
     public function processaTemplateParziale() {
         $this->display('ricerca_'.$this->_layout.'.tpl');
     }
-
-        /**
+     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
      *
      * @param string $key
@@ -152,56 +187,40 @@ class VRicerca extends View {
     public function impostaDati($key,$valore) {
         $this->assign($key,$valore);
     }
-    
     /**
+     * Imposta il layout per richiamare il template
      * @param string $layout
      */
     public function setLayout($layout) {
         $this->_layout=$layout;
     }
-    
+    /**
+     * Assegna una lista di viaggi al template ricerca_elenco e lo mostra
+     * @param $viaggi array
+     */
     public function mostraListaViaggi($viaggi){
         $this->assign('viaggi', $viaggi);
         $this->display('ricerca_elenco.tpl');
     }
-    
+    /**
+     * Assegna una lista di ultimi viaggi inseriti e al template e lo imposta come layout
+     */
     public function mostraListaUltimiViaggi($viaggi){
         $this->assign('viaggi', $viaggi);
         $this->setLayout('ultimi');
     }
-    
+    /**
+     * Assegna una lista di utenti ad un eventuale template
+     */
     public function mostraListaUtenti($utenti){
         $this->assign('utenti', $utenti);
     }
-    
+    /**
+     * Assegna una lista di viaggi ad un eventuale template
+     * @return mixed
+     */
     public function mostraListaCompletaViaggi($viaggi){
         $this->assign('viaggi', $viaggi);
     }
-    
-    
-    
-    /**
-     * restituisce il numero della pagina (utilizzato nella visualizzazione dei libri) passato per GET o POST
-     * @return int
-     */
-    public function getPage() {
-        if (isset($_REQUEST['page'])) {
-            return $_REQUEST['page'];
-        } else
-            return 0;
-    }
-    /**
-     * restituisce il voto passato tramite GET o POST
-     *
-     * @return mixed
-     */
-    public function getVoto() {
-        if (isset($_REQUEST['voto'])) {
-            return $_REQUEST['voto'];
-        } else
-            return false;
-    }
-    
 }
-
 ?>
