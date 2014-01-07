@@ -4,6 +4,7 @@ class VRegistrazione extends View {
      * @var string $_layout
      */
     private $_layout='default';
+    
     /**
      * restituisce la password passata tramite GET o POST
      *
@@ -15,6 +16,7 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
      * restituisce la username passata tramite GET o POST
      *
@@ -26,6 +28,7 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
      * @return mixed
      */
@@ -35,6 +38,7 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
      * @return mixed
      */
@@ -45,6 +49,11 @@ class VRegistrazione extends View {
             return false;
     }
     
+    /**
+     * restituisce il numero del viaggio passato tramite GET o POST
+     *
+     * @return mixed
+     */
     public function getNumViaggio() {
         if (isset($_REQUEST['num_viaggio']))
             return $_REQUEST['num_viaggio'];

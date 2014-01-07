@@ -1,6 +1,6 @@
 <!-- RICERCA VIAGGI --> 
 		<br>
-<script src="js/ricerca_viaggi.js"/>
+<script src="js/ricerca_viaggi.js"></script>
 <h1 class="pagetitle">Cerca un passaggio</h1>
 <div id="viaggio_ricerca">
     <div class="mostra_ricerca">

@@ -83,26 +83,47 @@ public function getUtenti($ordinamento){
     return $utenti;
 }
 
+/**
+ * Metodo per rendere amministratore un utente
+ * @param string $username
+ */
 public function rendi_amministratore($username){
     $query="UPDATE `utente` SET `amministratore`=1 WHERE `username`='$username'";
     return $this->query($query);
 }
 
+/**
+ * Metodo per rendere l'amministratore un semplice utente
+ * @param string $username
+ */
 public function rendi_utente($username){
     $query="UPDATE `utente` SET `amministratore`=0 WHERE `username`='$username'";
     return $this->query($query);
 }
 
+/**
+ * Metodo per attivare l'account di un utente
+ * @param string $username
+ */
 public function attiva_account($username){
     $query="UPDATE `utente` SET `stato_attivazione`=1 WHERE `username`='$username'";
     return $this->query($query);
 }
 
+/**
+ * Metodo per disattivare l'account di un utente
+ * @param string $username
+ */
 public function disattiva_account($username){
     $query="UPDATE `utente` SET `stato_attivazione`=0 , `amministratore`=0 WHERE `username`='$username'";
     return $this->query($query);
 }
 
+/**
+ * Metodo per verificare lo stato di un utente
+ * @param string $username
+ * @return array $utente
+ */
 public function verifica_tipo_utente($username){
     $query="SELECT `amministratore`,`stato_attivazione` FROM `utente` WHERE `username`='$username'";
     $this->query($query);
@@ -115,6 +136,11 @@ public function aggiornaImmagine($username,$file_nome){
     return $this->query($query);
 }
 
+/**
+ * Metodo per verificare se un username è già utilizzato o meno
+ * @param string $username
+ * @return array $trovato
+ */
 public function verificaUsername($username){
     $query="SELECT `username` FROM `utente` WHERE `username`='$username'";
     $this->query($query);
@@ -122,6 +148,11 @@ public function verificaUsername($username){
     return $trovato;
 }
 
+/**
+ * Metodo per verificare se un'email è già utilizzata o meno
+ * @param string $email
+ * @return array $trovato
+ */
 public function verificaEmail($email){
     $query="SELECT `username`,`email` FROM `utente` WHERE `email`='$email'";
     $this->query($query);

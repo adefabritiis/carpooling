@@ -5,6 +5,10 @@ class CRegistrazione {
     private $_errore='';
     private $_autenticato=false;
     
+    /**
+     * controlla se l'utente è registrato e autenticato
+     * @return boolean
+     */
     public function getUtenteRegistrato() {
         $autenticato=false;
         $session=USingleton::getInstance('USession');
@@ -31,7 +35,7 @@ class CRegistrazione {
     }
 
 
-/**
+     /**
      * Controlla se una coppia username e password corrispondono ad un utente regirtrato ed in tal caso impostano le variabili di sessione relative all'autenticazione
      *
      * @param string $username
@@ -71,14 +75,11 @@ class CRegistrazione {
     }
     
      /**
-     * Crea un utente sul database controllando che non esista già
-     *
-     * @return mixed
+     * Funzione che effettua la validazione lato server dei dati inseriti
+     * @param array
+     * @return boolean
      */
-    
-    public function validaDati($dati) {
-         //array('username','password','password_1','nome','cognome','sesso','data_nascita',
-         //'citta_nascita','citta_residenza','email','num_telefono','cod_fiscale');
+     public function validaDati($dati) {
          $username=$dati['username'];
          $password=$dati['password'];
          $password_1=$dati['password_1'];
@@ -116,16 +117,18 @@ class CRegistrazione {
             return false;
          else
             return true;
-    }
+     }
 
-
+    /**
+     * Crea un utente sul database controllando che non esista già
+     * @return mixed
+     */
     public function creaUtente() {
         $view=USingleton::getInstance('VRegistrazione');
         $dati_registrazione=$view->getDatiRegistrazione();
         $utente=new EUtente();
         $FUtente=new FUtente();
         $validazione=$this->validaDati($dati_registrazione);
-        echo $validazione;
         if($validazione) {
             unset($dati_registrazione['password_1']);
             $keys=array_keys($dati_registrazione);
@@ -153,7 +156,7 @@ class CRegistrazione {
      
     
     /**
-     * Mostra il modulo di registrazione
+     * Funzione che mostra il modulo di registrazione
      *
      * @return string
      */
@@ -162,9 +165,11 @@ class CRegistrazione {
         $VRegistrazione->setLayout('modulo');
         return $VRegistrazione->processaTemplate();
     }
+    
     /**
-     * EfFettua il logout
-     */
+    * Funzione che effettua il logout
+    * @return mixed
+    */
     public function logout() {
         $session=USingleton::getInstance('USession');
         $session->cancella_valore('username');
@@ -179,6 +184,10 @@ class CRegistrazione {
         return $view->processaTemplateParziale();
     }
     
+    /**
+    * Funzione che mostra gli ultimi viaggi inseriti caricando l'intera pagina
+    * @return mixed
+    */
     public function ultimiViaggi(){
         $view=USingleton::getInstance('VRicerca');
         $FViaggio=new FViaggio();
@@ -187,6 +196,10 @@ class CRegistrazione {
         return $view->processaTemplate();
     }
     
+    /**
+    * Funzione che mostra gli ultimi viaggi inseriti mediante una chiamata ajax
+    * @return mixed
+    */
     public function ultimiViaggiParziale(){
         $view=USingleton::getInstance('VRicerca');
         $FViaggio=new FViaggio();
@@ -195,6 +208,10 @@ class CRegistrazione {
         return $view->processaTemplateParziale();
     }
     
+    /**
+    * Funzione che mostra il profilo dell'utente tramite account->profilo
+    * @return mixed 
+    */
     public function visualizzaProfilo() {
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -217,15 +234,19 @@ class CRegistrazione {
             $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
             $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
             $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
-			$commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
-			$commenti_passeggero=$FUtente->getArrayFeedbackPasseggero($username);
-			$view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
-			$view->impostaDati('array_commenti_guidatore',$commenti_guidatore);
+	    $commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
+            $commenti_passeggero=$FUtente->getArrayFeedbackPasseggero($username);
+	    $view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
+	    $view->impostaDati('array_commenti_guidatore',$commenti_guidatore);
             return $view->processaTemplateParziale();
         }
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che mostra il profilo dell'utente 
+    * @return mixed 
+    */
     public function visualizzaUtente($username){
         $session=USingleton::getInstance('USession');
         $loggato_amministratore=$session->leggi_valore('amministratore');
@@ -253,6 +274,10 @@ class CRegistrazione {
         $view->processaTemplateParziale();
     }
     
+    /**
+    * Funzione che gestisce il profilo dell'utente
+    * @return mixed 
+    */
     public function gestisciProfilo(){
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -273,6 +298,10 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che gestisce le azioni successive al login
+    * @return mixed 
+    */
     public function confermaLogin() {
         if ($this->_autenticato) { 
             $controller=USingleton::getInstance('CRicerca');
@@ -284,6 +313,10 @@ class CRegistrazione {
         }
     }
     
+    /**
+    * Funzione che gestisce i viaggi offerti dall'utente e i viaggi a cui ha partecipato
+    * @return mixed 
+    */
     public function gestisciViaggi(){
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -301,6 +334,11 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che permette di rendere amministratore un utente
+    * @param string
+    * @return mixed 
+    */
     public function rendi_amministratore($username){
         $session=USingleton::getInstance('USession');
         $username_loggato=$session->leggi_valore('username');
@@ -313,6 +351,11 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che rende un amministratore un semplice utente
+    * @param string
+    * @return mixed 
+    */
     public function rendi_utente($username){
         $session=USingleton::getInstance('USession');
         $username_loggato=$session->leggi_valore('username');
@@ -325,6 +368,11 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che permette di attivare l'account di un utente
+    * @param string
+    * @return mixed 
+    */
     public function attiva_account($username){
         $session=USingleton::getInstance('USession');
         $username_loggato=$session->leggi_valore('username');
@@ -337,6 +385,11 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che permette di disattivare l'account di un utente
+    * @param string
+    * @return mixed 
+    */
     public function disattiva_account($username){
         $session=USingleton::getInstance('USession');
         $username_loggato=$session->leggi_valore('username');
@@ -349,6 +402,11 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che permette di verificare lo stato di un utente
+    * @param string
+    * @return mixed 
+    */
     public function verifica_tipo_utente($username){
         $session=USingleton::getInstance('USession');
         $username_loggato=$session->leggi_valore('username');
@@ -366,6 +424,10 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che permette di caricare un'immagine del profilo
+    * @return mixed 
+    */
     public function caricaImmagine(){
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -383,6 +445,10 @@ class CRegistrazione {
         else $this->errore_aggiornamento();
     }
     
+    /**
+    * Funzione che verifica lato client se un'email è gia utilizzata o meno
+    * @param string
+    */
     public function verificaEmail($email) {
         $FUtente=new FUtente();
         $verifica=$FUtente->verificaEmail($email);
@@ -396,6 +462,10 @@ class CRegistrazione {
         echo json_encode($mail);
     }
     
+    /**
+    * Funzione che verifica lato client se un'username è gia utilizzato o meno
+    * @param string
+    */
     public function verificaUsername($username) {
         $FUtente=new FUtente();
         $verifica=$FUtente->verificaUsername($username);
@@ -409,12 +479,20 @@ class CRegistrazione {
         echo json_encode($user);
     }
     
+    /**
+    * Funzione che carica il template per il recupero della password
+    */
     public function recuperoPassword() {
         $view=Usingleton::getInstance('VRegistrazione');
         $view->setLayout('recupero');
         return $view->processaTemplateParziale();
     }
     
+    /**
+    * Funzione che permette il recupero della password
+    * @param string
+    * @return mixed
+    */
     public function invioRecupero($email) {
         $FUtente=new FUtente();
         $esiste=$FUtente->verificaEmail($email);
@@ -431,6 +509,7 @@ class CRegistrazione {
      * Invia la mail con la nuova password dell'utente.
      * 
      * @param string $mail mail dell'utente.
+     * @param string $username username dell'utente.
      * @param string $password password dell'utente
      */
     public function inviaMailPassword($email, $username, $password) {
@@ -445,6 +524,7 @@ class CRegistrazione {
                    'Content-Transfer-Encoding: 7bit\n\n';
        mail($to, $subject, $message, $headers); 
     }
+    
     /**
      * Fornisce un id univoco utilizzando l' orario. Prende i secondi
      * e i microsecondi e li usa come chiave per generare un numero random
@@ -458,6 +538,10 @@ class CRegistrazione {
         return md5(uniqid(mt_rand(), true));
     }
     
+    /**
+    * Funzione che permette di modificare la password di un utente
+    * @return mixed
+    */
     public function modificaPassword() {
         $session = USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');

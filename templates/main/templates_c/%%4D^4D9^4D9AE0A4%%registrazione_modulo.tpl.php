@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-31 11:30:44
+<?php /* Smarty version 2.6.26, created on 2014-01-04 11:27:25
          compiled from registrazione_modulo.tpl */ ?>
 <script src="js/registrazione.js"></script>
 		<br>
@@ -18,7 +18,7 @@
                 <p><label for="cognome" class="left">Cognome:</label>
                    <input type="text" name="cognome" id="cognome" class="field" value="" tabindex="2" /></p>
                 <p><label for="sesso" class="left">Sesso:</label>
-                    M <input type="radio" accept="" name="sesso" value="m"  tabindex="3" />
+                    M <input type="radio" name="sesso" value="m"  tabindex="3" />
                     F <input type="radio" name="sesso" value="f" tabindex="4"/>
                 <p><label for="data_nascita" class="left">Data di nascita:</label>
                    <input type="text" name="data_nascita" id="data_nascita" class="field" value="" tabindex="5" /></p>
