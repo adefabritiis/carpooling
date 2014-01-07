@@ -6,7 +6,12 @@ class FGuidatore extends FDatabase{
         $this->_return_class='EGuidatore';
         USingleton::getInstance('FDatabase');
     }
- // funzione che restituisce l'username del guidatore che partecipa a un determinato viaggio   
+    
+ /**
+   * Metodo che che restituisce l'username del guidatore che partecipa a un determinato viaggio   
+   * @param int $num_viaggio 
+   * @return array 
+   */   
  public function getGuidatore($num_viaggio){
      $query="SELECT `username_guidatore` FROM `guidatore` WHERE `num_viaggio`='$num_viaggio'";
      $this->query($query);
@@ -14,7 +19,12 @@ class FGuidatore extends FDatabase{
      return $username_guidatore;
  }
  
- // funzione che verifica se un utente è il guidatore di un viaggio
+ /**
+   * Metodo che che verifica se un utente è il guidatore di un determinato viaggio  
+   * @param int $num_viaggio
+   * @param string $username 
+   * @return array 
+   */
  public function verificaGuidatore($num_viaggio,$username){
      $query="SELECT `username_guidatore` FROM `guidatore` WHERE `num_viaggio`='$num_viaggio' AND `username_guidatore`='$username'";
      $this->query($query);
@@ -26,11 +36,14 @@ class FGuidatore extends FDatabase{
      return $guidatore_presente;
  }
  
- // funzione che elimina il guidatore di un determinato viaggio
+ /**
+   * Metodo che elimina il guidatore di un determinato viaggio 
+   * @param int $num_viaggio
+   */
  public function eliminaGuidatore($num_viaggio){
     $query= "DELETE FROM `guidatore` WHERE `num_viaggio`='$num_viaggio'";
     return $this->query($query);
-}
+ }
 }
 
 ?>

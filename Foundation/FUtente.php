@@ -6,7 +6,12 @@ class FUtente extends FDatabase{
         $this->_return_class='EUtente';
         USingleton::getInstance('FDatabase');
     }
-    
+
+/**
+ * Metodo per ottenere la media dei voti di un guidatore
+ * @param string $username
+ * @return array
+ */    
 public function getMediaGuidatore($username){
      $query="SELECT `num_voti`,`voto_totale` FROM `guidatore` WHERE `username_guidatore`='$username'";
      $this->query($query);
@@ -26,19 +31,36 @@ public function getMediaGuidatore($username){
      $dati= array( "$media_guidatore", "$tot_viaggi");
      return $dati;
  }
+ 
+ /**
+ * Metodo per ottenere i dati da guidatore per calcolare la media dei voti del guidatore stesso relativo a un determinato viaggio
+ * @param string $username
+ * @return array
+ */
  public function getArrayFeedbackGuidatore($username){
 	$query="SELECT `num_viaggio`, `voto_totale`,`num_voti`, `commento` FROM `guidatore` WHERE `username_guidatore`='$username'";
 	$this->query($query);
 	$array=$this->getResultAssoc();
 	return $array;
-	}
-public function getArrayFeedbackPasseggero($username){
+ }
+ 
+ /**
+ * Metodo per ottenere i dati relativi alla valutazione di un passeggero 
+ * @param string $username
+ * @return array
+ */
+ public function getArrayFeedbackPasseggero($username){
 	$query="SELECT `num_viaggio`, `commento_guid`, `feedback_guid`, `votato` FROM `passeggero` WHERE `username_passeggero`='$username'";
 	$this->query($query);
 	$array=$this->getResultAssoc();
 	return $array;
-}	
+ }	
 
+/**
+ * Metodo per ottenere la media dei voti di un passeggero
+ * @param string $username
+ * @return array
+ */
 public function getMediaPasseggero($username){
      $query="SELECT AVG(`feedback_guid`)as 'media' FROM `passeggero` WHERE `username_passeggero`='$username'";
      $this->query($query);
@@ -46,6 +68,11 @@ public function getMediaPasseggero($username){
      return $array[0]['media'];
 }
 
+/**
+ * Metodo per verificare se un utente è amministratore
+ * @param string $username
+ * @return array
+ */
 public function isAmministratore($username){
     $query="SELECT `amministratore` FROM `utente` WHERE `username`='$username'";
     $this->query($query);
@@ -53,6 +80,13 @@ public function isAmministratore($username){
     return $admin['amministratore'];
 }
 
+/**
+ * Metodo per la ricerca degli utenti
+ * @param string $username
+ * @param string $cognome
+ * @param string $citta_residenza
+ * @return array $utenti
+ */
 public function ricercaUtenti($username,$cognome,$citta_residenza){
     if ($username OR $cognome OR $citta_residenza)
     {
@@ -75,7 +109,10 @@ public function ricercaUtenti($username,$cognome,$citta_residenza){
     return $utenti;
 }
 
-
+/**
+ * Metodo per ottenere una lista degli utenti dato un ordinamento
+ * @param string $ordinamento
+ */
 public function getUtenti($ordinamento){
     $query="SELECT * FROM `utente` ORDER BY `$ordinamento` ASC";
     $this->query($query);
@@ -131,6 +168,11 @@ public function verifica_tipo_utente($username){
     return $utente;
 }
 
+/**
+ * Metodo per aggiornare l'immagine del profilo di un utente
+ * @param string $username
+ * @param string $file_nome
+ */
 public function aggiornaImmagine($username,$file_nome){
     $query="UPDATE `utente` SET `immagine_profilo`='img/$file_nome' WHERE `username`='$username'";
     return $this->query($query);
@@ -160,13 +202,11 @@ public function verificaEmail($email){
     return $trovato;
 }
 
-public function verificaCodFiscale($cod_fiscale){
-    $query="SELECT `cod_fiscale` FROM `utente` WHERE `cod_fiscale`='$cod_fiscale'";
-    $this->query($query);
-    $trovato=$this->getResult();
-    return $trovato;
-}
-
+/**
+ * Metodo per settare la password
+ * @param string $username
+ * @param string $password
+ */
 public function impostaPassword($username,$password){
     $query="UPDATE `utente` SET `password`='$password' WHERE `username`='$username'";
     return $this->query($query);

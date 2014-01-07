@@ -8,6 +8,10 @@ class FViaggio extends FDatabase{
         USingleton::getInstance('FDatabase');
     }
     
+    /**
+     * Metodo per ottenere il numero dell'ultimo viaggio
+     * @return array 
+     */
     public function getUltimoNumViaggio(){
         $query="SELECT `num_viaggio` FROM `viaggio` WHERE `num_viaggio`=(SELECT max(`num_viaggio`) FROM `viaggio`) ORDER BY `num_viaggio`";
         $this->query($query);
@@ -15,6 +19,13 @@ class FViaggio extends FDatabase{
         return $array[0]['num_viaggio'];
     }
     
+    /**
+     * Metodo per effettuare la ricerca di un viaggio
+     * @param string $citta_partenza
+     * @param string $citta_arrivo
+     * @param date $data_partenza
+     * @return array 
+     */
     public function cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza){
         $query="SELECT * FROM `viaggio` WHERE";
         if ($citta_partenza)
@@ -34,7 +45,11 @@ class FViaggio extends FDatabase{
         $array=$this->getResultAssoc();
         return $array;
     }
-        
+    
+    /**
+     * Metodo per ottenere la lista degli ultimi viaggi a partire dalla data corrente
+     * @return array 
+     */
     public function ultimiViaggi(){
         $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` WHERE `data_partenza`>CURRENT_DATE() ORDER BY `num_viaggio` DESC";
         $this->query($query);
@@ -42,6 +57,11 @@ class FViaggio extends FDatabase{
         return $array;
     }
     
+    /**
+     * Metodo per ottenere la lista dei viaggi organizzati dall'utente come guidatore
+     * @param string $username
+     * @return array 
+     */
     public function ViaggiPersonali($username){
         $query="SELECT * FROM viaggio, guidatore WHERE username_guidatore = '$username' AND viaggio.num_viaggio = guidatore.num_viaggio";
         $this->query($query);
@@ -49,6 +69,11 @@ class FViaggio extends FDatabase{
         return $array_viaggi;
     }
     
+    /**
+     * Metodo per ottenere la lista dei viaggi a cui l'utente ha partecipato come passeggero
+     * @param string $username
+     * @return array 
+     */
     public function ViaggiPasseggero($username){
         $query="SELECT * FROM viaggio, passeggero WHERE username_passeggero = '$username' AND viaggio.num_viaggio = passeggero.num_viaggio";
         $this->query($query);
@@ -56,6 +81,10 @@ class FViaggio extends FDatabase{
         return $array_passeggero;
     }
     
+    /**
+     * Metodo per eliminare un viaggio
+     * @param int $num_viaggio
+     */
     public function eliminaViaggio($num_viaggio){
         $query= "DELETE FROM `viaggio` WHERE `num_viaggio`='$num_viaggio'";
         return $this->query($query);
@@ -63,6 +92,12 @@ class FViaggio extends FDatabase{
     
     
     //AMMINISTRATORE
+    
+    /**
+     * Metodo per ottenere la lista dei viaggi
+     * @param string $ordinamento
+     * @return array 
+     */
     public function getViaggi($ordinamento){
         $query="SELECT * FROM `viaggio` ORDER BY `$ordinamento` ASC";
         $this->query($query);
@@ -70,6 +105,13 @@ class FViaggio extends FDatabase{
         return $viaggi;
     }
     
+    /**
+     * Metodo per effettuare la ricerca di un viaggio
+     * @param string $citta_partenza
+     * @param string $citta_arrivo
+     * @param date $data_partenza
+     * @return array 
+     */
     public function ricercaViaggi($citta_partenza, $citta_arrivo, $data_partenza){
     if ($citta_partenza OR $citta_arrivo OR $data_partenza)
     {
