@@ -4,10 +4,6 @@ class EPasseggero {
     public $num_viaggio;
     public $feedback_guid;
     public $commento_guid;
-    public $votato;
-    
-  
-   
+    public $votato;  
 }
-
 ?>

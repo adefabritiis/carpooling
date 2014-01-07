@@ -5,10 +5,6 @@ class EGuidatore {
     public $voto_totale;
     public $num_voti;
     public $commento;
-    public $targa;
-    
-    
-    
+    public $targa; 
 }
-
 ?>

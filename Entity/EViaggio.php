@@ -9,9 +9,6 @@ class EViaggio {
     public $posti_disponibili;
     
     public $_guidatore;
-    public $_passeggeri=array(); // array di passeggeri
-    
-    
+    public $_passeggeri=array(); // array di passeggeri   
 }
-
 ?>

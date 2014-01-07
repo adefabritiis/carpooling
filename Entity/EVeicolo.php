@@ -7,8 +7,6 @@ class EVeicolo {
     public $carburante;
     public $consumo_medio;
     
-    public $_num_viaggi=array();  //array di viaggi relativi a un veicolo
-    
+    public $_num_viaggi=array();  //array di viaggi relativi a un veicolo   
 }
-
 ?>

@@ -20,23 +20,22 @@ class EUtente {
    public $_passeggero=array();
    public $_veicoli=array();
    
+/*
+ * Verifica se l'account e' attivo
+ * @return boolean
+ */
    public function getAccountAttivo() {
         if ($this->stato_attivazione==1)
             return true;
         else
             return false;
    }
-   
-   public function generaCodiceAttivazione() {
-        $this->codice_attivazione=mt_rand();
-    }
-    
+
+/*
+ * Imposta l'account attivo
+ */
    public function setAccountAttivo() {
        $this->stato_attivazione=1;
-   }
-   
-  
-   
+   } 
 }
-
 ?>
