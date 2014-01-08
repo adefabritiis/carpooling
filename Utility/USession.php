@@ -6,6 +6,17 @@
 class USession {
     public function __construct() {
         session_start();
+        // set timeout period in seconds (600 = 10 minutes in seconds)
+            $inactive = 300;
+
+        // check to see if $_SESSION['timeout'] is set
+            if(isset($_SESSION['timeout']) ) {
+                $session_life = time() - $_SESSION['timeout'];
+                    if($session_life > $inactive)
+                        { session_destroy(); header("Location: index.php"); }
+            }
+        $_SESSION['timeout'] = time();
+
         debug($_SESSION);
     }
     function imposta_valore($chiave,$valore) {

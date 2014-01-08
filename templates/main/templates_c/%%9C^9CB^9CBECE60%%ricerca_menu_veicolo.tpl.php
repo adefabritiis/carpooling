@@ -1,8 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 17:02:21
+<?php /* Smarty version 2.6.26, created on 2014-01-08 12:36:52
          compiled from ricerca_menu_veicolo.tpl */ ?>
 <div id="menu_veicoli">
-   <select class="veicoli"> 
-       <?php unset($this->_sections['nr']);
+      <p><label for="targa" class="left1">Scegli un veicolo:</label>
+         <select name="targa" class="veicoli combo"> 
+               <?php unset($this->_sections['nr']);
 $this->_sections['nr']['name'] = 'nr';
 $this->_sections['nr']['loop'] = is_array($_loop=$this->_tpl_vars['veicoli']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['nr']['show'] = true;
@@ -26,9 +27,9 @@ $this->_sections['nr']['index_next'] = $this->_sections['nr']['index'] + $this->
 $this->_sections['nr']['first']      = ($this->_sections['nr']['iteration'] == 1);
 $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $this->_sections['nr']['total']);
 ?>
-           <option value="<?php echo $this->_tpl_vars['veicoli'][$this->_sections['nr']['index']]['targa']; ?>
+                       <option value="<?php echo $this->_tpl_vars['veicoli'][$this->_sections['nr']['index']]['targa']; ?>
 "><h5><?php echo $this->_tpl_vars['veicoli'][$this->_sections['nr']['index']]['targa']; ?>
 </h5></option>
-       <?php endfor; endif; ?>
-   </select>
+               <?php endfor; endif; ?>
+         </select></p>
 </div>
