@@ -3,9 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generato il: Dic 10, 2013 alle 10:51
+-- Generato il: Gen 08, 2014 alle 11:27
 -- Versione del server: 5.5.27
 -- Versione PHP: 5.4.7
+
+DROP DATABASE IF EXISTS carpooling;
+CREATE DATABASE carpooling;
+USE carpooling;
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,21 +43,11 @@ CREATE TABLE IF NOT EXISTS `guidatore` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `guidatore`:
---   `username_guidatore`
---       `utente` -> `username`
---   `targa`
---       `veicolo` -> `targa`
---   `num_viaggio`
---       `viaggio` -> `num_viaggio`
---
-
---
 -- Dump dei dati per la tabella `guidatore`
 --
 
 INSERT INTO `guidatore` (`num_viaggio`, `username_guidatore`, `targa`, `voto_totale`, `num_voti`, `commento`) VALUES
-(11, 'vaan46', '1234', 0, 0, '');
+(16, 'admin', '1000', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -72,12 +66,11 @@ CREATE TABLE IF NOT EXISTS `passeggero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `passeggero`:
---   `username_passeggero`
---       `utente` -> `username`
---   `num_viaggio`
---       `viaggio` -> `num_viaggio`
+-- Dump dei dati per la tabella `passeggero`
 --
+
+INSERT INTO `passeggero` (`username_passeggero`, `num_viaggio`, `feedback_guid`, `commento_guid`, `votato`) VALUES
+('vaan46', 16, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -110,9 +103,9 @@ CREATE TABLE IF NOT EXISTS `utente` (
 
 INSERT INTO `utente` (`username`, `password`, `nome`, `cognome`, `data_nascita`, `citta_nascita`, `citta_residenza`, `sesso`, `cod_fiscale`, `email`, `num_telefono`, `stato_attivazione`, `codice_attivazione`, `amministratore`, `immagine_profilo`) VALUES
 ('admin', 'admin', 'admin', 'admin', '1991-01-01', 'pescara', 'pescara', 'm', 'admin', 'admin@admin.it', '33333333', 1, '', 1, 'img/m_imgprofilo.jpg'),
-('samael', 'god', 'samael', 'punitore', '01-01-1587', '01-02-1987', 'jkkju', '', 'hio', 'jkhui', '', 1, '', 0, 'img/m_imgprofilo.jpg'),
-('stefano', '0000', 'stefano', 'alt', '25-02-2010', 'roma', 'roma', '', 'kjhi', 'hhi', '', 1, '', 1, 'img/m_imgprofilo.jpg'),
-('vaan46', '1234', 'daniele', 'ciambrone', '17-08-1991', 'laquila', 'laquila', '', 'nkhi', 'hvjvi', '', 1, '', 0, 'img/m_imgprofilo.jpg');
+('samael', 'god', 'samael', 'punitore', '1587-01-01', 'hbb', 'jkkju', 'm', 'hio', 'jkhui', '', 1, '', 0, 'img/m_imgprofilo.jpg'),
+('stefano', '0000', 'stefano', 'alt', '1991-05-10', 'roma', 'roma', 'm', 'kjhi', 'hhi', '', 1, '', 0, 'img/m_imgprofilo.jpg'),
+('vaan46', '1234', 'daniele', 'ciambrone', '1991-08-17', 'laquila', 'laquila', 'm', 'nkhi', 'hvjvi', '', 1, '', 0, 'img/m_imgprofilo.jpg');
 
 -- --------------------------------------------------------
 
@@ -133,12 +126,6 @@ CREATE TABLE IF NOT EXISTS `veicolo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `veicolo`:
---   `username_proprietario`
---       `utente` -> `username`
---
-
---
 -- Dump dei dati per la tabella `veicolo`
 --
 
@@ -150,6 +137,8 @@ INSERT INTO `veicolo` (`targa`, `username_proprietario`, `tipo`, `num_posti`, `c
 ('100', 'samael', '100', 100, '100', 100, 1),
 ('1000', 'admin', '', 5, '', 0, 1),
 ('11', 'samael', '11', 11, '11', 11, 1),
+('1112', 'admin', 'qqq', 4, 'eee', 5, 1),
+('11233', 'admin', 'erfwf', 3, 'bee', 5, 1),
 ('1234', 'vaan46', 'mazda', 4, 'benzina', 13, 0),
 ('13', 'samael', '13', 13, '13', 13, 1),
 ('132', 'vaan46', '313', 2342, '242', 12321, 1),
@@ -169,6 +158,7 @@ INSERT INTO `veicolo` (`targa`, `username_proprietario`, `tipo`, `num_posti`, `c
 ('77', 'samael', '2', 5, '2', 3, 1),
 ('8', 'samael', '8', 8, '8', 8, 1),
 ('9', 'samael', '9', 9, '9', 9, 1),
+('aaaaaa', 'admin', '1', 4, 'benzina', 12, 1),
 ('fanculo01', 'samael', '0', 4, 'ok', 4, 1),
 ('samael1', 'samael', 'berlina', 5, 'benzina', 20, 1),
 ('samael10', 'samael', '2', 3, 'e', 3, 1),
@@ -186,21 +176,22 @@ INSERT INTO `veicolo` (`targa`, `username_proprietario`, `tipo`, `num_posti`, `c
 CREATE TABLE IF NOT EXISTS `viaggio` (
   `num_viaggio` int(11) NOT NULL AUTO_INCREMENT,
   `citta_partenza` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `data_partenza` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data_partenza` date DEFAULT NULL,
   `citta_arrivo` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `costo` int(11) NOT NULL,
   `posti_disponibili` int(11) NOT NULL,
   `note` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`num_viaggio`),
   UNIQUE KEY `num_viaggio` (`num_viaggio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dump dei dati per la tabella `viaggio`
 --
 
 INSERT INTO `viaggio` (`num_viaggio`, `citta_partenza`, `data_partenza`, `citta_arrivo`, `costo`, `posti_disponibili`, `note`) VALUES
-(11, 'laquila', '2013-01-01', 'roma', 0, 4, 'NO FUMATORI');
+(12, 'pescara', '2013-12-12', 'roma', 10, 3, 'niente'),
+(16, 'roma', '2014-01-14', 'milano', 10, 4, '');
 
 --
 -- Limiti per le tabelle scaricate

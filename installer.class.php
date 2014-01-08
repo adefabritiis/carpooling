@@ -8,7 +8,7 @@ class Installer {
 	private $sql = 'carpooling.sql';
 
 	public function __construct(){
-		echo '<html>
+                echo '<html>
 		<head>
                 <title>Installazione CarPooling</title>
                 <link href="templates/main/template/css/layout3_setup.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@ class Installer {
                 <link href="templates/main/template/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery-1.10.2.min.js"></script>
                 <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-        *vedere        <script src="js/CInstaller.js"></script>
+                <script src="js/installer.js"></script>
 		</head>
 		<body>
 		<div id="installer">';

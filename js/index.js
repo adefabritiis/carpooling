@@ -89,6 +89,11 @@ $('.gestisci_viaggi_personali').on("click",function(){
             success:smista
         });    
     });
+    
+// Funzione per il controllo abilitazione dei cookie    
+if (!navigator.cookieEnabled) {
+    alert("I cookie non sono abilitati.");
+}
 
 });
 

@@ -32,7 +32,6 @@
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/jquery.form.min.js"></script>
   <script src="js/index.js"></script>
-  <script src="js/registrazione.js"></script>
 </head>
 
 <!-- Global IE fix to avoid layout crash when single word size wider than column width -->
@@ -41,7 +40,7 @@
 <body>
   <!-- Main Page Container -->
   <div class="page-container">
-
+<noscript><h2>Il tuo browser non supporta JavaScript oppure è disabilitato. Attiva JavaScript per permettere il funzionamento del sito web.</h2></noscript>
     <!-- For alternative headers START PASTE here -->
 
     <!-- A. HEADER -->      
@@ -52,7 +51,7 @@
         
         <!-- Sitelogo and sitename -->
         <div class="sitename">
-          <h1>Car&bull;Pooling</a></h1>
+          <h1>Car&bull;Pooling</h1>
         </div>
     
        
@@ -85,7 +84,7 @@
                 <a href="?controller=registrazione&task=registra">Registrati</a></li>
                 {else}
             <a href="#">Account</a>
-                 <ul id="menu_profilo">
+                 <ul id="menu_account">
                     <li><a class="visualizza pulsante">Profilo</a></li>
                     <li><a class="gestisci pulsante">Gestisci</a></li>
                     <li><a class="gestisci_viaggi_personali pulsante">I miei viaggi</a></li>
@@ -93,7 +92,7 @@
                 {/if}
                 {if ($amministratore)}
                 <li><a id="amministra" class="pulsante">Amministra</a>
-                    <ul id="menu_profilo">
+                    <ul id="menu_amministrazione">
                         <li><a id="amm_viaggi" class="pulsante">Viaggi</a></li>
                         <li><a id="amm_utenti" class="pulsante">Utenti</a></li>
                     </ul>
