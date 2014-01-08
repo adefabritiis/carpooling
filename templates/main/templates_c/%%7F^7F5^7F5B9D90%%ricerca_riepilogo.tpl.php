@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-07 17:26:02
+<?php /* Smarty version 2.6.26, created on 2014-01-08 10:01:02
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -141,9 +141,9 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 </div>
             </div>
         <?php endif; ?>
-        <?php if ($this->_tpl_vars['indietro']): ?>
             <div class="contactform">
-                <p class="center"><input type="button" class="indietro button_left" value="Indietro" tabindex="8" /></p>
+                <?php if ($this->_tpl_vars['indietro']): ?>
+                    <p class="center"><input type="button" class="indietro button_left" value="Indietro" tabindex="8" /></p><br>
             </div>
-        <?php endif; ?>
+                <?php endif; ?>
 </div>

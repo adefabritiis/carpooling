@@ -98,9 +98,9 @@ class CRegistrazione {
             return false;
          elseif($password!=$password_1)
             return false;
-         elseif($sesso!='m')
+         elseif($sesso!='m'){
              if ($sesso!='f')
-                return false;
+                return false;}
          elseif(!preg_match("/^([a-zA-Z ]+)$/i", $nome))
             return false;
          elseif(!preg_match("/^[A-Z '-]{2,30}$/i", $cognome))
@@ -110,7 +110,7 @@ class CRegistrazione {
          elseif($FUtente->verificaEmail($email))
             return false;
          elseif($FUtente->verificaCodFiscale($cod_fiscale))
-            return false;
+            return false; 
          elseif(!preg_match("/^(?=.*\d).{4,12}$/i" , $password))
             return false;
          elseif(!checkdate($mese,$giorno,$anno))

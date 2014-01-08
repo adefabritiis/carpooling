@@ -105,6 +105,7 @@ p.caption {clear:both; margin:0.5em 0 2.0em 20px; text-align:left; color:rgb(80,
 .contactform label.contenitore { width:10px; height: 10px; margin:0 0 0 10px; padding: 2px;  background-color:rgb(200,200,200);}
 .contactform label.center-title {float:center; width:300px; margin:0 0 0 0; padding:2px; background-color:rgb(200,200,200); font-size:130%;}
 .contactform label.center {float:center; width:300px; margin:0 0 0 0; padding:2px;  font-size:130%;}
+.contactform label.valid {position:relative;top:-10px ;left:170px ; height:-7px; color: red;}
 .contactform select.combo {width:175px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform input.field {width:230px; padding:2px; border:solid 1px rgb(200,200,200); font-family:verdana,arial,sans-serif; font-size:110%;}
 .contactform input.field.error {border-color: red; border-width: medium;}

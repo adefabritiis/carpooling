@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-04 11:27:25
+<?php /* Smarty version 2.6.26, created on 2014-01-08 10:30:57
          compiled from registrazione_modulo.tpl */ ?>
 <script src="js/registrazione.js"></script>
 		<br>
@@ -28,7 +28,7 @@
                    <input type="text" name="citta_residenza" id="citta_residenza" class="field" value="" tabindex="7" /></p>
                 <p><label for="email" class="left">Email:</label>
                    <input type="text" name="email" id="email" class="field" value="" tabindex="8" /></p>
-                   <label id="errore_email" for="email"> Email già utilizzata </label>
+                   <label id="errore_email" class="valid" for="email"> Email già utilizzata </label>
                  <p><label for="num_telefono" class="left">Numero di telefono:</label>
                    <input type="text" name="num_telefono" id="num_telefono" class="field" value="" tabindex="9" /></p>
                 <p><label for="cod_fiscale" class="left">Codice fiscale:</label>
@@ -36,7 +36,7 @@
                 <h1 class="block">Dati login</h1><br>
 		<p><label for="username" class="left">Username:</label>
                    <input type="text" name="username" id="username" class="field" value="" tabindex="11"  /></p>
-                   <label id="errore_username" for="username"> Username già utilizzato </label>
+                   <label id="errore_username" class="valid" for="username"> Username già utilizzato </label>
 		<p><label for="password" class="left">Password:</label>
                    <input type="password" name="password" id="password" class="field" value="" tabindex="12"  /></p>
 		<p><label for="password_1" class="left">Ripeti password:</label>

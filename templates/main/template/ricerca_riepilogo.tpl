@@ -88,9 +88,9 @@
                 </div>
             </div>
         {/if}
-        {if $indietro}
             <div class="contactform">
-                <p class="center"><input type="button" class="indietro button_left" value="Indietro" tabindex="8" /></p>
+                {if $indietro}
+                    <p class="center"><input type="button" class="indietro button_left" value="Indietro" tabindex="8" /></p><br><br>
             </div>
-        {/if}
+                {/if}
 </div>

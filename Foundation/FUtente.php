@@ -203,6 +203,17 @@ public function verificaEmail($email){
 }
 
 /**
+ * Metodo per verificare se un codice fiscale è già presente
+ * @param string $cod_fiscale
+ * @return array $trovato
+ */
+public function verificaCodFiscale($cod_fiscale){
+    $query="SELECT `cod_fiscale` FROM `utente` WHERE `cod_fiscale`='$cod_fiscale'";
+    $this->query($query);
+    $trovato=$this->getResult();
+    return $trovato;
+}
+/**
  * Metodo per settare la password
  * @param string $username
  * @param string $password
