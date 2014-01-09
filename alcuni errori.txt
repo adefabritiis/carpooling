@@ -6,4 +6,5 @@ alcuni errori:
 -inserimento di feedback...dobbiamo controllare che non si immettano caratteri tipo "<" perchè un utente potrebbe scrivere "<b> tutto ok</b>" ed evidenziare il suo commento....vale anche per altre cose....
 -registrazione, mettere l'autocomplete delle città
 -il campo immagine profilo del database va impostato con almeno 100 caratteri, sennò taglia il percorso della foto se il nome è lungo...
--il caricamento di una immagine va controllato 
+-il caricamento di una immagine va controllato
+-SE CLICCO SU AMMINISTRA UTENTI E POI AMMINISTRA VIAGGI FA LE CASCE! 
