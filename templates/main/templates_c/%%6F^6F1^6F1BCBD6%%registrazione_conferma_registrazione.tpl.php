@@ -1,10 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-17 17:46:25
+<?php /* Smarty version 2.6.26, created on 2014-01-09 01:41:59
          compiled from registrazione_conferma_registrazione.tpl */ ?>
-        <a id="anchor-heading-noicon-1"></a>
-        <div class="corner-content-1col-top"></div>
-        <div class="content-1col-nobox">
-          <h1 class="noicon">Conferma Registrazione</h1>
-          <h2 class="noicon">L'account &egrave; stato correttamente registrato esegui il login</h2>
-          <p class="demo"></p>
-        </div>
-        <div class="corner-content-1col-bottom"></div>    
+<script src="js/index.js"/>
+<h1 class="pagetitle">Conferma registrazione</h1>
+<div><h1 class="block">La registrazione è avvenuta con successo</h1></div>
+<div class="column1-unit">	
+    <div class="contactform" >
+    <p><h1>Effettua il login!</h1></p>
+	</div>
+</div>
