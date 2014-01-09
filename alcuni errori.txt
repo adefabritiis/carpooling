@@ -8,3 +8,4 @@ alcuni errori:
 -il campo immagine profilo del database va impostato con almeno 100 caratteri, sennò taglia il percorso della foto se il nome è lungo...
 -il caricamento di una immagine va controllato
 -SE CLICCO SU AMMINISTRA UTENTI E POI AMMINISTRA VIAGGI FA LE CASCE! 
+-un viaggio votato o precedente alla data di oggi non deve poter essere eliminato dall'utente default e un passeggero non può cancellarsi o essere cancellato dal viaggio
