@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-03 02:17:18
+<?php /* Smarty version 2.6.26, created on 2014-01-09 13:04:58
          compiled from ricerca_feedback_guidatore.tpl */ ?>
 <script src="js/valutazione.js"></script>
 <br>
@@ -20,7 +20,7 @@
 				<th class="top">
 				Commento: (facoltativo)
 				</th>
-				<tr>
+				<tr class="normale">
 					<td>
 						<div id="jqxWidget">
 							<div id="jqxRating"></div>

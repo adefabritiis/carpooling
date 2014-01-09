@@ -233,9 +233,9 @@ class CRegistrazione {
             $dati_passeggero= $FUtente->getMediaPasseggero($username);
 			$num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
 			$view->impostaDati('num_voti_pass', $num_voti_passeggero);
-            $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
+            $view->impostaDati('media_feedback_guidatore',ceil($dati_guidatore[0]));
             $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
-            $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
+            $view->impostaDati('media_feedback_passeggero',ceil($dati_passeggero));
 	    $commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
             $commenti_passeggero=$FUtente->getArrayFeedbackPasseggero($username);
 	    $view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
@@ -268,11 +268,11 @@ class CRegistrazione {
         $view->impostaDati('amministratore',$utente->amministratore);
         $dati_guidatore= $FUtente->getMediaGuidatore($username);
         $dati_passeggero= $FUtente->getMediaPasseggero($username);
-        $view->impostaDati('media_feedback_guidatore',$dati_guidatore[0]);
+        $view->impostaDati('media_feedback_guidatore',ceil($dati_guidatore[0]));
         $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
 		$num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
 		$view->impostaDati('num_voti_pass', $num_voti_passeggero);
-        $view->impostaDati('media_feedback_passeggero',$dati_passeggero);
+        $view->impostaDati('media_feedback_passeggero',ceil($dati_passeggero));
         $view->impostaDati('loggato_amministratore',$loggato_amministratore);
         $view->impostaDati('partecipa',$view->isPartecipante());
 		$commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);

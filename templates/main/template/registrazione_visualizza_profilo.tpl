@@ -5,10 +5,18 @@
 <div class="column1-unit">
     <div class="contactform">
         <h1><b>{$nome}&nbsp{$cognome}</b></h1>
-        <h3>{$citta_residenza}</h3>                    
+        <h3>{$citta_residenza}</h3>   
+		
+		
+		
         <p><img src={$immagine_profilo} alt="Image description" height="200" width="200"/></p>
-        <p>Valutazione guidatore: {$media_feedback_guidatore}({$num_viaggi_guid})</p>
-        <p>Valutazione passeggero: {$media_feedback_passeggero}({$num_voti_pass})</p>
+        <p>Valutazione guidatore:
+		{section name=i loop=$media_feedback_guidatore} 
+		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+		{/section}({$num_viaggi_guid} voti)</p>
+        <p>Valutazione passeggero: {section name=i loop=$media_feedback_passeggero} 
+		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+		{/section}({$num_voti_pass} voti)</p>
 	    <p>Email:<b>&nbsp{$email}</b></p>
         <p>Numero di telefono:<b>&nbsp{$num_telefono}</b></p>
         <p>Data di nascita:<b>&nbsp{$data_nascita}</b></p>
@@ -47,7 +55,9 @@
                             <td width="25%">
                                 <div>
 								{if $array_commenti_guidatore[nr].num_voti>0}
-									{$array_commenti_guidatore[nr].voto_totale/$array_commenti_guidatore[nr].num_voti}
+								{section name=i loop=$array_commenti_guidatore[nr].voto_totale/$array_commenti_guidatore[nr].num_voti} 
+										<img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+								{/section}
 								{else}
 									[Nessun voto]
 								{/if}
@@ -71,7 +81,7 @@
 	<h1 class="block">Feedback ricevuti da {$username} come passeggero </h1>
 	<div class="column1-unit">
 	<div class="contactform">
-		{if $array_commenti_guidatore}
+		{if $array_commenti_passeggero}
 		   <table>
 			<th class="top">
                             <div>Commento </div>
@@ -91,7 +101,7 @@
                         <tr class="riepilogo_viaggio pulsante" value="{$array_commenti_passeggero[nr].num_viaggio}"> 
                             <td width="35%">
 								<div>
-								{if $array_commenti_passeggero[nr].votato}
+								{if $array_commenti_passeggero[nr].feedback_guid !=0}
 									{$array_commenti_passeggero[nr].commento_guid}
 								{else}
 									[Nessun commento]
@@ -99,8 +109,10 @@
                             </td>
                             <td width="25%">
                                 <div>
-								{if $array_commenti_guidatore[nr].votato}
-									{$array_commenti_passeggero[nr].feedback_guid}
+								{if $array_commenti_passeggero[nr].feedback_guid !=0}
+									{section name=i loop=$array_commenti_passeggero[nr].feedback_guid} 
+										<img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+									{/section}
 								{else}
 									[Nessun voto]
 								{/if}

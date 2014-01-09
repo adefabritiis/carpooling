@@ -156,7 +156,7 @@
     margin: 0px;
     padding: 0px;
     outline: none;    
-    background-color: transparent;
+	border:0px;
     background-repeat: no-repeat;
     cursor: pointer;
     background-image: url(img/star1.png);
@@ -165,9 +165,9 @@
 /*applied to the rating when it is hovered.*/
 .jqx-rating-image-hover
 {
-    background-color: transparent;
     padding: 0px;
     background-repeat: no-repeat;
+	border:0px;
     cursor: pointer;
     background-image: url(img/star_yellow.png);
     overflow: hidden;
@@ -175,8 +175,8 @@
 /*applied to the rating when it is disabled.*/
 .jqx-rating-image-backward
 {
-    background-color: transparent;
     padding: 0px;
+	border:0px;
     background-repeat: no-repeat;
     cursor: pointer;
     background-image: url(img/star.png);

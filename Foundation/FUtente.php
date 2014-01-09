@@ -44,7 +44,7 @@ public function getMediaGuidatore($username){
 	return $array;
  }
   public function getNumVotiPasseggero($username){
-	$query="SELECT COUNT(*) AS `num` FROM `passeggero` WHERE `username_passeggero`='$username' AND `votato`=1" ;
+	$query="SELECT COUNT(*) AS `num` FROM `passeggero` WHERE `username_passeggero`='$username' AND NOT`feedback_guid`=0" ;
 	$this->query($query);
 	$array=$this->getResult();
 	return $array['num'];
@@ -68,7 +68,7 @@ public function getMediaGuidatore($username){
  * @return array
  */
 public function getMediaPasseggero($username){
-     $query="SELECT AVG(`feedback_guid`)as 'media' FROM `passeggero` WHERE `username_passeggero`='$username'";
+     $query="SELECT AVG(`feedback_guid`)as 'media' FROM `passeggero` WHERE `username_passeggero`='$username' AND NOT `feedback_guid`=0";
      $this->query($query);
      $array=$this->getResultAssoc();
      return $array[0]['media'];

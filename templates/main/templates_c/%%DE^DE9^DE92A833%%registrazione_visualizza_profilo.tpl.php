@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 01:32:02
+<?php /* Smarty version 2.6.26, created on 2014-01-09 13:11:56
          compiled from registrazione_visualizza_profilo.tpl */ ?>
 <script src="js/index.js"/>
 <br>
@@ -11,15 +11,67 @@
 &nbsp<?php echo $this->_tpl_vars['cognome']; ?>
 </b></h1>
         <h3><?php echo $this->_tpl_vars['citta_residenza']; ?>
-</h3>                    
+</h3>   
+		
+		
+		
         <p><img src=<?php echo $this->_tpl_vars['immagine_profilo']; ?>
  alt="Image description" height="200" width="200"/></p>
-        <p>Valutazione guidatore: <?php echo $this->_tpl_vars['media_feedback_guidatore']; ?>
-(<?php echo $this->_tpl_vars['num_viaggi_guid']; ?>
-)</p>
-        <p>Valutazione passeggero: <?php echo $this->_tpl_vars['media_feedback_passeggero']; ?>
-(<?php echo $this->_tpl_vars['num_voti_pass']; ?>
-)</p>
+        <p>Valutazione guidatore:
+		<?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['media_feedback_guidatore']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
+
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?> 
+		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+		<?php endfor; endif; ?>(<?php echo $this->_tpl_vars['num_viaggi_guid']; ?>
+ voti)</p>
+        <p>Valutazione passeggero: <?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['media_feedback_passeggero']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
+
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?> 
+		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+		<?php endfor; endif; ?>(<?php echo $this->_tpl_vars['num_voti_pass']; ?>
+ voti)</p>
 	    <p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
 </b></p>
         <p>Numero di telefono:<b>&nbsp<?php echo $this->_tpl_vars['num_telefono']; ?>
@@ -88,8 +140,32 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                             <td width="25%">
                                 <div>
 								<?php if ($this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['num_voti'] > 0): ?>
-									<?php echo $this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['voto_totale']/$this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['num_voti']; ?>
+								<?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['voto_totale']/$this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['num_voti']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
 
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?> 
+										<img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+								<?php endfor; endif; ?>
 								<?php else: ?>
 									[Nessun voto]
 								<?php endif; ?>
@@ -115,7 +191,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
  come passeggero </h1>
 	<div class="column1-unit">
 	<div class="contactform">
-		<?php if ($this->_tpl_vars['array_commenti_guidatore']): ?>
+		<?php if ($this->_tpl_vars['array_commenti_passeggero']): ?>
 		   <table>
 			<th class="top">
                             <div>Commento </div>
@@ -159,7 +235,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 "> 
                             <td width="35%">
 								<div>
-								<?php if ($this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['votato']): ?>
+								<?php if ($this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['feedback_guid'] != 0): ?>
 									<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['commento_guid']; ?>
 
 								<?php else: ?>
@@ -168,9 +244,33 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                             </td>
                             <td width="25%">
                                 <div>
-								<?php if ($this->_tpl_vars['array_commenti_guidatore'][$this->_sections['nr']['index']]['votato']): ?>
-									<?php echo $this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['feedback_guid']; ?>
+								<?php if ($this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['feedback_guid'] != 0): ?>
+									<?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['array_commenti_passeggero'][$this->_sections['nr']['index']]['feedback_guid']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
 
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?> 
+										<img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
+									<?php endfor; endif; ?>
 								<?php else: ?>
 									[Nessun voto]
 								<?php endif; ?>
