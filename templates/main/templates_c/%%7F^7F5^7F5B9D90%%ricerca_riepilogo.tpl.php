@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-08 12:46:33
+<?php /* Smarty version 2.6.26, created on 2014-01-09 17:01:19
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -132,7 +132,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <h3> Non ci sono ancora passeggeri</h3>    
             <?php endif; ?>
         </div>
-        <?php if ($this->_tpl_vars['isGuidatore'] || $this->_tpl_vars['isAmministratore']): ?>
+        <?php if ($this->_tpl_vars['isGuidatore'] || $this->_tpl_vars['isAmministratore'] && $this->_tpl_vars['passato']): ?>
             <div class="contactform">
                 <h1 class="block"> Modifica viaggio </h1>
                 <div>

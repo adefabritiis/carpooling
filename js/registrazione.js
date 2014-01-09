@@ -136,8 +136,7 @@ $(document).ready(function(){
             username: 
             {
                     required: " Inserisci il tuo nome!",
-                    maxlength: " La lunghezza massima è 30",
-                    nome: " Il nome deve contenere solo lettere"
+                    maxlength: " La lunghezza massima è 30"
             },
             password: 
             {

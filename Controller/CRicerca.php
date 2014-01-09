@@ -146,7 +146,7 @@ class CRicerca {
             $view->impostaDati('isGuidatore',$isGuidatore);
             $view->impostaDati('isAmministratore',$amministratore);
             if ($isGuidatore || $isPasseggero)
-                $view->impostaDati('partecipa',true);
+            $view->impostaDati('partecipa',true);
             $view->impostaDati('indietro',$view->getRicerca());
             $view->setLayout('riepilogo');
             return $view->processaTemplateParziale();

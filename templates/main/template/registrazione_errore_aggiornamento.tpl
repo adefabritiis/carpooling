@@ -1,5 +1,5 @@
 <!-- Content unit - One column -->
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <div>
 	<h1 class="block">Errore: sessione scaduta o compromessa</h1>
     <div class="column1-unit">

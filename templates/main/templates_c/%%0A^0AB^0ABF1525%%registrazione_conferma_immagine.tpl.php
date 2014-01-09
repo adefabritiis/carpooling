@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 22:29:38
+<?php /* Smarty version 2.6.26, created on 2014-01-09 15:35:29
          compiled from registrazione_conferma_immagine.tpl */ ?>
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <a id="anchor-heading-noicon-1"></a>
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">

@@ -80,7 +80,7 @@
                 <h3> Non ci sono ancora passeggeri</h3>    
             {/if}
         </div>
-        {if $isGuidatore || $isAmministratore}
+        {if $isGuidatore || $isAmministratore && $passato}
             <div class="contactform">
                 <h1 class="block"> Modifica viaggio </h1>
                 <div>

@@ -7,7 +7,7 @@ class USession {
     public function __construct() {
         session_start();
         // set timeout period in seconds (600 = 10 minutes in seconds)
-            $inactive = 300;
+            $inactive = 1200;
 
         // check to see if $_SESSION['timeout'] is set
             if(isset($_SESSION['timeout']) ) {

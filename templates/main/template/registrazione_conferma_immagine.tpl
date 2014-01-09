@@ -1,4 +1,4 @@
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <a id="anchor-heading-noicon-1"></a>
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">

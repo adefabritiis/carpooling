@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-31 12:25:00
+<?php /* Smarty version 2.6.26, created on 2014-01-09 16:56:54
          compiled from registrazione_gestisci_viaggi.tpl */ ?>
 <br>
 <script src="js/gestisci_viaggi.js"></script>

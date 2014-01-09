@@ -98,9 +98,6 @@ class CRegistrazione {
             return false;
          elseif($password!=$password_1)
             return false;
-         elseif($sesso!='m'){
-             if ($sesso!='f')
-                return false;}
          elseif(!preg_match("/^([a-zA-Z ]+)$/i", $nome))
             return false;
          elseif(!preg_match("/^[A-Z '-]{2,30}$/i", $cognome))
@@ -231,8 +228,8 @@ class CRegistrazione {
             $view->impostaDati('num_telefono',$utente->num_telefono);
             $dati_guidatore= $FUtente->getMediaGuidatore($username);
             $dati_passeggero= $FUtente->getMediaPasseggero($username);
-			$num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
-			$view->impostaDati('num_voti_pass', $num_voti_passeggero);
+	    $num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
+	    $view->impostaDati('num_voti_pass', $num_voti_passeggero);
             $view->impostaDati('media_feedback_guidatore',ceil($dati_guidatore[0]));
             $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
             $view->impostaDati('media_feedback_passeggero',ceil($dati_passeggero));
@@ -270,15 +267,15 @@ class CRegistrazione {
         $dati_passeggero= $FUtente->getMediaPasseggero($username);
         $view->impostaDati('media_feedback_guidatore',ceil($dati_guidatore[0]));
         $view->impostaDati('num_viaggi_guid',$dati_guidatore[1]);
-		$num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
-		$view->impostaDati('num_voti_pass', $num_voti_passeggero);
+	$num_voti_passeggero= $FUtente->getNumVotiPasseggero($username);
+	$view->impostaDati('num_voti_pass', $num_voti_passeggero);
         $view->impostaDati('media_feedback_passeggero',ceil($dati_passeggero));
         $view->impostaDati('loggato_amministratore',$loggato_amministratore);
         $view->impostaDati('partecipa',$view->isPartecipante());
-		$commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
+	$commenti_guidatore=$FUtente->getArrayFeedbackGuidatore($username);
         $commenti_passeggero=$FUtente->getArrayFeedbackPasseggero($username);
-	    $view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
-	    $view->impostaDati('array_commenti_guidatore',$commenti_guidatore);
+	$view->impostaDati('array_commenti_passeggero',$commenti_passeggero);
+	$view->impostaDati('array_commenti_guidatore',$commenti_guidatore);
         $view->processaTemplateParziale();
     }
     

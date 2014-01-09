@@ -1,9 +1,11 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:31
+<?php /* Smarty version 2.6.26, created on 2014-01-09 15:56:42
          compiled from ricerca_amministra_viaggi.tpl */ ?>
 <br>
 <h1 class="pagetitle">Elenco Viaggi</h1><br>
 <script src="js/ricerca_amministrazione_viaggi.js"></script>
 <!-- Content unit - One column -->
+<div class="column1-unit">
+    <h1 class="block">Ricerca viaggi</h1>
 <h2 class="block">
         <a class="pulsante" id="nascondi_avanzata" name="nascondi">► ricerca avanzata</a>
         <a class="pulsante" id="mostra_avanzata" name="mostra">◄ nascondi</a>
@@ -27,6 +29,7 @@
          </div>
         </div>
 </div>
+</div>    
 <div class="column1-unit">
     <div id="risultati_viaggi" >
         <div class="column1-unit">

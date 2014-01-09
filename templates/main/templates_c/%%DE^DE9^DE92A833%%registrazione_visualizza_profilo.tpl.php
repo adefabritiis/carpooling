@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 13:11:56
+<?php /* Smarty version 2.6.26, created on 2014-01-09 15:48:43
          compiled from registrazione_visualizza_profilo.tpl */ ?>
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <br>
 <h1 class="pagetitle">Il tuo profilo</h1>
 <h1 class="block">&nbsp<?php echo $this->_tpl_vars['username']; ?>
@@ -44,7 +44,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ?> 
 		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
 		<?php endfor; endif; ?>(<?php echo $this->_tpl_vars['num_viaggi_guid']; ?>
- voti)</p>
+ viaggi)</p>
         <p>Valutazione passeggero: <?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['media_feedback_passeggero']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

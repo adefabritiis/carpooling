@@ -1,4 +1,4 @@
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <br>
 <h1 class="pagetitle">Il tuo profilo</h1>
 <h1 class="block">&nbsp{$username}&nbsp</h1>
@@ -13,7 +13,7 @@
         <p>Valutazione guidatore:
 		{section name=i loop=$media_feedback_guidatore} 
 		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
-		{/section}({$num_viaggi_guid} voti)</p>
+		{/section}({$num_viaggi_guid} viaggi)</p>
         <p>Valutazione passeggero: {section name=i loop=$media_feedback_passeggero} 
 		 <img class="star" src="templates/main/template/img/star1.png" alt="imgstar" width="20" heigth="20"/>
 		{/section}({$num_voti_pass} voti)</p>

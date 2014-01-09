@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-03 02:08:49
+<?php /* Smarty version 2.6.26, created on 2014-01-09 15:46:44
          compiled from ricerca_conferma_valutazione.tpl */ ?>
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <br>
 <h1 class="pagetitle">Conferma Valutazione</h1>
 <!-- Content unit - One column -->
