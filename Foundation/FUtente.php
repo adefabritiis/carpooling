@@ -43,6 +43,12 @@ public function getMediaGuidatore($username){
 	$array=$this->getResultAssoc();
 	return $array;
  }
+  public function getNumVotiPasseggero($username){
+	$query="SELECT COUNT(*) AS `num` FROM `passeggero` WHERE `username_passeggero`='$username' AND `votato`=1" ;
+	$this->query($query);
+	$array=$this->getResult();
+	return $array['num'];
+ }
  
  /**
  * Metodo per ottenere i dati relativi alla valutazione di un passeggero 

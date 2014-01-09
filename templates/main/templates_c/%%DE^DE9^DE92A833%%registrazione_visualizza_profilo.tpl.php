@@ -1,12 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-03 18:13:17
+<?php /* Smarty version 2.6.26, created on 2014-01-09 01:32:02
          compiled from registrazione_visualizza_profilo.tpl */ ?>
 <script src="js/index.js"/>
 <br>
 <h1 class="pagetitle">Il tuo profilo</h1>
-<div>
-    <h1 class="block">&nbsp<?php echo $this->_tpl_vars['username']; ?>
+<h1 class="block">&nbsp<?php echo $this->_tpl_vars['username']; ?>
 &nbsp</h1>
-</div>
 <div class="column1-unit">
     <div class="contactform">
         <h1><b><?php echo $this->_tpl_vars['nome']; ?>
@@ -20,8 +18,9 @@
 (<?php echo $this->_tpl_vars['num_viaggi_guid']; ?>
 )</p>
         <p>Valutazione passeggero: <?php echo $this->_tpl_vars['media_feedback_passeggero']; ?>
-</p>
-	<p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
+(<?php echo $this->_tpl_vars['num_voti_pass']; ?>
+)</p>
+	    <p>Email:<b>&nbsp<?php echo $this->_tpl_vars['email']; ?>
 </b></p>
         <p>Numero di telefono:<b>&nbsp<?php echo $this->_tpl_vars['num_telefono']; ?>
 </b></p>
@@ -30,10 +29,10 @@
         <p>Città di nascita:<b>&nbsp<?php echo $this->_tpl_vars['citta_nascita']; ?>
 </b></p><br><br><br><br>
     </div>
-	</div>
-	<div>
-	<h1 class="block">Passaggi offerti e feedback ricevuti da <?php echo $this->_tpl_vars['username']; ?>
-</h1>
+</div>
+	<h1 class="block">Feedback ricevuti da <?php echo $this->_tpl_vars['username']; ?>
+ per i passaggi offerti</h1>
+<div class="column1-unit">
 	<div class="contactform">
 		<?php if ($this->_tpl_vars['array_commenti_guidatore']): ?>
 		   <table>
@@ -41,7 +40,7 @@
                             <div>Commento dei passeggeri</div>
 			</th>
 			<th class="mini">
-                            <div>Media feedback </div>
+                            <div>Media voto </div>
 			</th>
 			<th class="mini">
                             <div>ID </div>
@@ -107,13 +106,14 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                     <?php endfor; endif; ?>
 			</table>
 		<?php else: ?>
-		<p class="center"><label class="center-title"> Nessun passaggio offerto!</label></p>
+		<p class="center"><label class="center-title"> Nessun viaggio presente!</label></p>
 		<?php endif; ?>
 	</div>
 	</div>
-	<div>
-	<h1 class="block">Viaggi effettuati da passeggero e feedback ricevuti da <?php echo $this->_tpl_vars['username']; ?>
-</h1>
+	</div>
+	<h1 class="block">Feedback ricevuti da <?php echo $this->_tpl_vars['username']; ?>
+ come passeggero </h1>
+	<div class="column1-unit">
 	<div class="contactform">
 		<?php if ($this->_tpl_vars['array_commenti_guidatore']): ?>
 		   <table>
@@ -121,7 +121,7 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                             <div>Commento </div>
 			</th>
 			<th class="mini">
-                            <div>Feedback</div>
+                            <div>Voto</div>
 			</th>
 			<th class="mini">
                             <div>ID</div>
@@ -189,5 +189,4 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 		<p class="center"><label class="center-title"> Nessun viaggio presente!</label></p>
 		<?php endif; ?>
 	</div>
-	
-</div>
+	</div>

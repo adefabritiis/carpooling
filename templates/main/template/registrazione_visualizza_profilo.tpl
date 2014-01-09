@@ -1,24 +1,22 @@
 <script src="js/index.js"/>
 <br>
 <h1 class="pagetitle">Il tuo profilo</h1>
-<div>
-    <h1 class="block">&nbsp{$username}&nbsp</h1>
-</div>
+<h1 class="block">&nbsp{$username}&nbsp</h1>
 <div class="column1-unit">
     <div class="contactform">
         <h1><b>{$nome}&nbsp{$cognome}</b></h1>
         <h3>{$citta_residenza}</h3>                    
         <p><img src={$immagine_profilo} alt="Image description" height="200" width="200"/></p>
         <p>Valutazione guidatore: {$media_feedback_guidatore}({$num_viaggi_guid})</p>
-        <p>Valutazione passeggero: {$media_feedback_passeggero}</p>
-	<p>Email:<b>&nbsp{$email}</b></p>
+        <p>Valutazione passeggero: {$media_feedback_passeggero}({$num_voti_pass})</p>
+	    <p>Email:<b>&nbsp{$email}</b></p>
         <p>Numero di telefono:<b>&nbsp{$num_telefono}</b></p>
         <p>Data di nascita:<b>&nbsp{$data_nascita}</b></p>
         <p>Città di nascita:<b>&nbsp{$citta_nascita}</b></p><br><br><br><br>
     </div>
-	</div>
-	<div>
-	<h1 class="block">Passaggi offerti e feedback ricevuti da {$username}</h1>
+</div>
+	<h1 class="block">Feedback ricevuti da {$username} per i passaggi offerti</h1>
+<div class="column1-unit">
 	<div class="contactform">
 		{if $array_commenti_guidatore}
 		   <table>
@@ -26,7 +24,7 @@
                             <div>Commento dei passeggeri</div>
 			</th>
 			<th class="mini">
-                            <div>Media feedback </div>
+                            <div>Media voto </div>
 			</th>
 			<th class="mini">
                             <div>ID </div>
@@ -65,12 +63,13 @@
                     {/section}
 			</table>
 		{else}
-		<p class="center"><label class="center-title"> Nessun passaggio offerto!</label></p>
+		<p class="center"><label class="center-title"> Nessun viaggio presente!</label></p>
 		{/if}
 	</div>
 	</div>
-	<div>
-	<h1 class="block">Viaggi effettuati da passeggero e feedback ricevuti da {$username}</h1>
+	</div>
+	<h1 class="block">Feedback ricevuti da {$username} come passeggero </h1>
+	<div class="column1-unit">
 	<div class="contactform">
 		{if $array_commenti_guidatore}
 		   <table>
@@ -78,7 +77,7 @@
                             <div>Commento </div>
 			</th>
 			<th class="mini">
-                            <div>Feedback</div>
+                            <div>Voto</div>
 			</th>
 			<th class="mini">
                             <div>ID</div>
@@ -119,5 +118,4 @@
 		<p class="center"><label class="center-title"> Nessun viaggio presente!</label></p>
 		{/if}
 	</div>
-	
-</div>
+	</div>
