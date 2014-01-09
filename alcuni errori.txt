@@ -1,0 +1,7 @@
+alcuni errori:
+-validazione dati durante la registrazione fa comparire messaggi che vanno a capo...e alcuni messaggi sono errati: per esempio se al nome inserisci due lettere ti dice "il nome deve contenere solo lettere"
+-dopo la registrazione fa le casce il template
+-inserimento nuovo veicolo: validazione dati, pulsante per tornare indietro
+-io amministratore, se clicco su me stesso in un viaggio, posso visualizzare il mio profilo e rendermi non amministratore
+-inserimento di feedback...dobbiamo controllare che non si immettano caratteri tipo "<" perchè un utente potrebbe scrivere "<b> tutto ok</b>" ed evidenziare il suo commento....vale anche per altre cose....
+-registrazione, mettere l'autocomplete delle città
