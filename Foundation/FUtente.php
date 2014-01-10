@@ -94,9 +94,9 @@ public function isAmministratore($username){
  * @return array $utenti
  */
 public function ricercaUtenti($username,$cognome,$citta_residenza){
+    $query="SELECT * FROM `utente` WHERE";
     if ($username OR $cognome OR $citta_residenza)
     {
-        $query="SELECT * FROM `utente` WHERE";
         if ($username)
             $query.=" `username`='$username'";
         if ($cognome) {

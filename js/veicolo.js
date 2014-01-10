@@ -61,6 +61,10 @@ $("#veicolo").validate(
         }
 });
 
+$('#submit_aggiungi_da_profilo').on('mouseover', function () {
+        $('#veicolo').valid();          
+    });
+
 $('#targa').on('focusout', function(){
         $.ajax({
            url:'index.php',

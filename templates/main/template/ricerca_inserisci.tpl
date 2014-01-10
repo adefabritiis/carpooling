@@ -7,7 +7,7 @@
 <h1 class="block">Dati del viaggio</h1>
     <div class="column1-unit">
         <div class="contactform">
-            <form>
+            <form id="inserimento">
                 <fieldset>
                 <p><label for="citta_partenza" class="left">Citta di partenza:</label>
                    <input type="text" name="citta_partenza" id="citta_partenza" class="field" value="" tabindex="1"  /></p>

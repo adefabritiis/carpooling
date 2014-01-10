@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-02 18:25:24
+<?php /* Smarty version 2.6.26, created on 2014-01-10 15:38:47
          compiled from ricerca_inserisci.tpl */ ?>
 <!-- INSERIMENTO VIAGGIO -->
 <script src="js/inserisci_viaggio.js"></script>
@@ -9,7 +9,7 @@
 <h1 class="block">Dati del viaggio</h1>
     <div class="column1-unit">
         <div class="contactform">
-            <form>
+            <form id="inserimento">
                 <fieldset>
                 <p><label for="citta_partenza" class="left">Citta di partenza:</label>
                    <input type="text" name="citta_partenza" id="citta_partenza" class="field" value="" tabindex="1"  /></p>

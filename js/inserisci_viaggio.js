@@ -34,6 +34,30 @@ $(document).ready(function(){
                             }
                          }                 
         });
+    
+    $('#inserimento').validate({
+        rules: {
+            citta_partenza: {
+                required: true
+            },
+            citta_arrivo: {
+                required: true
+            },
+            data_partenza: {
+                required: true
+            },
+            costo: {
+                required:true
+            }
+        }
+    });
+    
+    $('#submit_offri').on('mouseover', function () {
+        $('#inserimento').valid();          
+    });
+    
+        
+    
     // Inserisco il calendario di jQuery UI
     $("#data_partenza").datepicker({
         showOn: "button",

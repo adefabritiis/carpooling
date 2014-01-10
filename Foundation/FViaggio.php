@@ -113,9 +113,9 @@ class FViaggio extends FDatabase{
      * @return array 
      */
     public function ricercaViaggi($citta_partenza, $citta_arrivo, $data_partenza){
+    $query="SELECT * FROM `viaggio` WHERE";
     if ($citta_partenza OR $citta_arrivo OR $data_partenza)
     {
-        $query="SELECT * FROM `viaggio` WHERE";
         if ($citta_partenza)
             $query.=" `citta_partenza`='$citta_partenza'";
         if ($citta_arrivo) {
