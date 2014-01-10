@@ -90,7 +90,8 @@ class FPasseggero extends FDatabase{
       * @param string $commento
       */
     public function votaPasseggero($num_viaggio, $username, $feedback, $commento){
-        $query="UPDATE `passeggero` SET `feedback_guid`='$feedback', `commento_guid`='$commento' WHERE `num_viaggio`='$num_viaggio' AND `username_passeggero`='$username'";
+		$commento1=mysql_real_escape_string($commento);
+        $query="UPDATE `passeggero` SET `feedback_guid`='$feedback', `commento_guid`='$commento1' WHERE `num_viaggio`='$num_viaggio' AND `username_passeggero`='$username'";
         return $this->query($query);
     }
     
