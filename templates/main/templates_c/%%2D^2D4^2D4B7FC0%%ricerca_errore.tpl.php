@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-28 22:52:26
+<?php /* Smarty version 2.6.26, created on 2014-01-10 11:19:51
          compiled from ricerca_errore.tpl */ ?>
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <br>
 <h1 class="pagetitle">Inserimento nuovo viaggio</h1>
 <!-- Content unit - One column -->

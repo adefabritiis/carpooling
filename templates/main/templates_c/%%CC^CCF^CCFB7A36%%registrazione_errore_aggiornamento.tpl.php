@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 01:40:01
+<?php /* Smarty version 2.6.26, created on 2014-01-10 11:29:15
          compiled from registrazione_errore_aggiornamento.tpl */ ?>
 <!-- Content unit - One column -->
-<script src="js/index.js"/>
+<script src="js/index.js"></script>
 <div>
 	<h1 class="block">Errore: sessione scaduta o compromessa</h1>
     <div class="column1-unit">

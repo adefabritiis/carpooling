@@ -169,6 +169,7 @@ class CRegistrazione {
         $session=USingleton::getInstance('USession');
         $session->cancella_valore('username');
         $session->cancella_valore('nome_cognome');
+        $session->cancella_valore('amministratore');
         return $this->ultimiViaggi(); 
     }
         

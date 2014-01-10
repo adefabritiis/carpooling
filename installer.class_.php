@@ -79,7 +79,8 @@ $config["smarty"] = array(
 				// Connessione al dbms e creazione del nuovo database
 				mysql_connect($config["mysql"]["host"],$config["mysql"]["user"],$config["mysql"]["password"]);
 				try {
-					mysql_query('CREATE DATABASE IF NOT EXISTS carpooling');
+					mysql_query('DROP DATABASE IF EXISTS carpooling');
+                                        mysql_query('CREATE DATABASE carpooling');
 					mysql_select_db('carpooling');
 					$this->importa_sql($this->sql);
 					// Creazione del nuovo utente admin
@@ -141,20 +142,20 @@ $config["smarty"] = array(
 		<p>Inserisci uno username e una password. Al termine dell\'installazione
 		potrai usare queste credenziali per accedere all\'applicazione ed amministrarla.</p>
 			<form id="modulo_reg" method="POST" action="installer.class.php">
-                        <label class="left">Username:</label><input type="text" class="field" name="adminusername"/><br />
-                        <label class="left">Password:</label><input type="password" class="field" name="adminpassword"/> <br />
+                        <label class="left">Username:</label><input type="text" class="field" name="adminusername"/><br /><br />
+                        <label class="left">Password:</label><input type="password" class="field" name="adminpassword"/> <br /><br />
 			<label class="left">Conferma password:</label><input type="password" class="field" name="adminpasswordconfirm"/> <br /><br />
-			<label class="left">Nome:</label><input type="text" class="field" name="adminnome"/><br />
-                        <label class="left">Cognome:</label><input type="text" class="field" name="admincognome"/><br />
-                        <label class="left">Data nascita:</label><input type="text" id="data_nascita" name="admindatanascita"/><br />
-                        <label class="left">Citta nascita:</label><input type="text" class="field" name="admincittanascita"/><br />
-                        <label class="left">Citta residenza:</label><input type="text" class="field" name="admincittaresidenza"/><br />
+			<label class="left">Nome:</label><input type="text" class="field" name="adminnome"/><br /><br />
+                        <label class="left">Cognome:</label><input type="text" class="field" name="admincognome"/><br /><br />
+                        <label class="left">Data nascita:</label><input type="text" id="data_nascita" name="admindatanascita"/><br /><br />
+                        <label class="left">Citta nascita:</label><input type="text" class="field" name="admincittanascita"/><br /><br />
+                        <label class="left">Citta residenza:</label><input type="text" class="field" name="admincittaresidenza"/><br /><br />
                         <label class="left">Sesso:</label>
                             M <input type="radio" name="adminsesso" value="m" />
                             F <input type="radio" name="adminsesso" value="f" /><br /><br />
-			<label class="left">E-Mail:</label><input type="text" class="field" name="adminmail"/><br />
-                        <label class="left">Num di telefono:</label><input type="text" class="field" name="admintel"/><br />
-                        <label class="left">Codice fiscale:</label><input type="text" class="field" name="admincodfiscale"/><br />
+			<label class="left">E-Mail:</label><input type="text" class="field" name="adminmail"/><br /><br />
+                        <label class="left">Num di telefono:</label><input type="text" class="field" name="admintel"/><br /><br />
+                        <label class="left">Codice fiscale:</label><input type="text" class="field" name="admincodfiscale"/><br /><br />
 			<button type="submit" class="button_left">Invia</button>
 		</form>';
 	}

@@ -51,7 +51,7 @@ class FViaggio extends FDatabase{
      * @return array 
      */
     public function ultimiViaggi(){
-        $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` WHERE `data_partenza`>CURRENT_DATE() ORDER BY `num_viaggio` DESC";
+        $query="SELECT `num_viaggio`,`citta_partenza`,`citta_arrivo`,`data_partenza`,`costo`,`posti_disponibili` FROM `viaggio` WHERE `data_partenza`>=CURRENT_DATE() ORDER BY `num_viaggio` DESC";
         $this->query($query);
         $array=$this->getResultAssoc();
         return $array;
