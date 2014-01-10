@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/layout3_text.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.min.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.css" />
-  <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="./templates/main/template/img/favicon.ico" />
   <title>CarPooling</title>
   <script src="js/jquery-1.10.2.min.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
