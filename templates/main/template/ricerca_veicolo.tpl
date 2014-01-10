@@ -4,10 +4,11 @@
     <h1 class="block">Dati veicolo</h1>
     <div class="column1-unit">
         <div class="contactform">
-            <form>
+            <form id="veicolo">
                 <fieldset>
                 <p><label for="targa" class="left">Targa:</label>
                    <input type="text" name="targa" id="targa" class="field" value="" tabindex="1" maxlength="10" /></p>
+                   <label id="errore_targa" class="valid" for="targa"> Targa già utilizzata </label>
                 <p><label for="tipo" class="left">Tipo veicolo:</label>
                    <input type="text" name="tipo" id="tipo" class="field" value="" tabindex="2" maxlength="20" /></p>
                 <p><label for="num_posti" class="left">Numero Posti:</label>

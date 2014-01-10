@@ -9,7 +9,6 @@
         <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
 </h2>
 <div class="mostra_ricerca">
-    <h1 class="block">Ricerca viaggi</h1>
         <div class="column1-unit">
           <div class="contactform">
              <form>

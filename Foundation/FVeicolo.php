@@ -50,6 +50,18 @@ class FVeicolo extends FDatabase{
      $query="UPDATE `veicolo` SET `attuale`=0 WHERE `targa`='$targa'";
      return $this->query($query);
  }
+ 
+ /**
+ * Metodo per verificare se una targa è già utilizzata o meno
+ * @param string $email
+ * @return array $trovato
+ */
+public function verificaTarga($targa){
+    $query="SELECT `targa` FROM `veicolo` WHERE `targa`='$targa'";
+    $this->query($query);
+    $trovato=$this->getResult();
+    return $trovato;
+}
 }
 
 ?>

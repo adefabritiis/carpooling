@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 10:42:47
+<?php /* Smarty version 2.6.26, created on 2014-01-10 13:03:57
          compiled from ricerca_veicolo.tpl */ ?>
 <script src="js/veicolo.js"></script>
 <br>
@@ -6,10 +6,11 @@
     <h1 class="block">Dati veicolo</h1>
     <div class="column1-unit">
         <div class="contactform">
-            <form>
+            <form id="veicolo">
                 <fieldset>
                 <p><label for="targa" class="left">Targa:</label>
                    <input type="text" name="targa" id="targa" class="field" value="" tabindex="1" maxlength="10" /></p>
+                   <label id="errore_targa" class="valid" for="targa"> Targa già utilizzata </label>
                 <p><label for="tipo" class="left">Tipo veicolo:</label>
                    <input type="text" name="tipo" id="tipo" class="field" value="" tabindex="2" maxlength="20" /></p>
                 <p><label for="num_posti" class="left">Numero Posti:</label>

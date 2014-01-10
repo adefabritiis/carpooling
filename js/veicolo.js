@@ -39,7 +39,54 @@ $('.elimina_veicolo').on("click",function(){
             success:smista
         });    
     });
+
+$("#veicolo").validate(
+    {   // Regole di validazione
+        rules:
+        {
+            targa: 
+            {   
+                required: true,
+                maxlength: 10,
+                minlength:2
+            }
+        },
+        messages:
+        {
+            targa: 
+            {
+                    required: " Inserisci la targa!",
+                    maxlength: " La lunghezza massima è 10"
+            }
+        }
 });
+
+$('#targa').on('focusout', function(){
+        $.ajax({
+           url:'index.php',
+           data: {controller:'ricerca', task:'verifica_targa', targa:$('#targa').val()},
+           type: 'GET',
+           dataType: 'json',
+           success: check_esiste
+        });
+    return true;
+    });
+});
+
+function check_esiste(data) {
+    if(data.unique === true){
+        // Targa Libera
+        $('#errore_targa').hide('normal');
+        targa_libera=true;
+        $('#targa').removeClass('error');
+    }
+    else
+    {   // Targa utilizzata
+        $('#errore_targa').show('normal');
+        $('#targa').addClass('error');
+        targa_libera=false;
+    }
+}
 
 function veicolo_aggiunto(data){
     $('#form_veicolo').hide('slow');

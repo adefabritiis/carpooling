@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-10 10:26:25
+<?php /* Smarty version 2.6.26, created on 2014-01-10 12:33:39
          compiled from ricerca_amministra_viaggi.tpl */ ?>
 <br>
 <h1 class="pagetitle">Elenco Viaggi</h1><br>
@@ -11,7 +11,6 @@
         <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
 </h2>
 <div class="mostra_ricerca">
-    <h1 class="block">Ricerca viaggi</h1>
         <div class="column1-unit">
           <div class="contactform">
              <form>

@@ -537,6 +537,22 @@ class CRicerca {
     }
     
     /**
+    * Funzione che verifica lato client se una targa esiste gia o meno
+    * @param string
+    */
+    public function verificaTarga($targa) {
+        $FVeicolo=new FVeicolo();
+        $verifica=$FVeicolo->verificaTarga($targa);
+        $esistente=true;
+        if(isset($verifica['targa'])){
+            $esistente=false;
+        }
+        $controllo=array(
+            'unique'=>$esistente
+        );
+        echo json_encode($controllo);
+    }
+    /**
      * Smista le richieste ai vari metodi
      *
      * @return mixed
@@ -582,6 +598,8 @@ class CRicerca {
                 return $this->ricercaUtenti($view->getUsernameRicerca(),$view->getCognomeRicerca(),$view->getCittaRicerca());
             case 'ricerca_viaggi':
                 return $this->ricercaViaggi($view->getCittaPartenzaRicerca(),$view->getCittaArrivoRicerca(),$view->getDataPartenzaRicerca());
+            case 'verifica_targa':
+                return $this->verificaTarga($view->getTarga());
         }
     }
 }
