@@ -215,9 +215,9 @@ class FDatabase {
         foreach ($object as $key=>$value) {
             if (!($key == $this->_key) && substr($key, 0, 1)!='_') {
                 if ($i==0) {
-                    $fields.='`'.$key.'` = \''.$value.'\'';
+                    $fields.='`'.$key.'` = \''.mysql_real_escape_string($value).'\'';
                 } else {
-                    $fields.=', `'.$key.'` = \''.$value.'\'';
+                    $fields.=', `'.$key.'` = \''.mysql_real_escape_string($value).'\'';
                 }
                 $i++;
             }
