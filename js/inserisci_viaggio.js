@@ -52,12 +52,13 @@ $(document).ready(function(){
         }
     });
     
-    $('#submit_offri').on('mouseover', function () {
-        $('#inserimento').valid();          
-    });
-    
-        
-    
+    $('#inserimento').on('focusout', function () {
+        if($('#inserimento').valid()){
+            document.getElementById("submit_offri").disabled=false;
+        }
+       });
+      
+     
     // Inserisco il calendario di jQuery UI
     $("#data_partenza").datepicker({
         showOn: "button",

@@ -27,10 +27,10 @@
                     <input type="button" name="aggiungi_veicolo" id="submit_veicolo_da_inserisci" class="button_left" value="Aggiungi veicolo" tabindex="5" /></p>
                 <br><br>
                 <p><label for="costo" class="left">Costo:</label>
-                    <input type="text" name="costo" id="costo" class="mini" value="" tabindex="6"  />&nbsp € (a persona)</p>
+                    <input type="text" name="costo" id="costo" class="mini field" value="" tabindex="6"  />&nbsp € (a persona)</p>
                 <p><label for="note" class="left">Note viaggio:</label>
                    <textarea name="note" maxlength="300" id="note" cols="45" rows="7" tabindex="7"></textarea></p>
-                <p><input type="button" id="submit_offri" class="button" value="Inserisci viaggio" tabindex="8" /></p>
+                <p><input type="button" id="submit_offri" class="button" disabled value="Inserisci viaggio" tabindex="8" /></p>
 		</fieldset>
             </form>
         </div>
