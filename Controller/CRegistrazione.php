@@ -134,10 +134,8 @@ class CRegistrazione {
                 $utente->$keys[$i]=$dato;
                 $i++;
             }
-            //$utente->generaCodiceAttivazione();
             $utente->setAccountAttivo();
             $FUtente->store($utente);
-            // $this->emailAttivazione($utente);
             $view->setLayout('conferma_registrazione');
             return $view->processaTemplate();
         }
@@ -521,8 +519,8 @@ class CRegistrazione {
        $to=$email;      
        $subject="Nuova Password!";
        $message="Il tuo username è: " . $username . "La tua nuova password è: " . $password;
-       $headers='From: carpooling@altervista.org' . "\r\n" .
-                   'Reply-To: carpooling@altervista.org' . "\r\n" .
+       $headers='From: shareyourcar@altervista.org' . "\r\n" .
+                   'Reply-To: shareyourcar@altervista.org' . "\r\n" .
                    'X-Mailer: PHP/' . phpversion();
                    'MIME-Version: 1.0\n' .
                    'Content-Type: text/html; charset=\"iso-8859-1\"\n' .
