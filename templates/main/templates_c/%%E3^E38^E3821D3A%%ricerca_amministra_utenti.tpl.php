@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-12-27 18:39:36
+<?php /* Smarty version 2.6.26, created on 2014-01-10 10:26:12
          compiled from ricerca_amministra_utenti.tpl */ ?>
 <br>
 <h1 class="pagetitle">Gestione utenti</h1><br>
@@ -7,8 +7,8 @@
     <h1 class="block">Ricerca utenti</h1>
     <!-- Content unit - One column -->
     <h2>
-    <div class="pulsante" id="nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
-    <div class="pulsante" id="mostra_avanzata" name="mostra">◄ nascondi</div>
+    <div class="pulsante nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
+    <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
     </h2>
     <div class="mostra_ricerca">
         <div class="contactform">

@@ -107,7 +107,7 @@ function utente(data){
 function indietro(){
     $('#ricerca_viaggi').show('slow');
     $('#pagina_parziale').hide('slow');
-    $('#mostra_avanzata').show('slow');
-    $('#nascondi_avanzata').hide('slow');
+    $('.mostra_avanzata').show('slow');
+    $('.nascondi_avanzata').hide('slow');
     $('.mostra_ricerca').show('slow');
 }

@@ -5,8 +5,8 @@
     <h1 class="block">Ricerca utenti</h1>
     <!-- Content unit - One column -->
     <h2>
-    <div class="pulsante" id="nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
-    <div class="pulsante" id="mostra_avanzata" name="mostra">◄ nascondi</div>
+    <div class="pulsante nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
+    <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
     </h2>
     <div class="mostra_ricerca">
         <div class="contactform">

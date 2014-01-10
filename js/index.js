@@ -108,8 +108,8 @@ function amm_utenti(data){
     $('#pagina_parziale').hide('slow');
     $('#ricerca_viaggi').hide('slow');
     $('#ricerca_utenti').html(data).show('slow');
-    $('#mostra_avanzata').hide();
-    $('#nascondi_avanzata').show();
+    $('.mostra_avanzata').hide();
+    $('.nascondi_avanzata').show();
     $('.mostra_ricerca').hide();
     $('#form_veicolo').hide();
 }
@@ -118,8 +118,8 @@ function amm_viaggi(data){
     $('#pagina_parziale').hide('slow');
     $('#ricerca_utenti').hide('slow');
     $('#ricerca_viaggi').html(data).show('slow');
-    $('#mostra_avanzata').hide();
-    $('#nascondi_avanzata').show();
+    $('.mostra_avanzata').hide();
+    $('.nascondi_avanzata').show();
     $('.mostra_ricerca').hide();
     $('#form_veicolo').hide();
 }
@@ -129,8 +129,8 @@ function indietro_admin(){
     $('#form_veicolo').hide();
     $('#ricerca_utenti').hide();
     $('#pagina_parziale').hide('slow');
-    $('#mostra_avanzata').show('slow');
-    $('#nascondi_avanzata').hide('slow');
+    $('.mostra_avanzata').show('slow');
+    $('.nascondi_avanzata').hide('slow');
     $('.mostra_ricerca').show('slow');
 }
 

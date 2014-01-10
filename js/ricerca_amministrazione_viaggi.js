@@ -46,7 +46,7 @@ $(document).ready(function(){
         defaultDate: "2000/01/01"
     });
     
-$('#mostra_avanzata').on("click",function(){
+$('.mostra_avanzata').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -55,7 +55,7 @@ $('#mostra_avanzata').on("click",function(){
         });    
     });
 
-$('#nascondi_avanzata').on("click",function(){
+$('.nascondi_avanzata').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -104,25 +104,25 @@ function smista(data){
     $('#ricerca_utenti').hide();
     $('#ricerca_viaggi').hide('slow');
     $('.mostra_ricerca').hide('slow');
-    $('#mostra_avanzata').hide('slow');
+    $('.mostra_avanzata').hide('slow');
     $('#form_veicolo').hide();
 }
 
 function mostra_avanzata(){
-    $('#nascondi_avanzata').show('slow');
-    $('#mostra_avanzata').hide('slow');
+    $('.nascondi_avanzata').show('slow');
+    $('.mostra_avanzata').hide('slow');
     $('.mostra_ricerca').hide('slow');
 }
 function nascondi_avanzata(){
-    $('#mostra_avanzata').show('slow');
-    $('#nascondi_avanzata').hide('slow');
+    $('.mostra_avanzata').show('slow');
+    $('.nascondi_avanzata').hide('slow');
     $('.mostra_ricerca').show('slow');
 }
 
 function ricerca_viaggi(data){
     $('#pagina_parziale').hide('slow');
-    $('#mostra_avanzata').show();
-    $('#nascondi_avanzata').hide();
+    $('.mostra_avanzata').show();
+    $('.nascondi_avanzata').hide();
     $('.mostra_ricerca').show();
     $('#risultati_viaggi').hide('slow');
     $('#risultati_ricerca_viaggi').html(data).show('slow');

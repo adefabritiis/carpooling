@@ -4,9 +4,9 @@
 <!-- Content unit - One column -->
 <div class="column1-unit">
     <h1 class="block">Ricerca viaggi</h1>
-<h2 class="block">
-        <a class="pulsante" id="nascondi_avanzata" name="nascondi">► ricerca avanzata</a>
-        <a class="pulsante" id="mostra_avanzata" name="mostra">◄ nascondi</a>
+<h2>
+        <div class="pulsante nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
+        <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
 </h2>
 <div class="mostra_ricerca">
     <h1 class="block">Ricerca viaggi</h1>

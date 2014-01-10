@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 15:56:42
+<?php /* Smarty version 2.6.26, created on 2014-01-10 10:26:25
          compiled from ricerca_amministra_viaggi.tpl */ ?>
 <br>
 <h1 class="pagetitle">Elenco Viaggi</h1><br>
@@ -6,9 +6,9 @@
 <!-- Content unit - One column -->
 <div class="column1-unit">
     <h1 class="block">Ricerca viaggi</h1>
-<h2 class="block">
-        <a class="pulsante" id="nascondi_avanzata" name="nascondi">► ricerca avanzata</a>
-        <a class="pulsante" id="mostra_avanzata" name="mostra">◄ nascondi</a>
+<h2>
+        <div class="pulsante nascondi_avanzata" name="nascondi">► ricerca avanzata</div>
+        <div class="pulsante mostra_avanzata" name="mostra">◄ nascondi</div>
 </h2>
 <div class="mostra_ricerca">
     <h1 class="block">Ricerca viaggi</h1>

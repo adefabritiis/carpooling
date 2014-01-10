@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$('#mostra_avanzata').on("click",function(){
+$('.mostra_avanzata').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -8,7 +8,7 @@ $('#mostra_avanzata').on("click",function(){
         });    
     });
 
-$('#nascondi_avanzata').on("click",function(){
+$('.nascondi_avanzata').on("click",function(){
         $.ajax({
             url:'index.php',
             dataType:'html',
@@ -56,25 +56,25 @@ function smista(data){
     $('#ricerca_viaggi').hide();
     $('.mostra_ricerca').hide('slow');
     $('#form_veicolo').hide();
-    $('#mostra_avanzata').hide('slow');
+    $('.mostra_avanzata').hide('slow');
 }
 
 function mostra_avanzata(){
-    $('#nascondi_avanzata').show('slow');
-    $('#mostra_avanzata').hide('slow');
+    $('.nascondi_avanzata').show('slow');
+    $('.mostra_avanzata').hide('slow');
     $('.mostra_ricerca').hide('slow');
 }
 function nascondi_avanzata(){
-    $('#mostra_avanzata').show('slow');
-    $('#nascondi_avanzata').hide('slow');
+    $('.mostra_avanzata').show('slow');
+    $('.nascondi_avanzata').hide('slow');
     $('.mostra_ricerca').show('slow');
 }
 
 function ricerca_utenti(data){
     $('#pagina_parziale').hide('slow');
     $('#ricerca_utenti').show('slow');
-    $('#mostra_avanzata').show();
-    $('#nascondi_avanzata').hide();
+    $('.mostra_avanzata').show();
+    $('.nascondi_avanzata').hide();
     $('.mostra_ricerca').show();
     $('#risultati_utenti').hide('slow');
     $('#risultati_ricerca_utenti').html(data).show('slow');
