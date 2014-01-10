@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-09 17:01:19
+<?php /* Smarty version 2.6.26, created on 2014-01-10 09:53:52
          compiled from ricerca_riepilogo.tpl */ ?>
 <br>
 <script src="js/riepilogo.js"></script>
@@ -120,9 +120,9 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
 "><label class="left pulsante"><?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
  </label></a> <?php if (( $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['feedback_guid'] == 0 ) && $this->_tpl_vars['isGuidatore']): ?><input type="button"  class="feedback_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
-" value="Feedback" tabindex="1" /><input type="button"  class="elimina_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
+" value="Feedback" tabindex="1" /><?php if ($this->_tpl_vars['passato'] == false): ?><input type="button"  class="elimina_passeggero button_left" name1="<?php echo $this->_tpl_vars['array_passeggeri'][$this->_sections['nr']['index']]['username_passeggero']; ?>
 " name2="<?php echo $this->_tpl_vars['num_viaggio']; ?>
-" value="Elimina" tabindex="2" /><br><?php else: ?><br><?php endif; ?></p>
+" value="Elimina" tabindex="2" /><?php endif; ?><br><?php else: ?><br><?php endif; ?></p>
                     </div>  
                 <hr>
                 <br>
@@ -132,13 +132,15 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                 <h3> Non ci sono ancora passeggeri</h3>    
             <?php endif; ?>
         </div>
-        <?php if ($this->_tpl_vars['isGuidatore'] || $this->_tpl_vars['isAmministratore'] && $this->_tpl_vars['passato']): ?>
+        <?php if ($this->_tpl_vars['isGuidatore'] || $this->_tpl_vars['isAmministratore']): ?>
             <div class="contactform">
                 <h1 class="block"> Modifica viaggio </h1>
+                <?php if ($this->_tpl_vars['passato'] == false): ?>
                 <div>
                     <p class="center"><input type="button" class="elimina_viaggio button_center" name="<?php echo $this->_tpl_vars['num_viaggio']; ?>
 " value="Elimina viaggio" tabindex="8" /></p>
                 </div>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
             <div class="contactform">

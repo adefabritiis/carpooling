@@ -70,7 +70,7 @@
                 {section name=nr loop=$array_passeggeri}
                     <div>
                         <br>
-			<p><a class="visualizza_utente"  name="{$partecipa}" value="{$array_passeggeri[nr].username_passeggero}"><label class="left pulsante">{$array_passeggeri[nr].username_passeggero} </label></a> {if ($array_passeggeri[nr].feedback_guid==0)  && $isGuidatore}<input type="button"  class="feedback_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Feedback" tabindex="1" /><input type="button"  class="elimina_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Elimina" tabindex="2" /><br>{else}<br>{/if}</p>
+			<p><a class="visualizza_utente"  name="{$partecipa}" value="{$array_passeggeri[nr].username_passeggero}"><label class="left pulsante">{$array_passeggeri[nr].username_passeggero} </label></a> {if ($array_passeggeri[nr].feedback_guid==0)  && $isGuidatore}<input type="button"  class="feedback_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Feedback" tabindex="1" />{if $passato==false}<input type="button"  class="elimina_passeggero button_left" name1="{$array_passeggeri[nr].username_passeggero}" name2="{$num_viaggio}" value="Elimina" tabindex="2" />{/if}<br>{else}<br>{/if}</p>
                     </div>  
                 <hr>
                 <br>
@@ -80,12 +80,14 @@
                 <h3> Non ci sono ancora passeggeri</h3>    
             {/if}
         </div>
-        {if $isGuidatore || $isAmministratore && $passato}
+        {if $isGuidatore || $isAmministratore}
             <div class="contactform">
                 <h1 class="block"> Modifica viaggio </h1>
+                {if $passato==false}
                 <div>
                     <p class="center"><input type="button" class="elimina_viaggio button_center" name="{$num_viaggio}" value="Elimina viaggio" tabindex="8" /></p>
                 </div>
+                {/if}
             </div>
         {/if}
             <div class="contactform">

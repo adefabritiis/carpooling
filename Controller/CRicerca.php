@@ -117,6 +117,11 @@ class CRicerca {
             $view->impostaDati('costo',$viaggio->costo);
             $view->impostaDati('note',$viaggio->note);
             $view->impostaDati('posti_disponibili',$viaggio->posti_disponibili);
+            $data_attuale=date('Y-m-d');
+            $passato=false;
+            if(strtotime($data_attuale)>strtotime($viaggio->data_partenza))
+                $passato=true;
+            $view->impostaDati('passato',$passato);
             $FVeicolo= new FVeicolo();
             $array= $FVeicolo->getVeicolo($num_viaggio);
             $veicolo= $FVeicolo->load($array[0]['targa']);
