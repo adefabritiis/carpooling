@@ -53,8 +53,6 @@ class FDatabase {
         if (!$db_selected) {
             die ("Impossibile utilizzare $database: " . mysql_error());
         }
-        debug('Connessione al database avvenuta correttamente');
-
         $this->query('SET names \'utf8\'');
         return true;
 
@@ -66,8 +64,6 @@ class FDatabase {
      */
     public function query($query) {
         $this->_result=mysql_query($query);
-        debug($query);
-        debug(mysql_error());
         if (!$this->_result)
             return false;
         else
@@ -81,7 +77,6 @@ class FDatabase {
     public function getResultAssoc() {
         if ($this->_result != false) {
             $numero_righe=mysql_num_rows($this->_result);
-            debug('Numero risultati:'. $numero_righe);
             if ($numero_righe>0) {
                 $return=array();
                 while ($row = mysql_fetch_assoc($this->_result)) {
@@ -101,7 +96,6 @@ class FDatabase {
     public function getResult() {
         if ($this->_result!=false) {
             $numero_righe=mysql_num_rows($this->_result);
-            debug('Numero risultati:'. $numero_righe);
             if ($numero_righe>0) {
                 $row = mysql_fetch_assoc($this->_result);
                 $this->_result=false;
@@ -117,7 +111,6 @@ class FDatabase {
      */
     public function getObject() {
         $numero_righe=mysql_num_rows($this->_result);
-        debug('Numero risultati:'. $numero_righe);
         if ($numero_righe>0) {
             $row = mysql_fetch_object($this->_result,$this->_return_class);
             $this->_result=false;
@@ -134,7 +127,6 @@ class FDatabase {
      */
     public function getObjectArray() {
         $numero_righe=mysql_num_rows($this->_result);
-        debug('Numero risultati:'. $numero_righe);
         if ($numero_righe>0) {
             $return=array();
             while ($row = mysql_fetch_object($this->_result,$this->_return_class)) {
@@ -150,7 +142,6 @@ class FDatabase {
      */
     public function close() {
         mysql_close($this->_connection);
-        debug('Connessione al db chiusa');
     }
     /**
      * Memorizza sul database lo stato di un oggetto
@@ -261,5 +252,4 @@ class FDatabase {
         return $this->getObjectArray();
     }
 }
-
 ?>

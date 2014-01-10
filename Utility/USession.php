@@ -17,7 +17,6 @@ class USession {
             }
         $_SESSION['timeout'] = time();
 
-        debug($_SESSION);
     }
     function imposta_valore($chiave,$valore) {
         $_SESSION[$chiave]=$valore;
