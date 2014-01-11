@@ -61,12 +61,11 @@ $("#veicolo").validate(
         }
 });
 
-$('#veicolo').on('focusout', function () {
+$('.nascosto').on('mouseover', function () {
         if($('#veicolo').valid()){
-            document.getElementByClass("submit_aggiungi_da_inserisci").disabled=false;
+            document.getElementById("submit_aggiungi_da_inserisci").disabled=false;
         }
-    });
-    
+    });    
 
 $('#targa').on('focusout', function(){
         $.ajax({

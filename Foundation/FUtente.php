@@ -94,6 +94,8 @@ public function isAmministratore($username){
  * @return array $utenti
  */
 public function ricercaUtenti($username,$cognome,$citta_residenza){
+	$cognome1=mysql_real_escape_string($cognome);
+	$citta_residenza1=mysql_real_escape_string($citta_residenza);
     $query="SELECT * FROM `utente` WHERE";
     if ($username OR $cognome OR $citta_residenza)
     {
@@ -102,12 +104,12 @@ public function ricercaUtenti($username,$cognome,$citta_residenza){
         if ($cognome) {
             if ($username)
                 $query.=" AND";
-            $query.=" `cognome`='$cognome'";
+            $query.=" `cognome`='$cognome1'";
         }
         if ($citta_residenza) {
             if ($username OR $cognome)
                 $query.=" AND";
-            $query.=" `citta_residenza`='$citta_residenza'";
+            $query.=" `citta_residenza`='$citta_residenza1'";
         }
     }
     $this->query($query);

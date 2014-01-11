@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-06 18:11:08
+<?php /* Smarty version 2.6.26, created on 2014-01-11 12:32:02
          compiled from ricerca_avanzata.tpl */ ?>
 <!-- RICERCA VIAGGI --> 
 		<br>
@@ -16,7 +16,7 @@
                     <p><label for="citta_arrivo" class="left">Arrivo a:</label>
                         <input type="text" name="citta_arrivo" id="citta_arrivo" class="field" value="" tabindex="2"  /></p>
                     <p><label for="data_partenza" class="left">Data della partenza:</label>
-                        <input type="text" name="data_partenza" id="data_partenza" class="field" value="" tabindex="3"  /></p>
+                        <input type="text" name="data_partenza" id="data_partenza_ric" class="field" value="" tabindex="3"  /></p>
                     <p><input type="button" id="submit_ricerca" class="button" value="Cerca" tabindex="4" /></p>
                     </fieldset>
                 </form>

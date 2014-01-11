@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-10 21:39:00
+<?php /* Smarty version 2.6.26, created on 2014-01-11 12:32:56
          compiled from ricerca_inserisci.tpl */ ?>
 <!-- INSERIMENTO VIAGGIO -->
 <script src="js/inserisci_viaggio.js"></script>
@@ -16,7 +16,7 @@
                 <p><label for="citta_arrivo" class="left">Citta di arrivo:</label>
                    <input type="text" name="citta_arrivo" id="citta_arrivo" class="field" value="" tabindex="2" /></p>
                 <p><label for="data_partenza" class="left">Data di partenza:</label>
-                   <input type="text" name="data_partenza" id="data_partenza" class="field" value="" tabindex="3" /></p>
+                   <input type="text" name="data_partenza" id="data_partenza_ins" class="field" value="" tabindex="3" /></p>
 		<div id="menu_veicoli">
                     <p><label for="targa" class="left1">Scegli un veicolo:</label>
                     <select name="targa" class="veicoli combo"> 
@@ -57,7 +57,9 @@ $this->_sections['nr']['last']       = ($this->_sections['nr']['iteration'] == $
                     <input type="text" name="costo" id="costo" class="mini field" value="" tabindex="6"  />&nbsp € (a persona)</p>
                 <p><label for="note" class="left">Note viaggio:</label>
                    <textarea name="note" maxlength="300" id="note" cols="45" rows="7" tabindex="7"></textarea></p>
-                <p><input type="button" id="submit_offri" class="button" disabled value="Inserisci viaggio" tabindex="8" /></p>
+                <div class="nascosto"><br>
+                    <p><input type="button" id="submit_offri" class="button" disabled value="Inserisci viaggio" tabindex="8" /></p><br><br>
+                </div>
 		</fieldset>
             </form>
         </div>

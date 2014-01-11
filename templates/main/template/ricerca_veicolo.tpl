@@ -35,9 +35,13 @@
                 <p><label for="consumo_medio" class="left">Consumo Medio (km/l):</label>
                    <input type="text" name="consumo_medio" id="consumo_medio" class="field" value="" tabindex="5" maxlength="3" /></p>
                 {if ($da=='inserisci')}
-                    <p><input type="button" id="submit_aggiungi_da_inserisci" class="button_center" disabled value="Aggiungi" tabindex="6" /></p>
+                    <div class="nascosto"><br>
+                        <p><input type="button" id="submit_aggiungi_da_inserisci" class="button_center" disabled value="Aggiungi" tabindex="6" /></p><br>
+                    </div>
                 {else}
-                    <p><input type="button" id="submit_aggiungi_da_profilo" class="button_center" value="Aggiungi" tabindex="7" /></p>
+                    <div class="nascosto"><br>
+                        <p><input type="button" id="submit_aggiungi_da_profilo" class="button_center" value="Aggiungi" tabindex="7" /></p>
+                    </div>
                 {/if}
 		</fieldset>
             </form>   

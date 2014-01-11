@@ -14,7 +14,7 @@
                     <p><label for="citta_arrivo" class="left">Arrivo a:</label>
                         <input type="text" name="citta_arrivo" id="citta_arrivo" class="field" value="" tabindex="2"  /></p>
                     <p><label for="data_partenza" class="left">Data della partenza:</label>
-                        <input type="text" name="data_partenza" id="data_partenza" class="field" value="" tabindex="3"  /></p>
+                        <input type="text" name="data_partenza" id="data_partenza_ric" class="field" value="" tabindex="3"  /></p>
                     <p><input type="button" id="submit_ricerca" class="button" value="Cerca" tabindex="4" /></p>
                     </fieldset>
                 </form>

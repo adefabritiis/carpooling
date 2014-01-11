@@ -27,13 +27,15 @@ class FViaggio extends FDatabase{
      * @return array 
      */
     public function cercaViaggio($citta_partenza,$citta_arrivo,$data_partenza){
+		$citta_partenza1=mysql_real_escape_string($citta_partenza);
+		$citta_arrivo1=mysql_real_escape_string($citta_arrivo);
         $query="SELECT * FROM `viaggio` WHERE";
         if ($citta_partenza)
-            $query.=" `citta_partenza`='$citta_partenza'";
+            $query.=" `citta_partenza`='$citta_partenza1'";
         if ($citta_arrivo) {
             if ($citta_partenza)
                 $query.=" AND";
-            $query.=" `citta_arrivo`='$citta_arrivo'";
+            $query.=" `citta_arrivo`='$citta_arrivo1'";
         }
         if ($data_partenza) {
             if ($citta_partenza OR $citta_arrivo)
@@ -113,15 +115,17 @@ class FViaggio extends FDatabase{
      * @return array 
      */
     public function ricercaViaggi($citta_partenza, $citta_arrivo, $data_partenza){
+	$citta_partenza1=mysql_real_escape_string($citta_partenza);
+	$citta_arrivo1=mysql_real_escape_string($citta_arrivo);
     $query="SELECT * FROM `viaggio` WHERE";
     if ($citta_partenza OR $citta_arrivo OR $data_partenza)
     {
         if ($citta_partenza)
-            $query.=" `citta_partenza`='$citta_partenza'";
+            $query.=" `citta_partenza`='$citta_partenza1'";
         if ($citta_arrivo) {
             if ($citta_partenza)
                 $query.=" AND";
-            $query.=" `citta_arrivo`='$citta_arrivo'";
+            $query.=" `citta_arrivo`='$citta_arrivo1'";
         }
         if ($data_partenza) {
             if ($citta_partenza OR $citta_arrivo)

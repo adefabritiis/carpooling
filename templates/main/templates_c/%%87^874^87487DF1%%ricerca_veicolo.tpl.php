@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-10 21:42:40
+<?php /* Smarty version 2.6.26, created on 2014-01-11 12:33:38
          compiled from ricerca_veicolo.tpl */ ?>
 <script src="js/veicolo.js"></script>
 <br>
@@ -37,9 +37,13 @@
                 <p><label for="consumo_medio" class="left">Consumo Medio (km/l):</label>
                    <input type="text" name="consumo_medio" id="consumo_medio" class="field" value="" tabindex="5" maxlength="3" /></p>
                 <?php if (( $this->_tpl_vars['da'] == 'inserisci' )): ?>
-                    <p><input type="button" id="submit_aggiungi_da_inserisci" class="button_center" disabled value="Aggiungi" tabindex="6" /></p>
+                    <div class="nascosto"><br>
+                        <p><input type="button" id="submit_aggiungi_da_inserisci" class="button_center" disabled value="Aggiungi" tabindex="6" /></p><br>
+                    </div>
                 <?php else: ?>
-                    <p><input type="button" id="submit_aggiungi_da_profilo" class="button_center" disabled value="Aggiungi" tabindex="7" /></p>
+                    <div class="nascosto"><br>
+                        <p><input type="button" id="submit_aggiungi_da_profilo" class="button_center" value="Aggiungi" tabindex="7" /></p>
+                    </div>
                 <?php endif; ?>
 		</fieldset>
             </form>   

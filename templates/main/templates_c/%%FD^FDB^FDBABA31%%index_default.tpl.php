@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-01-10 12:31:37
+<?php /* Smarty version 2.6.26, created on 2014-01-11 09:54:38
          compiled from index_default.tpl */ ?>
 <html>
 
@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/layout3_text.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.min.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui-1.10.3.custom.css" />
-  <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="./templates/main/template/img/favicon.ico" />
   <title>CarPooling</title>
   <script src="js/jquery-1.10.2.min.js"></script>
   <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
