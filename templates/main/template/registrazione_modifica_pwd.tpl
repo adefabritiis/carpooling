@@ -1,4 +1,5 @@
 <script src="js/login.js"></script>
+<script src="js/gestisci_profilo.js"></script>
 		<br>
 <div>
         <h1 class="pagetitle">Gestisci profilo</h1>
