@@ -1,0 +1,12 @@
+<?php /* Smarty version 2.6.26, created on 2013-12-04 15:57:56
+         compiled from ricerca_veicolo_eliminato.tpl */ ?>
+<!-- VIAGGIO ELIMINATO -->
+<script src="js/index.js"></script>
+<div id="viaggio_eliminato">
+		<br>
+        <h1 class="pagetitle">Veicolo eliminato con successo</h1><br><br>
+        <div> 
+            <a class="gestisci pulsante">Torna al tuo profilo</a>
+        </div>
+        <!-- Content unit - One column -->
+</div>
